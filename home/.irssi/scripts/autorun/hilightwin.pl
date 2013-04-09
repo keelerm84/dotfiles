@@ -1,0 +1,1 @@
+/home/keelerm/.irssi/scripts/hilightwin.pl

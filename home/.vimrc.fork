@@ -1,0 +1,13 @@
+color molokai
+set nospell
+
+let g:indent_guides_enable_on_vim_startup = 0
+
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+
+nmap <Leader>a> :Tabularize /=><CR>
+vmap <Leader>a> :Tabularize /=><CR>
+
+nmap <leader>ff :EnableFastPHPFolds<CR>
+nmap <leader>ga gg=G
