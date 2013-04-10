@@ -1,5 +1,8 @@
 . /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
+
 . ~/.aliases
+
+[ -e ~/.aliases.local ] && . ~/.aliases.local
 
 autoload -U compinit
 compinit
@@ -30,3 +33,5 @@ LISTMAX=0
 MAILCHECK=0
 
 export EDITOR=vim
+
+[ -e ~/.zshrc.local ] && . ~/.zshrc.local
