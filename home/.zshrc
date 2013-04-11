@@ -53,3 +53,5 @@ bindkey -e
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
 [ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && . $HOME/.tmuxinator/scripts/tmuxinator || true
