@@ -11,3 +11,8 @@ vmap <Leader>a> :Tabularize /=><CR>
 
 nmap <leader>ff :EnableFastPHPFolds<CR>
 nmap <leader>ga gg=G
+
+" Hook to make local-er changes
+if filereadable(expand("~/.vimrc.machine"))
+    source ~/.vimrc.machine
+endif
