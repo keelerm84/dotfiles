@@ -1,1 +1,1 @@
-/home/keelerm/.irssi/scripts/scriptassist.pl
+../scriptassist.pl

@@ -1,1 +1,1 @@
-/home/keelerm/.irssi/scripts/trackbar.pl
+../trackbar.pl
