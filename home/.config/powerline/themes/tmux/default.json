@@ -1,0 +1,46 @@
+{
+	"default_module": "powerline.segments.common",
+	"segment_data": {
+		"uptime": {
+			"before": "⇑  "
+		},
+		"external_ip": {
+			"before": "ⓦ  "
+		},
+		"date": {
+			"before": "⌚ "
+		}
+	},
+	"segments": {
+		"right": [
+			{
+				"name": "external_ip",
+				"priority": 50
+			},
+			{
+				"name": "network_load",
+				"priority": 50
+			},
+			{
+				"name": "system_load",
+				"priority": 50
+			},
+			{
+				"name": "weather",
+				"priority": 50,
+                                "args": {
+                                  "unit": "F"
+                                }
+			},
+			{
+				"name": "date",
+				"args": {
+					"format": "%Y-%m-%d %I:%M %p"
+				}
+			},
+			{
+				"name": "hostname"
+			}
+		]
+	}
+}
