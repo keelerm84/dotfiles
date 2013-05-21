@@ -47,6 +47,7 @@ LISTMAX=0
 MAILCHECK=0
 
 export EDITOR=vim
+export MYSQL_PS1="mysql  \d  \R:\m:\s  "
 bindkey -e
 
 . ~/.aliases

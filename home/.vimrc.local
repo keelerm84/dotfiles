@@ -1,5 +1,6 @@
 color molokai
 set nospell
+set mouse=
 
 let g:indent_guides_enable_on_vim_startup = 0
 
@@ -12,9 +13,9 @@ vmap <Leader>a> :Tabularize /=><CR>
 nmap <leader>ff :EnableFastPHPFolds<CR>
 nmap <leader>ga gg=G
 
-nmap <leader>bn :bn<CR>
-nmap <leader>bp :bp<CR>
 nmap <leader>bd :bp\|bd#<CR>
+nmap gn :bn<CR>
+nmap gp :bp<CR>
 
 " Faster escape (from powerline docs)
 if ! has('gui_running')
@@ -22,7 +23,7 @@ if ! has('gui_running')
     augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
     augroup END
 endif
 
