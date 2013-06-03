@@ -3,6 +3,9 @@
 autoload -U compinit
 compinit
 
+autoload -U edit-command-line
+zle -N edit-command-line
+
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
@@ -49,6 +52,7 @@ MAILCHECK=0
 export EDITOR=vim
 export MYSQL_PS1="mysql  \d  \R:\m:\s  "
 bindkey -e
+bindkey '^x^e' edit-command-line
 
 . ~/.aliases
 
