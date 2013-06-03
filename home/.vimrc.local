@@ -2,6 +2,9 @@ color molokai
 set nospell
 set mouse=
 
+UnBundle 'spf13/vim-autoclose'
+let g:neocomplcache_enable_at_startup = 0
+
 let g:indent_guides_enable_on_vim_startup = 0
 
 let g:tagbar_autofocus = 1
