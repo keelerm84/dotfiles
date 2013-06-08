@@ -13,6 +13,7 @@ let g:tagbar_autoclose = 0
 let NERDTreeQuitOnOpen=0
 
 let g:loaded_AlignMapsPlugin = 0
+let g:sqlutil_keyword_case = '\U'
 
 nmap <Leader>tt :TagbarOpen fj<CR>
 nmap <Leader><Leader>tt :TagbarToggle<CR>
