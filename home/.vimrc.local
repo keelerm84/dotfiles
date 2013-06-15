@@ -28,7 +28,7 @@ nmap <leader>bd :bp\|bd#<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
 
-nmap  :CtrlPBufTagAll<CR>
+nmap <leader>T :CtrlPBufTagAll<CR>
 
 " Faster escape (from powerline docs)
 if ! has('gui_running')
