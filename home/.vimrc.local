@@ -2,6 +2,8 @@ color molokai
 set nospell
 set mouse=
 
+autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
+
 UnBundle 'spf13/vim-autoclose'
 let g:neocomplcache_enable_at_startup = 0
 
@@ -28,7 +30,8 @@ nmap <leader>bd :bp\|bd#<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
 
-nmap <leader>T :CtrlPBufTagAll<CR>
+nmap <leader>T :CtrlPBufTag<CR>
+nmap <leader><leader>T :CtrlPBufTagAll<CR>
 
 " Faster escape (from powerline docs)
 if ! has('gui_running')
