@@ -1,0 +1,59 @@
+" vim: set filetype=vim:
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
+Bundle 'matchit.zip'
+Bundle 'spf13/vim-colors'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'terryma/vim-multiple-cursors'
+
+if (has("python") || has("python3"))
+  Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+else
+  Bundle 'Lokaltog/vim-powerline'
+endif
+
+" Programming
+Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'godlygeek/tabular'
+if executable('ctags')
+  Bundle 'majutsushi/tagbar'
+endif
+
+" PHP
+Bundle 'spf13/PIV'
+
+" Python
+Bundle 'klen/python-mode'
+Bundle 'python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
+
+" Javascript
+Bundle 'elzr/vim-json'
+Bundle 'groenewege/vim-less'
+Bundle 'pangloss/vim-javascript'
+Bundle 'briancollins/vim-jst'
+Bundle 'kchmck/vim-coffee-script'
+
+" HTML
+Bundle 'amirh/HTML-AutoCloseTag'
+Bundle 'hail2u/vim-css3-syntax'
+
+" Ruby
+Bundle 'tpope/vim-rails'
+
+" SQL
+Bundle 'vim-scripts/SQLUtilities'
+Bundle 'vim-scripts/Align'
+
+" Misc.
+Bundle 'tpope/vim-markdown'
+Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'beyondwords/vim-twig'

@@ -1,0 +1,99 @@
+" vim: set filetype=vim:
+" General
+set t_Co=256
+set background=dark
+color molokai
+
+syntax on
+set mousehide
+scriptencoding utf-8
+
+if has ('x') && has ('gui') " On Linux use + register for copy-paste
+  set clipboard=unnamedplus
+elseif has ('gui')          " On mac and Windows, use * register for copy-paste
+  set clipboard=unnamed
+endif
+
+set viewoptions=folds,options,cursor,unix,slash
+set virtualedit=onemore
+set history=1000
+set nospell
+set hidden
+
+set backup
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+set showmode
+set cursorline
+
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+set showcmd
+
+set laststatus=2
+
+" UI
+set backspace=indent,eol,start  " Backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set nu                          " Line numbers on
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set winminheight=0              " Windows can be 0 line high
+set ignorecase                  " Case insensitive search
+set smartcase                   " Case sensitive when uc present
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set foldenable                  " Auto fold code
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+" Formatting
+set nowrap                      " Wrap long lines
+set autoindent                  " Indent at the same level of the previous line
+set shiftwidth=2                " Use indents of 4 spaces
+set expandtab                   " Tabs are spaces, not tabs
+set tabstop=2                   " An indentation every four columns
+set softtabstop=2               " Let backspace delete indent
+set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+
+" SQLUtil requires Align, but I don't want it to conflict with tabularize
+let g:loaded_AlignMapsPlugin = 0
+let g:sqlutil_keyword_case = '\U'
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+
+set tags=./tags;/,~/.vimtags
+
+" Faster escape (from powerline docs)
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+  autocmd!
+  au InsertEnter * set timeoutlen=0
+  au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
+
+autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
+autocmd FileType php set tabstop=4|set shiftwidth=4
+
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menu,preview,longest
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])

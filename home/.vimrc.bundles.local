@@ -1,9 +1,0 @@
-let g:spf13_no_autochdir = 1
-set noautochdir
-
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-scripts/SQLUtilities'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/a.vim'
-Bundle 'stephpy/vim-php-cs-fixer'
-Bundle 'terryma/vim-multiple-cursors'
