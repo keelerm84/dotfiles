@@ -32,6 +32,8 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set showcmd
 
+set tabline=%!tabber#TabLine()
+
 set laststatus=2
 
 " UI
