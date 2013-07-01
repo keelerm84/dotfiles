@@ -6,6 +6,9 @@ compinit
 autoload -U edit-command-line
 zle -N edit-command-line
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+    'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
