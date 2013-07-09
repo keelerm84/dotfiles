@@ -27,6 +27,7 @@ set undoreload=10000
 
 set showmode
 set cursorline
+set lazyredraw
 
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
