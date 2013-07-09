@@ -23,12 +23,17 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/gist-vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
+Bundle 'vim-scripts/a.vim'
+Bundle 'joonty/vdebug'
+
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
 
 " PHP
 Bundle 'spf13/PIV'
+Bundle 'stephpy/vim-php-cs-fixer'
+Bundle 'beyondwords/vim-twig'
 
 " Python
 Bundle 'klen/python-mode'
@@ -57,4 +62,3 @@ Bundle 'vim-scripts/Align'
 " Misc.
 Bundle 'tpope/vim-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'beyondwords/vim-twig'
