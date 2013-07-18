@@ -9,6 +9,7 @@ Bundle 'spf13/vim-colors'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'fweep/vim-tabber'
+Bundle 'Lokaltog/vim-easymotion'
 
 if (has("python") || has("python3"))
   Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
