@@ -62,4 +62,5 @@ Bundle 'vim-scripts/Align'
 
 " Misc.
 Bundle 'tpope/vim-markdown'
+Bundle 'suan/vim-instant-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
