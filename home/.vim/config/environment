@@ -72,6 +72,7 @@ let g:sqlutil_keyword_case = '\U'
 
 " Remove trailing whitespaces and ^M chars
 autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType markdown let b:noStripWhitepspace=1
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 

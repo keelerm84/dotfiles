@@ -34,6 +34,10 @@ function! InitializeDirectories()
 endfunction
 
 function! StripTrailingWhitespace()
+  if exists('b:noStripWhitepspace')
+    return
+  endif
+
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
