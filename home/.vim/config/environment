@@ -2,7 +2,7 @@
 " General
 set t_Co=256
 set background=dark
-color molokai
+colorscheme solarized
 
 syntax on
 set mousehide
