@@ -21,6 +21,7 @@ else
 endif
 
 " Programming
+Bundle 'sgeb/vim-diff-fold'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
