@@ -18,7 +18,7 @@ Bundle 'bling/vim-airline'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/gist-vim'
