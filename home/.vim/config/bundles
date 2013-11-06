@@ -14,11 +14,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'fweep/vim-tabber'
 Bundle 'Lokaltog/vim-easymotion'
 
-if (has("python") || has("python3"))
-  Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-else
-  Bundle 'Lokaltog/vim-powerline'
-endif
+Bundle 'bling/vim-airline'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
