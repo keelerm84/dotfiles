@@ -27,3 +27,4 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history # share command history data
 
+setopt PROMPT_SUBST # Enable prompt expansion

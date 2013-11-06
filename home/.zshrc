@@ -1,7 +1,7 @@
- . /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
-
 . ~/.zsh/functions.zsh
 
+. ~/.zsh/git.zsh
+. ~/.zsh/agnoster.zsh-theme
 load_file "setopt.zsh"
 load_file "exports.zsh"
 load_file "completion.zsh"
