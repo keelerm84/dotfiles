@@ -138,4 +138,5 @@ POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
 
-
+export ZSH_THEME_GIT_PROMPT_DIRTY="dirty"
+export ZSH_THEME_GIT_PROMPT_CLEAN="" # Should be empty for agnoster to work correctly
