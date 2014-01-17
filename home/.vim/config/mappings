@@ -17,6 +17,9 @@ nmap <leader>bd :bp\|bd#<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
 
+" Fix syntax highlight
+nmap <leader>fs :syn sync fromstart<CR>
+
 " Folding
 autocmd FileType php nmap <leader>ff :EnableFastPHPFolds<CR>
 nmap <leader>f0 :set foldlevel=0<CR>
@@ -83,6 +86,7 @@ let g:pymode_options = 0
 " CtrlP
 nmap <leader>T :CtrlPBufTag<CR>
 nmap <leader><leader>T :CtrlPBufTagAll<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$',
