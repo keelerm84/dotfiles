@@ -1,6 +1,7 @@
 " vim: set filetype=vim:
 " General
 set t_Co=256
+set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
 colorscheme solarized
 
@@ -65,6 +66,9 @@ set expandtab                   " Tabs are spaces, not tabs
 set tabstop=2                   " An indentation every four columns
 set softtabstop=2               " Let backspace delete indent
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+
+" General Programming
+let g:syntastic_always_populate_loc_list = 1
 
 " SQLUtil requires Align, but I don't want it to conflict with tabularize
 let g:loaded_AlignMapsPlugin = 0

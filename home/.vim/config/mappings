@@ -14,8 +14,8 @@ nnoremap Y y$
 
 nmap <leader>ga gg=G
 nmap <leader>bd :bp\|bd#<CR>
-nmap gn :bn<CR>
-nmap gp :bp<CR>
+nmap <leader>gn :bn<CR>
+nmap <leader>gp :bp<CR>
 
 " Fix syntax highlight
 nmap <leader>fs :syn sync fromstart<CR>
@@ -116,6 +116,10 @@ nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+
+" Signify
+nnoremap let g:signify_mapping_next_hunk = '<leader>gj'
+nnoremap let g:signify_mapping_prev_hunk = '<leader>gk'
 
 " Macros
 let @d='/^\(<<<<<<<\|=======\|>>>>>>>\)' " Navigating merge conflict
