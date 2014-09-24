@@ -1,5 +1,5 @@
 " vim: set filetype=vim:
-let mapleader = ','
+let mapleader = ' '
 
 " Window movement
 map <C-J> <C-W>j<C-W>_
@@ -41,9 +41,8 @@ cmap w!! w !sudo tee % >/dev/null
 map <Leader>= <C-w>=
 
 " NERDTree
-map <C-e> :NERDTreeTabsToggle<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
+map <leader>nt :NERDTreeTabsToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
