@@ -34,9 +34,13 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set showcmd
 
+let g:tabber_divider_style = 'unicode'
 set tabline=%!tabber#TabLine()
 
 set laststatus=2
+
+set ttimeoutlen=500
+set timeoutlen=500
 
 " UI
 set backspace=indent,eol,start  " Backspace for dummies
@@ -81,16 +85,6 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 
 set tags=./tags;/,~/.vimtags
-
-" Faster escape (from powerline docs)
-if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-  autocmd!
-  au InsertEnter * set timeoutlen=0
-  au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
 
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 autocmd FileType php set tabstop=4|set shiftwidth=4
