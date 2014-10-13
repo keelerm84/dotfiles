@@ -3,7 +3,7 @@
 set t_Co=256
 set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
-colorscheme solarized
+colorscheme zenburn
 
 syntax on
 set mousehide
@@ -61,6 +61,7 @@ set foldenable                  " Auto fold code
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
 
 " Formatting
 set nowrap                      " Wrap long lines
