@@ -71,6 +71,10 @@ vmap <Leader>a,, :Tabularize /,\zs<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
+" Multiple cursors
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+
 " PHP
 autocmd FileType php nmap <leader>pcf :call PhpCsFixerFixFile()<CR>
 
