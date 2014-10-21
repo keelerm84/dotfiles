@@ -27,7 +27,6 @@ set undolevels=1000
 set undoreload=10000
 
 set showmode
-set cursorline
 set lazyredraw
 
 set ruler
