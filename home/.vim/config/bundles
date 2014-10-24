@@ -16,6 +16,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'fweep/vim-tabber'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'sjl/gundo.vim'
 
 Bundle 'bling/vim-airline'
 
