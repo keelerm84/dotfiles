@@ -65,6 +65,9 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-scripts/SQLUtilities'
 Bundle 'vim-scripts/Align'
 
+" Go
+Bundle 'fatih/vim-go'
+
 " Misc.
 Bundle 'tpope/vim-markdown'
 Bundle 'suan/vim-instant-markdown'
