@@ -13,5 +13,6 @@ load_file "history.zsh"
 
 [ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && . $HOME/.tmuxinator/scripts/tmuxinator || true
+[[ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]] && source $HOME/.homesick/repos/homeshick/homeshick.sh || true
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
