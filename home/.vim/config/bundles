@@ -17,6 +17,7 @@ Bundle 'fweep/vim-tabber'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'sjl/gundo.vim'
+Bundle 'vim-scripts/ZoomWin'
 
 Bundle 'bling/vim-airline'
 
