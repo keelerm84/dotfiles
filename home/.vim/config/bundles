@@ -29,7 +29,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/gist-vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
-Bundle 'vim-scripts/a.vim'
 Bundle 'joonty/vdebug'
 Bundle 'PeterRincker/vim-argumentative'
 
