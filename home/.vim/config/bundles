@@ -1,6 +1,7 @@
 " vim: set filetype=vim:
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'tpope/vim-surround'
