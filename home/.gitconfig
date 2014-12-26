@@ -10,3 +10,5 @@
     excludesfile = ~/.gitignore
 [include]
     path = ~/.config/git/overrides
+[push]
+	default = simple
