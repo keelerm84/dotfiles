@@ -23,6 +23,7 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'bling/vim-airline'
 Bundle 'KevinGoodsell/vim-csexact'
+Bundle 'EinfachToll/DidYouMean'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
