@@ -1,7 +1,7 @@
 alias homesick="~/.homeshick"
 alias tmux='tmux -2 -u'
-alias ec='emacsclient -c'
-
+alias e='emacsclient -t'
+alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias gr='[ ! -z `git rev-parse --show-toplevel` ] && cd `git rev-parse --show-toplevel || pwd`'
 alias gdc='git diff --cached'
