@@ -34,7 +34,7 @@ function! InitializeDirectories()
 endfunction
 
 function! StripTrailingWhitespace()
-  if exists('b:noStripWhitepspace')
+  if exists('b:noStripWhitespace')
     return
   endif
 
