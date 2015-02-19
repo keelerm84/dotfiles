@@ -24,7 +24,6 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'bling/vim-airline'
 Bundle 'KevinGoodsell/vim-csexact'
 Bundle 'EinfachToll/DidYouMean'
-Bundle 'terryma/vim-expand-region'
 Bundle 'dhruvasagar/vim-dotoo'
 
 " Programming
