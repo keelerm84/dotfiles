@@ -24,7 +24,6 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'bling/vim-airline'
 Bundle 'KevinGoodsell/vim-csexact'
 Bundle 'EinfachToll/DidYouMean'
-Bundle 'dhruvasagar/vim-dotoo'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
