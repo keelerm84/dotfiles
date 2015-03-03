@@ -120,9 +120,6 @@ nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nnoremap <silent> <leader>tt :TagbarOpen fj<CR>
 nnoremap <silent> <leader><leader>tt :TagbarToggle<CR>
 
-map <CR> <Plug>(expand_region_expand)
-map <BS> <Plug>(expand_region_shrink)
-
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
