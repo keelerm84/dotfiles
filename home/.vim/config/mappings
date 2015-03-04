@@ -120,6 +120,8 @@ nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nnoremap <silent> <leader>tt :TagbarOpen fj<CR>
 nnoremap <silent> <leader><leader>tt :TagbarToggle<CR>
 
+nnoremap <silent> <leader>s :wa<CR>
+
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
