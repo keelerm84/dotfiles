@@ -3,9 +3,7 @@
 set t_Co=256
 set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
-colorscheme gruvbox
-
-let g:csexact_term_override="tmux.xterm-256color"
+colorscheme zenburn
 
 syntax on
 set mousehide
