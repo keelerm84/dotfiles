@@ -33,6 +33,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'joonty/vdebug'
 Bundle 'PeterRincker/vim-argumentative'
+Bundle 'tpope/vim-endwise'
 
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
