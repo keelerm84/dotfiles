@@ -100,4 +100,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType * setlocal formatoptions+=j
 
+" Always open the quickfix window after running any sort of grep command
+autocmd QuickFixCmdPost *grep* cwindow
+
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
