@@ -22,6 +22,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'bling/vim-airline'
 Bundle 'EinfachToll/DidYouMean'
+Bundle 'editorconfig/editorconfig-vim'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
