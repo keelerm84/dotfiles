@@ -102,5 +102,6 @@ autocmd FileType * setlocal formatoptions+=j
 
 " Always open the quickfix window after running any sort of grep command
 autocmd QuickFixCmdPost *grep* cwindow
+autocmd FileType php set commentstring=//\ %s
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
