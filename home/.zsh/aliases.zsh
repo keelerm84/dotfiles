@@ -8,8 +8,8 @@ alias gdc='git diff --cached'
 alias gd='git diff'
 alias gap='git add -p'
 alias ga='git add'
-alias ci='git commit'
-alias cia='git commit --amend'
+alias gc='git commit'
+alias gca='git commit --amend'
 alias gs='git status'
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
