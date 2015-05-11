@@ -134,6 +134,13 @@ nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap let g:signify_mapping_next_hunk = '<leader>gj'
 nnoremap let g:signify_mapping_prev_hunk = '<leader>gk'
 
+" Golang
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+let g:go_fmt_command = "goimports"
+
 " Macros
 let @d='/^\(<<<<<<<\|=======\|>>>>>>>\)' " Navigating merge conflict
 let @s='VS{kJj^' " Surround a line with curly braces
