@@ -21,6 +21,9 @@ set history=1000
 set nospell
 set hidden
 
+set splitbelow
+set splitright
+
 set backup
 set undofile
 set undolevels=1000
