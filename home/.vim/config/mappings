@@ -19,6 +19,8 @@ nmap <leader>bd :bp\|bd#<CR>
 nmap <leader>gn :bn<CR>
 nmap <leader>gp :bp<CR>
 
+nmap <leader>gg :Ggrep<SPACE>
+
 nmap <F5> :GundoToggle<CR>
 
 " Fix syntax highlight
