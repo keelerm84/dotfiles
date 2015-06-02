@@ -138,7 +138,7 @@ prompt_dir() {
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path ]]; then
-    prompt_segment 214 black "∾ `basename $virtualenv_path`"
+    prompt_segment 142 black "∾ `basename $virtualenv_path`"
   fi
 }
 
