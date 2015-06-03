@@ -21,7 +21,7 @@ nmap <leader>gp :bp<CR>
 
 nmap <leader>gg :Ggrep<SPACE>
 
-nmap <F5> :GundoToggle<CR>
+nmap <leader>gu :GundoToggle<CR>
 
 " Fix syntax highlight
 nmap <leader>fs :syn sync fromstart<CR>
