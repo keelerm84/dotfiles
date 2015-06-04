@@ -132,10 +132,6 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 
-" Signify
-nnoremap let g:signify_mapping_next_hunk = '<leader>gj'
-nnoremap let g:signify_mapping_prev_hunk = '<leader>gk'
-
 " Golang
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
