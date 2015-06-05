@@ -87,7 +87,7 @@ let g:multi_cursor_exit_from_insert_mode=0
 autocmd FileType php nmap <leader>pcf :call PhpCsFixerFixFile()<CR>
 
 " JSON
-nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+nmap <leader>fj <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 
 " Python
 let g:pymode_lint_checker = "pyflakes"
