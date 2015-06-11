@@ -36,6 +36,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'joonty/vdebug'
 Bundle 'PeterRincker/vim-argumentative'
 Bundle 'tpope/vim-endwise'
+Bundle 'aklt/plantuml-syntax'
 
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
