@@ -77,6 +77,5 @@ Bundle 'fatih/vim-go'
 
 " Misc.
 Bundle 'tpope/vim-markdown'
-Bundle 'suan/vim-instant-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'aquach/vim-http-client'
