@@ -81,6 +81,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:loaded_AlignMapsPlugin = 0
 let g:sqlutil_keyword_case = '\U'
 
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php']
+
 " Remove trailing whitespaces and ^M chars
 autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType markdown let b:noStripWhitespace=1
