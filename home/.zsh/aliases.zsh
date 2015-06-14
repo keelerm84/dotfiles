@@ -10,6 +10,7 @@ alias gap='git add -p'
 alias ga='git add'
 alias gc='git commit'
 alias gca='git commit --amend'
+alias gco='git checkout'
 alias gs='git status'
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
