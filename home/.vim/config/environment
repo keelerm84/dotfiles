@@ -91,6 +91,7 @@ autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>i <Plug>(go-implements)
+autocmd FileType go nmap <leader>l :GoLint<CR>
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage)
 autocmd FileType go nmap <leader>v <Plug>(go-vet)
