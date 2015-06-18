@@ -1,2 +1,4 @@
 .ruby-gemset
 .ruby-version
+vendor
+bower_components
