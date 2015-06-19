@@ -12,5 +12,8 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gco='git checkout'
 alias gs='git status'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gm='git merge'
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
