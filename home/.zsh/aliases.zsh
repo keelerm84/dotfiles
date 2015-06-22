@@ -16,5 +16,7 @@ alias gp='git pull'
 alias gpr='git pull --rebase'
 alias gP='git push'
 alias gm='git merge'
+alias g='git'
+alias gg='git grep'
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
