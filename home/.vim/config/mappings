@@ -45,6 +45,9 @@ nmap <leader>f9 :set foldlevel=9<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>h :sp<CR>
 
+nmap <leader>tp :set paste!<CR>
+nmap <leader>tn :set nu!<CR>:set relativenumber!<CR>
+
 vnoremap < <gv
 vnoremap > >gv
 
