@@ -8,3 +8,6 @@ bindkey '^x^e' edit-command-line
 autoload -Uz copy-earlier-word
 zle -N copy-earlier-word
 bindkey "^[m" copy-earlier-word
+
+autoload -U select-word-style
+select-word-style bash
