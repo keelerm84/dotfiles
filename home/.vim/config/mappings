@@ -27,6 +27,10 @@ nmap <leader>gu :GundoToggle<CR>
 " Fix syntax highlight
 nmap <leader>fs :syn sync fromstart<CR>
 
+" Tab Manipulation
+nmap mtl :TabberShiftRight<CR>
+nmap mth :TabberShiftLeft<CR>
+
 " Folding
 nmap <leader>ff :set foldmethod=syntax<CR>
 nmap <leader>fi :set foldmethod=indent<CR>
