@@ -23,6 +23,8 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'bling/vim-airline'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'bogado/file-line'
+Bundle 'jceb/vim-orgmode'
+Bundle 'tpope/vim-speeddating'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
@@ -36,6 +38,7 @@ Bundle 'joonty/vdebug'
 Bundle 'PeterRincker/vim-argumentative'
 Bundle 'tpope/vim-endwise'
 Bundle 'aklt/plantuml-syntax'
+Bundle 'fatih/vim-nginx'
 
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
