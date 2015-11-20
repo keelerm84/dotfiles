@@ -1,10 +1,5 @@
-[user]
-    name = Matthew M. Keeler
-    email = keelerm84@gmail.com
 [color]
     ui = auto
-[github]
-    user = keelerm84
 [core]
     filemode = false
     excludesfile = ~/.gitignore
