@@ -6,4 +6,4 @@
 [include]
     path = ~/.config/git/overrides
 [push]
-	default = simple
+    default = simple
