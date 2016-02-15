@@ -83,6 +83,10 @@ let g:sqlutil_keyword_case = '\U'
 
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php']
 
+" PIV
+" I don't want the vim markers added to the generated documentation
+let g:pdv_cfg_foldmarker = 0
+
 " Remove trailing whitespaces and ^M chars
 autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType markdown let b:noStripWhitespace=1
