@@ -28,6 +28,7 @@ Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-obsession'
 Bundle 'dhruvasagar/vim-prosession'
+Bundle 'mxw/vim-jsx'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
