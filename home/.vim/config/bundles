@@ -26,8 +26,6 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'bogado/file-line'
 Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-obsession'
-Bundle 'dhruvasagar/vim-prosession'
 Bundle 'mxw/vim-jsx'
 
 " Programming
