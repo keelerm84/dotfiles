@@ -21,6 +21,7 @@ nmap <leader>gn :bn<CR>
 nmap <leader>gp :bp<CR>
 
 nmap <leader>gg :Ggrep<SPACE>
+nmap <leader>ag :Ag<SPACE>
 
 nmap <leader>gu :GundoToggle<CR>
 
