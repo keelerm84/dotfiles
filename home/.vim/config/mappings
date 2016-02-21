@@ -130,6 +130,8 @@ nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nnoremap <silent> <leader>tt :TagbarOpen fj<CR>
 nnoremap <silent> <leader><leader>tt :TagbarToggle<CR>
 
+nnoremap <unique> <Leader>hr :HTTPClientDoRequest<cr>
+
 nnoremap <silent> <leader>s :wa<CR>
 
 " Fugitive
