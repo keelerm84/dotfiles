@@ -4,6 +4,6 @@
     filemode = false
     excludesfile = ~/.gitignore
 [include]
-    path = ~/.config/git/overrides
+    path = ~/.gitconfig.local
 [push]
     default = simple
