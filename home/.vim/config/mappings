@@ -120,6 +120,9 @@ let g:ctrlp_user_command = {
   \ 'fallback': 'find %s -type f'
 \ }
 
+" Stop jumping me to an already open buffer.  I know what I'm about.
+let g:ctrlp_switch_buffer=0
+
 " Tagbar
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 0
