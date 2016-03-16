@@ -22,4 +22,10 @@ alias gm='git merge'
 alias g='git'
 alias gg='git grep'
 
+alias dkr-logs="docker-compose logs"
+alias dkr-up="docker-compose up -d && dkr-logs"
+alias dkr-down="docker-compose stop"
+alias dkr-rebuild="docker-compose stop && docker-compose build && dkr-up"
+alias dkr-proxy="docker stop proxy && docker rm proxy; docker run --name proxy -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock -v ~/.nginx.prof.conf:/etc/nginx/conf.d/proxy.conf:ro -it jwilder/nginx-proxy"
+
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
