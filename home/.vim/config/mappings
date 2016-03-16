@@ -16,7 +16,7 @@ nnoremap Y y$
 
 nmap zz ZZ
 nmap <leader>ga gg=G
-nmap <leader>bd :bp\|bd#<CR>
+nmap <leader>db :bp\|bd#<CR>
 nmap <leader>gn :bn<CR>
 nmap <leader>gp :bp<CR>
 
