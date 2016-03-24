@@ -93,6 +93,8 @@ autocmd FileType markdown let b:noStripWhitespace=1
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
 
+autocmd FileType mail,gitcommit set spell
+
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>i <Plug>(go-implements)
