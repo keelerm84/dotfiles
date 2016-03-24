@@ -138,7 +138,7 @@ nnoremap <silent> <leader><leader>tt :TagbarToggle<CR>
 
 nnoremap <unique> <Leader>hr :HTTPClientDoRequest<cr>
 
-nnoremap <silent> <leader>s :wa<CR>
+nnoremap <silent> <leader>w :wa<CR>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
