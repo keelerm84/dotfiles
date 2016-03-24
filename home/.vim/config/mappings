@@ -35,6 +35,8 @@ nmap mth :TabberShiftLeft<CR>
 " Folding
 nmap <leader>ff :set foldmethod=syntax<CR>
 nmap <leader>fi :set foldmethod=indent<CR>
+nmap <leader>fm :set foldmethod=marker<CR>
+nmap <leader>fd :set foldmethod=diff<CR>
 autocmd FileType php nmap <leader>ff :EnableFastPHPFolds<CR>
 nmap <leader>f0 :set foldlevel=0<CR>
 nmap <leader>f1 :set foldlevel=1<CR>
