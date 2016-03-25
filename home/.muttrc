@@ -97,3 +97,5 @@ bind editor <Tab> complete-query
 
 # Setup your folders, realname, theme overrides, etc.
 source ~/.mutt/local
+
+# vim: ft=muttrc foldlevel=0 foldmethod=marker
