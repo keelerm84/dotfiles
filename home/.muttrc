@@ -71,6 +71,8 @@ unset markers
 
     bind pager r group-reply
     bind pager R reply
+
+    bind pager <tab> sync-mailbox
     # }}}
 # }}}
 
