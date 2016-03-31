@@ -133,8 +133,7 @@ let g:tagbar_autoclose = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
-nnoremap <silent> <leader>tt :TagbarOpen fj<CR>
-nnoremap <silent> <leader><leader>tt :TagbarToggle<CR>
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 nnoremap <unique> <Leader>hr :HTTPClientDoRequest<cr>
 
