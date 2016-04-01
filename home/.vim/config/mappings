@@ -14,9 +14,12 @@ nnoremap k gk
 
 nnoremap Y y$
 
+nmap <leader>no :noh<CR>
+
 nmap zz ZZ
 nmap <leader>ga gg=G
 nmap <leader>db :bp\|bd#<CR>
+nmap <leader>adb :bufdo bdelete<CR>
 nmap <leader>gn :bn<CR>
 nmap <leader>gp :bp<CR>
 
@@ -31,6 +34,7 @@ nmap <leader>fs :syn sync fromstart<CR>
 " Tab Manipulation
 nmap mtl :TabberShiftRight<CR>
 nmap mth :TabberShiftLeft<CR>
+nmap <leader>tn :tabnew<CR>
 
 " Folding
 nmap <leader>ff :set foldmethod=syntax<CR>
@@ -89,6 +93,7 @@ nmap <Leader>a,, :Tabularize /,\zs<CR>
 vmap <Leader>a,, :Tabularize /,\zs<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Space> :Tabularize /\S\+;$/l1<CR>
 
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode=0
