@@ -73,8 +73,10 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'tpope/vim-rails'
 
 " SQL
-Bundle 'vim-scripts/SQLUtilities'
 Bundle 'vim-scripts/Align'
+Bundle 'NLKNguyen/pipe-mysql.vim'
+Bundle 'NLKNguyen/pipe.vim'
+Bundle 'smintz/vim-sqlutil'
 
 " Go
 Bundle 'fatih/vim-go'
