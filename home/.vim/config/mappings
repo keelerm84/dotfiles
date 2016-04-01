@@ -97,6 +97,10 @@ let g:multi_cursor_exit_from_insert_mode=0
 " PHP
 autocmd FileType php nmap <leader>pcf :call PhpCsFixerFixFile()<CR>
 
+" SQL
+autocmd FileType sql,mysql vmap <leader>fr :SQLUFormatter<CR>
+autocmd FileType sql,mysql nmap <leader>fr :SQLUFormatter<CR>
+
 " JSON
 nmap <leader>fj <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 
