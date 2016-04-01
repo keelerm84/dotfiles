@@ -94,7 +94,6 @@ unset record
 # Misc Bindings {{{
 bind editor <tab> complete-query
 bind editor ^T complete
-bind editor <Tab> complete-query
 # }}}
 
 # Setup your folders, realname, theme overrides, etc.
