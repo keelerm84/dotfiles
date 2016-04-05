@@ -127,3 +127,5 @@ autocmd QuickFixCmdPost *grep* cwindow
 autocmd FileType php set commentstring=//\ %s
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+hi Normal ctermbg=none
