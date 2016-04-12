@@ -33,6 +33,16 @@ function! InitializeDirectories()
   endfor
 endfunction
 
+function! ClosePreviewWindow()
+    if exists('b:noClosePreview')
+        return
+    endif
+
+    if pumvisible() == 0
+        silent! pclose
+    endif
+endfunction
+
 function! StripTrailingWhitespace()
   if exists('b:noStripWhitespace')
     return

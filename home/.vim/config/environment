@@ -111,7 +111,8 @@ set tags=./tags;/,~/.vimtags
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 autocmd FileType php set tabstop=4|set shiftwidth=4
 
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
+autocmd FileType mysql let b:noClosePreview=1
 set completeopt=menu,preview,longest
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
