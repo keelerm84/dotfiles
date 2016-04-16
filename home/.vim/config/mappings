@@ -13,7 +13,6 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap Y y$
-nnoremap wp gwap
 
 nmap <leader>no :noh<CR>
 
