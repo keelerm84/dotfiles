@@ -53,10 +53,10 @@ Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'beyondwords/vim-twig'
 
 " Python
-Bundle 'klen/python-mode'
-Bundle 'yssource/python.vim'
-Bundle 'python_match.vim'
-Bundle 'pythoncomplete'
+Bundle 'tmhedberg/SimpylFold'
+Bundle 'vim-scripts/indentpython.vim'
+Bundle 'nvie/vim-flake8'
+Bundle 'davidhalter/jedi-vim'
 
 " Javascript
 Bundle 'elzr/vim-json'
