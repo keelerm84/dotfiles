@@ -110,6 +110,7 @@ set tags=./tags;/,~/.vimtags
 
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 autocmd FileType php set tabstop=4|set shiftwidth=4
+let g:php_manual_online_search_shortcut = '<leader>K'
 
 autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
 autocmd FileType mysql let b:noClosePreview=1
