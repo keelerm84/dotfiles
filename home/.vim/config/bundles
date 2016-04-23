@@ -54,6 +54,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'alvan/vim-php-manual'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'beyondwords/vim-twig'
+Bundle 'StanAngeloff/php.vim'
 
 " Python
 Bundle 'tmhedberg/SimpylFold'
