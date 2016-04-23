@@ -70,7 +70,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 
 " HTML
-Bundle 'amirh/HTML-AutoCloseTag'
+Bundle 'alvan/vim-closetag'
 Bundle 'hail2u/vim-css3-syntax'
 
 " Ruby
