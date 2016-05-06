@@ -1,0 +1,18 @@
+---
+layout: cheatsheet
+title: Vim Cheatsheet
+---
+<div class="flex-container">
+<section>
+    {% capture basic %}{% include_relative basic.md %}{% endcapture %}
+    {{ basic | markdownify }}
+</section>
+<section>
+    {% capture code-discovery %}{% include_relative code-discovery.md %}{% endcapture %}
+    {{ code-discovery | markdownify }}
+</section>
+<section>
+    {% capture editing %}{% include_relative editing.md %}{% endcapture %}
+    {{ editing | markdownify }}
+</section>
+</div>
