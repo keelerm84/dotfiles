@@ -1,0 +1,4 @@
+name: dotfiles
+kramdown:
+    input: GFM
+baseurl: /dotfiles
