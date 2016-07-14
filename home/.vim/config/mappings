@@ -110,6 +110,7 @@ autocmd FileType sql,mysql nmap <leader>fr :SQLUFormatter<CR>
 
 " JSON
 nmap <leader>fj <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+vmap <leader>fj :'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>
 
 " Python
 let g:pymode_lint_checker = "pyflakes"
