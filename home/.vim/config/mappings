@@ -147,7 +147,8 @@ nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-nnoremap <unique> <Leader>hr :HTTPClientDoRequest<cr>
+" This is slowing down <leader>h which is used for splits
+nnoremap <unique> <leader>r :HTTPClientDoRequest<cr>
 
 nnoremap <silent> <leader>w :wa<CR>
 
