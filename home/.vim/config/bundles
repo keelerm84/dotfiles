@@ -87,6 +87,6 @@ Bundle 'smintz/vim-sqlutil'
 Bundle 'fatih/vim-go'
 
 " Misc.
-Bundle 'tpope/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'aquach/vim-http-client'
