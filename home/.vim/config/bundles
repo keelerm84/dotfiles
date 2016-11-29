@@ -27,6 +27,7 @@ Bundle 'bogado/file-line'
 Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'mxw/vim-jsx'
+Bundle 'tpope/vim-abolish'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'

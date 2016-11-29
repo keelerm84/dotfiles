@@ -15,16 +15,23 @@ elseif has ('gui')          " On mac and Windows, use * register for copy-paste
   set clipboard=unnamed
 endif
 
+set cursorline
 set viewoptions=folds,options,cursor,unix,slash
 set virtualedit=onemore
 set history=1000
-set nospell
 set hidden
+set spell
+
+if filereadable("/usr/share/dict/words")
+    set dictionary+="/usr/share/dict/words"
+endif
+set complete+=k
 
 set splitbelow
 set splitright
 
 set backup
+set backupcopy=yes
 set undofile
 set undolevels=1000
 set undoreload=10000
@@ -96,8 +103,6 @@ autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType markdown let b:noStripWhitespace=1
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
-
-autocmd FileType mail,gitcommit set spell
 
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
