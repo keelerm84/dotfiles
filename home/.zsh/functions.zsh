@@ -17,19 +17,15 @@ man() {
 }
 
 function dkr-bash {
-   dir="${PWD##*/}"
-   dir="${dir/./}"
-   docker exec -it --detach-keys 'ctrl-q,q' "${dir}_app_1" bash
+    dir="${PWD##*/}"
+    dir="${dir/./}"
+    container=$(echo "${dir}_app_1" | sed "s/[^[:alpha:]^[:digit:]_]//")
+    docker exec -it --detach-keys 'ctrl-q,q' "${container}" bash
 }
 
 function dkr-zsh {
-   dir="${PWD##*/}"
-   dir="${dir/./}"
-   docker exec -it --detach-keys 'ctrl-q,q' "${dir}_app_1" zsh
-}
-
-function dkr-stats {
-   dir="${PWD##*/}"
-   dir="${dir/./}"
-   docker stats "${dir}_app_1" "${dir}_mysql_1"
+    dir="${PWD##*/}"
+    dir="${dir/./}"
+    container=$(echo "${dir}" | sed "s/[^[:alpha:][:digit:]_]//g")
+    docker exec -it --detach-keys 'ctrl-q,q' "${container}_app_1" zsh
 }
