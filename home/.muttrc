@@ -1,6 +1,9 @@
 # General Config {{{
 set mbox_type=Maildir
 set folder=$HOME/.mail
+set sleep_time = 0
+
+set mailcap_path = ~/.mutt/mailcap
 
     # Global {{{
     set auto_tag = yes
@@ -51,6 +54,8 @@ set uncollapse_jump
 
     bind index <tab> sync-mailbox
     bind index p recall-message
+
+    macro index \cb "<pipe-message> urlscan<ENTER>" "call urlscan to extract URLs out of a message"
     # }}}
 # }}}
 
@@ -73,6 +78,8 @@ unset markers
     bind pager R reply
 
     bind pager <tab> sync-mailbox
+
+    macro pager \cb "<pipe-message> urlscan<ENTER>" "call urlscan to extract URLs out of a message"
     # }}}
 # }}}
 
