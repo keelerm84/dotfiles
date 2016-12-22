@@ -131,7 +131,21 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment 237 248 '%~'
+  git_root=$PWD
+
+  while [[ $git_root != / && ! -e $git_root/.git ]]; do
+    git_root=$git_root:h
+  done
+
+  if [[ $git_root = / ]]; then
+    unset git_root
+    prompt_short_dir=%~
+  else
+    parent=${git_root%\/*}
+    prompt_short_dir=${PWD#$parent/}
+  fi
+
+  prompt_segment 237 248 $prompt_short_dir
 }
 
 # Virtualenv: current working virtualenv
