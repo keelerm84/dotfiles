@@ -28,6 +28,7 @@ Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'mxw/vim-jsx'
 Bundle 'tpope/vim-abolish'
+Bundle 'skywind3000/asyncrun.vim'
 
 " Programming
 Bundle 'sgeb/vim-diff-fold'
@@ -43,6 +44,7 @@ Bundle 'PeterRincker/vim-argumentative'
 Bundle 'tpope/vim-endwise'
 Bundle 'aklt/plantuml-syntax'
 Bundle 'fatih/vim-nginx'
+Bundle 'janko-m/vim-test'
 
 if executable('ctags')
   Bundle 'majutsushi/tagbar'

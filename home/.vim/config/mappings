@@ -32,8 +32,6 @@ nmap <leader>gu :GundoToggle<CR>
 nmap <leader>fs :syn sync fromstart<CR>
 
 " Tab Manipulation
-nmap mtl :TabberShiftRight<CR>
-nmap mth :TabberShiftLeft<CR>
 nmap <leader>tn :tabnew<CR>
 
 " Folding
@@ -52,6 +50,17 @@ nmap <leader>f6 :set foldlevel=6<CR>
 nmap <leader>f7 :set foldlevel=7<CR>
 nmap <leader>f8 :set foldlevel=8<CR>
 nmap <leader>f9 :set foldlevel=9<CR>
+
+" Test Runner
+augroup vimrc
+    autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+augroup END
+let test#strategy = "asyncrun"
+nmap <leader>tc :TestNearest<CR>
+nmap <leader>tf :TestFile<CR>
+nmap <leader>ts :TestSuite<CR>
+nmap <leader>tl :TestLast<CR>
+nmap <leader>tv :TestVisit<CR>
 
 nmap <leader>v :vsp<CR>
 nmap <leader>h :sp<CR>
