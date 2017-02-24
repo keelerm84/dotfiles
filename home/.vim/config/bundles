@@ -1,5 +1,4 @@
-" vim: set filetype=vim:
-Plug 'gmarik/vundle'
+" General Utilities {{{
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
@@ -29,8 +28,12 @@ Plug 'tpope/vim-speeddating'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-abolish'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-markdown'
+Plug 'Puppet-Syntax-Highlighting'
+Plug 'aquach/vim-http-client'
+" }}}
 
-" Programming
+" Programming {{{
 Plug 'sgeb/vim-diff-fold'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/syntastic'
@@ -49,8 +52,9 @@ Plug 'janko-m/vim-test'
 if executable('ctags')
   Plug 'majutsushi/tagbar'
 endif
+" }}}
 
-" PHP
+" PHP {{{
 Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
@@ -58,38 +62,42 @@ Plug 'alvan/vim-php-manual'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'beyondwords/vim-twig'
 Plug 'StanAngeloff/php.vim'
+" }}}
 
-" Python
+" Python {{{
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
+" }}}
 
-" Javascript
+" Javascript {{{
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
+" }}}
 
-" HTML
+" HTML {{{
 Plug 'alvan/vim-closetag'
 Plug 'hail2u/vim-css3-syntax'
+" }}}
 
-" Ruby
+" Ruby {{{
 Plug 'tpope/vim-rails'
+" }}}
 
-" SQL
+" SQL {{{
 Plug 'vim-scripts/Align'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'NLKNguyen/pipe.vim'
 Plug 'smintz/vim-sqlutil'
+" }}}
 
-" Go
+" Go {{{
 Plug 'fatih/vim-go'
+" }}}
 
-" Misc.
-Plug 'tpope/vim-markdown'
-Plug 'Puppet-Syntax-Highlighting'
-Plug 'aquach/vim-http-client'
+" vim: set filetype=vim:
