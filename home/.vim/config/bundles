@@ -1,4 +1,5 @@
 " General Utilities {{{
+Plug 'junegunn/vim-plug'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
