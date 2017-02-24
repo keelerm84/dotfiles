@@ -1,9 +1,12 @@
-" vim: set filetype=vim:
-" General
+" General {{{
 set t_Co=256
 set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
 colorscheme gruvbox
+set foldmethod=marker
+
+filetype plugin indent on
+highlight clear SignColumn
 
 syntax on
 set mousehide
@@ -43,6 +46,23 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set showcmd
 
+set ttimeoutlen=0
+set timeoutlen=500
+set completeopt=menu,preview,longest
+
+set tags=./tags;/,~/.vimtags
+
+autocmd FileType * silent! setlocal formatoptions+=j
+
+let g:SimpylFold_docstring_preview = 1
+
+" Always open the quickfix window after running any sort of grep command
+autocmd QuickFixCmdPost *grep* cwindow
+
+hi Normal ctermbg=none
+" }}}
+
+" UI {{{
 let g:tabber_divider_style = 'unicode'
 set tabline=%!tabber#TabLine()
 
@@ -50,10 +70,6 @@ set laststatus=2
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 
-set ttimeoutlen=0
-set timeoutlen=500
-
-" UI
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set nu                          " Line numbers on
@@ -73,8 +89,9 @@ set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
+" }}}
 
-" Formatting
+" Formatting {{{
 set nowrap                      " Wrap long lines
 set autoindent                  " Indent at the same level of the previous line
 set shiftwidth=4                " Use indents of 4 spaces
@@ -82,28 +99,40 @@ set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4                   " An indentation every four columns
 set softtabstop=4               " Let backspace delete indent
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+" }}}
 
-" General Programming
+" General Programming {{{
 let g:syntastic_always_populate_loc_list = 1
+" }}}
 
-" SQLUtil requires Align, but I don't want it to conflict with tabularize
-let g:loaded_AlignMapsPlugin = 0
-let g:sqlutil_keyword_case = '\U'
+" Git {{{
+autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-autocmd FileType sql,mysql set commentstring=--\ %s
+" }}}
 
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php']
+" Python {{{
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
-" PIV
-" I don't want the vim markers added to the generated documentation
+let python_highlight_all=1
+let g:jedi#use_tabs_not_buffers = 1
+" }}}
+
+" PHP {{{
+" PIV I don't want the vim markers added to the generated documentation
 let g:pdv_cfg_foldmarker = 0
+let g:php_manual_online_search_shortcut = '<leader>K'
 
-" Remove trailing whitespaces and ^M chars
-autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-autocmd FileType markdown let b:noStripWhitespace=1
-autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
+autocmd FileType php set tabstop=4|set shiftwidth=4
+autocmd FileType php set commentstring=//\ %s
+" }}}
 
+" Ruby {{{
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" }}}
+
+" Go {{{
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>i <Plug>(go-implements)
@@ -112,36 +141,35 @@ autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage)
 autocmd FileType go nmap <leader>v <Plug>(go-vet)
 autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+" }}}
 
-set tags=./tags;/,~/.vimtags
+" SQL {{{
+" SQLUtil requires Align, but I don't want it to conflict with tabularize
+let g:loaded_AlignMapsPlugin = 0
+let g:sqlutil_keyword_case = '\U'
 
-autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
-autocmd FileType php set tabstop=4|set shiftwidth=4
-let g:php_manual_online_search_shortcut = '<leader>K'
-
-autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
+autocmd FileType sql,mysql set commentstring=--\ %s
 autocmd FileType mysql let b:noClosePreview=1
-set completeopt=menu,preview,longest
+autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
+" }}}
 
+" HTML / CSS / JS / XML {{{
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-let g:SimpylFold_docstring_preview = 1
-
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-
-let python_highlight_all=1
-let g:jedi#use_tabs_not_buffers = 1
-
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType * silent! setlocal formatoptions+=j
+" }}}
 
-" Always open the quickfix window after running any sort of grep command
-autocmd QuickFixCmdPost *grep* cwindow
-autocmd FileType php set commentstring=//\ %s
+" Markdown {{{
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php']
+autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" }}}
 
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+" Remove trailing whitespaces and ^M chars {{{
+autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType markdown let b:noStripWhitespace=1
+autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
+" }}}
 
-hi Normal ctermbg=none
+" vim: set filetype=vim:

@@ -1,17 +1,50 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Utility function for bootstrapping {{{
+fun! LoadFiles(files)
+    for file in a:files
+        if filereadable(expand(file))
+            execute "source " . file
+        endif
+    endfor
+endfun
+" }}}
 
-let files = ["~/.vim/config/bundles", "~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.bundles.local", "~/.vim.local"]
+" Bootstrap dotfiles {{{
+    " Setup vim-plugin manager {{{
+    fun! SetupVimPlug()
+        " Define our install dir and add it to our runtime path
+        let plugin_root_dir = expand('$HOME', 1) . '/.vim/plugins'
+        let &rtp .= (empty(&rtp) ? '' : ',') . plugin_root_dir.'/vim-plug'
 
-for file in files
-  if filereadable(expand(file))
-    execute "source " . file
-  endif
-endfor
+        " Clone vim-plug if we don't have it yet
+        if !isdirectory(plugin_root_dir . '/vim-plug')
+            echo "***********************************"
+            echo "*   First time using this vimrc   *"
+            echo "* Installing vim-plug and plugins *"
+            echo "***********************************"
+            execute '!git clone --depth=1 https://github.com/junegunn/vim-plug ' shellescape(plugin_root_dir . '/vim-plug', 1)
+            let g:keelerm84_first_run = 1
+        endif
 
-filetype plugin indent on
-call InitializeDirectories()
-highlight clear SignColumn
+        call LoadFiles([plugin_root_dir . '/vim-plug/plug.vim'])
+
+        call plug#begin(plugin_root_dir)
+        call LoadFiles(["~/.vim/config/bundles", "~/.vim.bundles.local"])
+        call plug#end()
+    endfun
+
+    call SetupVimPlug()
+    " }}}
+
+    " Install plugins on first run {{{
+    if exists('g:keelerm84_first_run')
+        " If this is the first run we need to install all of the plugins
+        PlugInstall
+    endif
+    " }}}
+
+    call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
+    call InitializeDirectories()
+" }}}

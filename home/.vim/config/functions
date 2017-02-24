@@ -1,9 +1,4 @@
-" vim: set filetype=vim:
-function! UnBundle(arg, ...)
-  let bundle = vundle#config#init_bundle(a:arg, a:000)
-  call filter(g:bundles, 'v:val["name_spec"] != "' . a:arg . '"')
-endfunction
-
+" InitializeDirectories {{{
 function! InitializeDirectories()
   let parent = $HOME
   let prefix = 'vim'
@@ -32,7 +27,9 @@ function! InitializeDirectories()
       endif
   endfor
 endfunction
+" }}}
 
+" ClosePreviewWindow {{{
 function! ClosePreviewWindow()
     if exists('b:noClosePreview')
         return
@@ -42,7 +39,9 @@ function! ClosePreviewWindow()
         silent! pclose
     endif
 endfunction
+" }}}
 
+" StripTrailingWhitespace {{{
 function! StripTrailingWhitespace()
   if exists('b:noStripWhitespace')
     return
@@ -58,7 +57,9 @@ function! StripTrailingWhitespace()
   let @/=_s
   call cursor(l, c)
 endfunction
+" }}}
 
+" DeleteInactiveBufs {{{
 function! DeleteInactiveBufs()
     "From tabpagebuflist() help, get a list of all buffers in all tabs
     let tablist = []
@@ -78,3 +79,6 @@ function! DeleteInactiveBufs()
     endfor
     echomsg nWipeouts . ' buffer(s) wiped out'
 endfunction
+" }}}
+
+" vim: set filetype=vim:
