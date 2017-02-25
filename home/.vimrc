@@ -48,3 +48,5 @@ endfun
     call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
     call InitializeDirectories()
 " }}}
+
+" vim: ft=vim foldlevel=0 foldmethod=marker

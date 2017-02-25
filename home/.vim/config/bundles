@@ -67,6 +67,7 @@ Plug 'StanAngeloff/php.vim'
 
 " Python {{{
 Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
@@ -101,4 +102,4 @@ Plug 'smintz/vim-sqlutil'
 Plug 'fatih/vim-go'
 " }}}
 
-" vim: set filetype=vim:
+" vim: ft=vim foldlevel=0 foldmethod=marker

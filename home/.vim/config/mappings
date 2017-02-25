@@ -210,4 +210,4 @@ nnoremap <leader>pl :PipeLast<CR>
 let @d='/^\(<<<<<<<\|=======\|>>>>>>>\)' " Navigating merge conflict
 " }}}
 
-" vim: set filetype=vim:
+" vim: ft=vim foldlevel=0 foldmethod=marker

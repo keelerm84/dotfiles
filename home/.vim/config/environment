@@ -3,7 +3,6 @@ set t_Co=256
 set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
 colorscheme gruvbox
-set foldmethod=marker
 
 filetype plugin indent on
 highlight clear SignColumn
@@ -112,9 +111,6 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " }}}
 
 " Python {{{
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-
 let python_highlight_all=1
 let g:jedi#use_tabs_not_buffers = 1
 " }}}
@@ -172,4 +168,4 @@ autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
 " }}}
 
-" vim: set filetype=vim:
+" vim: ft=vim foldlevel=0 foldmethod=marker
