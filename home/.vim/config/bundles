@@ -63,6 +63,7 @@ Plug 'alvan/vim-php-manual'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'beyondwords/vim-twig'
 Plug 'StanAngeloff/php.vim'
+Plug 'swekaj/php-foldexpr.vim'
 " }}}
 
 " Python {{{
