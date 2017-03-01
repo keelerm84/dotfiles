@@ -120,7 +120,7 @@ let g:jedi#use_tabs_not_buffers = 1
 let g:pdv_cfg_foldmarker = 0
 let g:php_manual_online_search_shortcut = '<leader>K'
 
-autocmd FileType php set tabstop=4|set shiftwidth=4
+autocmd FileType php set tabstop=4|set shiftwidth=4 foldlevel=1
 autocmd FileType php set commentstring=//\ %s
 " }}}
 
