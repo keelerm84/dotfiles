@@ -12,3 +12,5 @@ load_file "aliases.zsh"
 load_file "history.zsh"
 
 [ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

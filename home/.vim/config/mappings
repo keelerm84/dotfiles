@@ -149,25 +149,19 @@ let g:pymode_utils_whitespaces = 0
 let g:pymode_options = 0
 " }}}
 
-" CtrlP {{{
-nmap <leader>T :CtrlPBufTag<CR>
-nmap <leader><leader>T :CtrlPBufTagAll<CR>
-nmap <leader>b :CtrlPBuffer<CR>
+" FZF {{{
+nmap <C-p> :Files<CR>
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+nmap <leader>T :BTags<CR>
+nmap g<leader>T :Tags<CR>
 
-let g:ctrlp_user_command = {
-  \ 'types': {
-      \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-  \ },
-  \ 'fallback': 'find %s -type f'
-\ }
+nmap <leader>l :BLines<CR>
+nmap g<leader>l :Lines<CR>
 
-" Stop jumping me to an already open buffer.  I know what I'm about.
-let g:ctrlp_switch_buffer=0
+nmap <leader>b :Buffers<CR>
+
+nmap <leader>c :BCommits<CR>
+nmap g<leader>c :Commits<CR>
 " }}}
 
 " Tagbar {{{

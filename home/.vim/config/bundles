@@ -6,7 +6,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'matchit.zip'
 Plug 'spf13/vim-colors'
 Plug 'altercation/vim-colors-solarized'
@@ -32,6 +31,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-markdown'
 Plug 'Puppet-Syntax-Highlighting'
 Plug 'aquach/vim-http-client'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " }}}
 
 " Programming {{{

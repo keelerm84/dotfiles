@@ -3,6 +3,8 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export TERM=xterm-256color
 
+export FZF_CTRL_R_OPTS="--inline-info --exact"
+
 eval "$(dircolors ~/.dircolors)"
 
 [ -e "$HOME/Projects/golang" ] && export GOPATH="$HOME/Projects/golang"
