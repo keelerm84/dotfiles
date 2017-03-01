@@ -150,7 +150,8 @@ let g:pymode_options = 0
 " }}}
 
 " FZF {{{
-nmap <C-p> :Files<CR>
+nmap <C-p> :call SmartFzfSearching()<CR>
+nmap g<C-p> :Files<CR>
 
 nmap <leader>T :BTags<CR>
 nmap g<leader>T :Tags<CR>
