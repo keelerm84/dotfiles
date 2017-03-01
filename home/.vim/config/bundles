@@ -50,6 +50,7 @@ Plug 'tpope/vim-endwise'
 Plug 'aklt/plantuml-syntax'
 Plug 'fatih/vim-nginx'
 Plug 'janko-m/vim-test'
+Plug 'matze/vim-ini-fold'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
