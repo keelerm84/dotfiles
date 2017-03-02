@@ -24,7 +24,7 @@ endfun
             echo "*   First time using this vimrc   *"
             echo "* Installing vim-plug and plugins *"
             echo "***********************************"
-            execute '!git clone --depth=1 https://github.com/junegunn/vim-plug ' shellescape(plugin_root_dir . '/vim-plug', 1)
+            silent execute '!git clone --depth=1 https://github.com/junegunn/vim-plug ' shellescape(plugin_root_dir . '/vim-plug', 1)
             let g:keelerm84_first_run = 1
         endif
 
