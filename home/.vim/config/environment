@@ -103,6 +103,7 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " General Programming {{{
 let g:syntastic_always_populate_loc_list = 1
 autocmd FileType yml set ft=yaml ts=2 sw=2 smarttab:
+autocmd Syntax * syntax keyword Todo contained WARN NOTE FIXME XXX TODO ATTN containedin=.*Comment
 " }}}
 
 " Git {{{
