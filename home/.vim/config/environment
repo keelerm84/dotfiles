@@ -143,8 +143,10 @@ autocmd FileType go nmap <leader>i <Plug>(go-implements)
 autocmd FileType go nmap <leader>l :GoLint<CR>
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage)
-autocmd FileType go nmap <leader>v <Plug>(go-vet)
+autocmd FileType go nmap <leader>gv <Plug>(go-vet)
 autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+autocmd FileType go let b:noStripWhitespace=1
+autocmd FileType qf let b:noStripWhitespace=1
 " }}}
 
 " SQL {{{
