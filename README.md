@@ -29,3 +29,14 @@ but I have come to appreciate the awesomeness that is tmux.
 [bash](http://www.gnu.org/software/bash/) is fantastic.  There is no denying
 it.  But I must say, I have come to love [zsh](http://www.zsh.org/).  It's
 quite amazing.
+
+## Installation ##
+You can quickly install these dotfiles by running the following command:
+```bash
+$ curl -o- https://raw.githubusercontent.com/keelerm84/dotfiles/master/install.sh | bash
+```
+
+Shortened url:
+```bash
+$ curl -o- http://bit.ly/2pztvLf | bash
+```
