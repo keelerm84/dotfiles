@@ -32,5 +32,6 @@ alias dkr-reup="dkr-down && dkr-up"
 alias dkr-stats="docker stats \$(docker ps --format '{{.Names}}')"
 alias dkr-up="docker-compose up -d && dkr-logs"
 alias dkr-update="docker images | awk '{print \$1}' | xargs -L1 docker pull"
+alias dkr-mysql="dkr-exec \$(docker-compose ps -q mysql) mysql"
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
