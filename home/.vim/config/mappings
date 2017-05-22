@@ -164,6 +164,8 @@ nmap <leader>b :Buffers<CR>
 
 nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
+
+let g:fzf_layout = { 'down': '~20%' }
 " }}}
 
 " Tagbar {{{
