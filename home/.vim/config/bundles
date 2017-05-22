@@ -67,6 +67,10 @@ Plug 'StanAngeloff/php.vim'
 Plug 'swekaj/php-foldexpr.vim'
 " }}}
 
+" Java {{{
+Plug 'vim-scripts/vim-gradle'
+" }}}
+
 " Python {{{
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
