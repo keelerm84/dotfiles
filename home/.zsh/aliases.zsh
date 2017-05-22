@@ -44,7 +44,7 @@ alias nvidia-dkr-run='nvidia-docker run -it --detach-keys "ctrl-q,q" '
 alias nvidia-dkr-up="nvidia-docker-compose pull && nvidia-docker-compose up -d --remove-orphans && dkr-logs"
 alias nvidia-dkr-down="nvidia-docker-compose stop"
 alias nvidia-dkr-reup="nvidia-dkr-down && dkr-up"
-alias nvidia-dkr-build='nvidia-dkr-down && nvidia-docker-compose rm -f && nvidia-docker rmi $(echo "${${PWD##*/}/./}_app" | sed "s/[^a-zA-Z0-9_]//g"); nvidia-docker-compose build --no-cache && nvidia-dkr-up'
+alias nvidia-dkr-build='nvidia-dkr-down && nvidia-docker-compose rm && nvidia-docker rmi $(echo "${${PWD##*/}/./}_app" | sed "s/[^a-zA-Z0-9_]//g"); nvidia-docker-compose build --no-cache && nvidia-dkr-up'
 alias nvidia-dkr-stats="nvidia-docker stats \$(nvidia-docker ps --format '{{.Names}}')"
 alias nvidia-dkr-update="nvidia-docker images | awk '{print \$1}' | xargs -L1 nvidia-docker pull"
 
