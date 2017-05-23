@@ -32,6 +32,7 @@ Plug 'aquach/vim-http-client'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/tmux-complete.vim'
+Plug 'junegunn/indentLine'
 " }}}
 
 " Programming {{{
