@@ -1,3 +1,6 @@
+alias ls="ls -N --color=auto"
+alias l="ls -lhF"
+alias ll="ls -alhF"
 alias homesick="~/.homeshick"
 alias tmux='tmux -2 -u'
 alias e='emacsclient -t'
