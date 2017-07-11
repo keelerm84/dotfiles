@@ -1,4 +1,5 @@
-export TERM=xterm-256color
+export TERM=${TERM:-xterm-256color}
+export LANG=en_US.UTF-8
 
 export FZF_CTRL_R_OPTS="--inline-info --exact"
 
