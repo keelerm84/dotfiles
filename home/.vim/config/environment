@@ -169,7 +169,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }}}
 
 " Markdown {{{
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php']
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sql', 'xml', 'php']
 autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " }}}
 
