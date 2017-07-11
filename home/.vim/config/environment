@@ -1,4 +1,5 @@
 " General {{{
+set t_ut=  " Force vim to use the background color for the whole line
 set termguicolors
 set background=dark
 let g:gruvbox_contrast_dark='soft'
