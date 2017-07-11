@@ -1,7 +1,7 @@
 . ~/.zsh/functions.zsh
 
 . ~/.zsh/git.zsh
-. ~/.zsh/agnoster.zsh-theme
+. ~/.zsh/themes/gitster.zsh-theme
 load_file "functions.zsh"
 load_file "environment.zsh"
 load_file "setopt.zsh"
