@@ -166,6 +166,11 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
