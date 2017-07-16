@@ -855,6 +855,7 @@ spaceship_docker() {
   docker info 2>&1 | grep -q "Cannot connect" && return
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
+  local docker_container_count=$(docker ps -q | wc -l)
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
@@ -863,7 +864,7 @@ spaceship_docker() {
   _prompt_section \
     "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_PREFIX" \
-    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}" \
+    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version} (${docker_container_count})" \
     "$SPACESHIP_DOCKER_SUFFIX"
 }
 
