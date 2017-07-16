@@ -563,6 +563,8 @@ spaceship_hg_status() {
 spaceship_hg() {
   [[ $SPACESHIP_HG_SHOW == false ]] && return
 
+  _exists hg || return
+
   local hg_branch="$(spaceship_hg_branch)" hg_status="$(spaceship_hg_status)"
 
   [[ -z $hg_branch ]] && return
