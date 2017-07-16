@@ -167,6 +167,19 @@ nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
 
 let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'GruvboxAqua'],
+  \ 'fg+':     ['fg', 'String'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'GruvboxBlue'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'GruvboxPurple'],
+  \ 'pointer': ['fg', 'GruvboxPurple'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 " }}}
 
 " Tagbar {{{
