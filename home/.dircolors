@@ -50,7 +50,7 @@ EIGHTBIT 1
 # string consists of one or more of the following numeric codes:
 #
 # Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# 00=none 00=bold 04=underscore 05=blink 07=reverse 08=concealed
 # Text color codes:
 # 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
 # Background color codes:
@@ -58,16 +58,17 @@ EIGHTBIT 1
 
 NORMAL                00       # global default, although everything should be something.
 FILE                  00       # normal file
-DIR                   01;33    # directory
+DIR                   00;33    # directory
+EXEC                  00;32    # executables
 LINK                  00;36    # symbolic link
 FIFO                  40;33    # pipe
-SOCK                  01;35    # socket
-DOOR                  01;35    # door
-BLK                   40;33;01 # block device driver
-CHR                   40;33;01 # character device driver
-ORPHAN                41;33;01 # symlink to nonexistent file
+SOCK                  00;35    # socket
+DOOR                  00;35    # door
+BLK                   40;33;00 # block device driver
+CHR                   40;33;00 # character device driver
+ORPHAN                41;33;00 # symlink to nonexistent file
 STICKY_OTHER_WRITABLE 30;42    # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE        01;36    # dir that is other-writable (o+w) and not sticky
+OTHER_WRITABLE        00;36    # dir that is other-writable (o+w) and not sticky
 STICKY                37;44    # dir with the sticky bit set (+t) and not other-writable
 
 # This is for files with execute permission:
@@ -78,12 +79,13 @@ STICKY                37;44    # dir with the sticky bit set (+t) and not other-
 # (and any comments you want to add after a '#')
 
 # executables (bright green)
+.sh  00;32
 .cmd  00;32
-.exe  01;32
-.com  01;32
-.bat  01;32
-.btm  01;32
-.dll  01;32
+.exe  00;32
+.com  00;32
+.bat  00;32
+.btm  00;32
+.dll  00;32
 
 # archives or compressed
 .tar  00;31
@@ -108,27 +110,27 @@ STICKY                37;44    # dir with the sticky bit set (+t) and not other-
 .rar  00;31
 
 # image formats
-.avi  01;35
-.bmp  01;35
-.fli  01;35
-.gif  01;35
-.jpg  01;35
-.jpeg 01;35
-.mng  01;35
-.mov  01;35
-.mpg  01;35
-.pcx  01;35
-.pbm  01;35
-.pgm  01;35
-.png  01;35
-.ppm  01;35
-.tga  01;35
-.tif  01;35
-.xbm  01;35
-.xpm  01;35
-.dl   01;35
-.gl   01;35
-.wmv  01;35
+.avi  00;35
+.bmp  00;35
+.fli  00;35
+.gif  00;35
+.jpg  00;35
+.jpeg 00;35
+.mng  00;35
+.mov  00;35
+.mpg  00;35
+.pcx  00;35
+.pbm  00;35
+.pgm  00;35
+.png  00;35
+.ppm  00;35
+.tga  00;35
+.tif  00;35
+.xbm  00;35
+.xpm  00;35
+.dl   00;35
+.gl   00;35
+.wmv  00;35
 
 # sound formats
 .aiff 00;32
@@ -138,4 +140,3 @@ STICKY                37;44    # dir with the sticky bit set (+t) and not other-
 .ogg  00;32
 .voc  00;32
 .wav  00;32
-
