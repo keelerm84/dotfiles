@@ -879,7 +879,7 @@ spaceship_venv() {
   _prompt_section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
-    "${SPACESHIP_PYENV_SYMBOL}$(python --version | awk '{ print $2 }') $(basename $VIRTUAL_ENV)" \
+    "${SPACESHIP_PYENV_SYMBOL}$(python --version 2>&1 | awk '{ print $2 }') $(basename $VIRTUAL_ENV)" \
     "$SPACESHIP_VENV_SUFFIX"
 }
 
