@@ -852,7 +852,7 @@ spaceship_docker() {
 
   _exists docker || return
   # if docker daemon isn't running you'll get an error saying it can't connect
-  docker info 2>&1 | grep -q "Cannot connect" && return
+  docker info > /dev/null 2>&1 || return
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
   local docker_container_count=$(docker ps -q | wc -l)
