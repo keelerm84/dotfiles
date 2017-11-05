@@ -199,8 +199,8 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " }}}
 
-" Fugitive {{{
-nnoremap <silent> <leader>gs :Gstatus<CR>
+" Git {{{
+nnoremap <silent> <leader>gs :MagitOnly<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
