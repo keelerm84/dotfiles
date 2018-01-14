@@ -6,25 +6,46 @@ alias tmux='tmux -2 -u'
 alias e='emacsclient -t'
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
-alias gr='[ ! -z `git rev-parse --show-toplevel` ] && cd `git rev-parse --show-toplevel || pwd`'
-alias gb='git branch'
-alias gdc='git diff --cached'
-alias gd='git diff'
-alias gap='git add -p'
-alias ga='git add'
-alias gc='git commit --verbose'
-alias gca='gc --amend'
-alias gco='git checkout'
-alias gl='git log'
-alias gll='g ll'
-alias gs='git status'
-alias gsp='git show -p'
-alias gp='git pull'
-alias gpr='git pull --rebase'
-alias gP='git push'
-alias gm='git merge'
 alias g='git'
-alias gg='git grep'
+
+alias gr='[ ! -z `git rev-parse --show-toplevel` ] && cd `g rev-parse --show-toplevel || pwd`'
+alias gb='g branch'
+
+alias gd='g diff'
+alias gdc='gd --cached'
+
+alias ga='g add'
+alias gap='ga -p'
+
+alias gc='g commit --verbose'
+alias gca='gc --amend'
+
+alias gco='g checkout'
+
+alias gl='g log'
+alias gll='g ll'
+
+alias gs='g status'
+alias gsp='g show -p'
+
+alias gp='g pull'
+alias gpr='gp --rebase'
+
+alias gra='g rebase --abort'
+alias grc='g rebase --continue'
+
+alias gP='g push'
+alias gm='g merge'
+
+alias gg='g grep'
+
+alias gst='g stash'
+alias gstl='gst list'
+alias gstd='gst drop'
+alias gstp='gst pop'
+alias gsta='gst apply'
+alias gsts='gst save'
+alias gstsu='gsts -u'
 
 alias dkr-build='dkr-down && docker-compose rm -f && docker rmi $(echo "${${PWD##*/}/./}_app" | sed "s/[^a-zA-Z0-9_]//g"); docker-compose build && dkr-up'
 alias dkr-down="docker-compose stop"
