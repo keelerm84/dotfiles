@@ -43,6 +43,7 @@ set sort_aux = 'reverse-last-date-received'
 set uncollapse_jump
 
     # Key Bindings {{{
+    bind index g noop
     bind index gg first-entry
     bind index G  last-entry
 
@@ -71,6 +72,7 @@ unset markers
     bind pager k previous-line
     bind pager j next-line
 
+    bind pager g noop
     bind pager gg top
     bind pager G bottom
 
