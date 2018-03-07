@@ -17,6 +17,8 @@ nmap <leader>gn :bn<CR>
 nmap <leader>gp :bp<CR>
 nmap <leader>tn :tabnew<CR>
 
+let g:paste_no_mappings = 1
+nmap <leader>p :Paste<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>h :sp<CR>
 
