@@ -589,6 +589,9 @@ spaceship_package() {
 
   # Grep and cut out package version
   local package_version=$(grep '"version":' package.json | cut -d\" -f4 2> /dev/null)
+
+  [[ -z "$package_version" ]] && return
+
   package_version="v${package_version}"
 
   _prompt_section \
