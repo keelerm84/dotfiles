@@ -38,5 +38,5 @@ $ curl -o- https://raw.githubusercontent.com/keelerm84/dotfiles/master/install.s
 
 Shortened url:
 ```bash
-$ curl -o- http://bit.ly/2pztvLf | bash
+$ curl -Lo- http://bit.ly/2pztvLf | bash
 ```
