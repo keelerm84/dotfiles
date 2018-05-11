@@ -3,7 +3,7 @@ function dkr-container-name {
     dir="${dir/./}"
 
     local app=${1:-app}
-    __container="$(echo "${dir}" | sed "s/[^a-zA-Z0-9]//")_${app}"
+    __container="$(echo "${dir}")_${app}"
 }
 
 function dkr-down {
