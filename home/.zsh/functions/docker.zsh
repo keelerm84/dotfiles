@@ -88,6 +88,10 @@ function dkr-up {
 }
 
 function dkr-bash {
+    if [[ -z $1 ]]; then
+        1=app
+    fi
+
     dkr-exec "$1" bash
 }
 
