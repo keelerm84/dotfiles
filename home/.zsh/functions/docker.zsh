@@ -32,7 +32,7 @@ function dkr-exec {
     local cmd="docker"
     local it="-it"
     local detachKeys=(--detach-keys "ctrl-q,q")
-    if [[ $__is_compose ]]; then
+    if [[ $__is_compose == true ]]; then
         cmd="docker-compose"
         it=""
         detachKeys=""
@@ -48,7 +48,7 @@ function dkr-run {
     local cmd="docker"
     local it="-it"
     local detachKeys=(--detach-keys "ctrl-q,q")
-    if [[ $__is_compose ]]; then
+    if [[ $__is_compose == true ]]; then
         cmd="docker-compose"
         it=""
         detachKeys=""
@@ -107,7 +107,7 @@ function dkr-logs {
     dkr-container-name $@
 
     local cmd="docker"
-    if [[ $__is_compose ]]; then
+    if [[ $__is_compose == true ]]; then
         cmd="docker-compose"
     fi
 
