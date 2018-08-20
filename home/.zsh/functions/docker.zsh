@@ -10,6 +10,7 @@ function dkr-container-name {
     done
 
     # Replace the container name with the original if not a docker-compose project
+    __is_compose=false
     if [[ -f ./docker-compose.yml && "$__var" == "" ]]; then
         __is_compose=true
     elif [[ ! -f ./docker-compose.yml || "$(docker-compose ps | grep $__var)" == "" ]]; then
@@ -38,7 +39,7 @@ function dkr-exec {
         detachKeys=""
     fi
 
-    echo "Running: ${cmd} exec -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
+    # echo "Running: ${cmd} exec -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
     ${cmd} exec -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${detachKeys[@]} ${it} ${__params[@]}
 }
 
@@ -54,7 +55,7 @@ function dkr-run {
         detachKeys=""
     fi
 
-    echo "Running: ${cmd} run -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
+    # echo "Running: ${cmd} run -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
     ${cmd} run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${detachKeys[@]} ${it} ${__params[@]}
 }
 
@@ -111,7 +112,7 @@ function dkr-logs {
         cmd="docker-compose"
     fi
 
-    echo "Running: ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'"
+    # echo "Running: ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'"
     ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'
 }
 
