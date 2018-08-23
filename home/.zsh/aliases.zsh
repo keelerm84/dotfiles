@@ -48,8 +48,4 @@ alias gsta='gst apply'
 alias gsts='gst save'
 alias gstsu='gsts -u'
 
-alias dkr-exec='docker exec -e COLUMNS="`tput cols`" -e LINES="`tput lines`" -it --detach-keys "ctrl-q,q" '
-alias dkr-run='docker run -it --detach-keys "ctrl-q,q" '
-alias dkr-stats="docker stats \$(docker ps --format '{{.Names}}')"
-
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
