@@ -32,15 +32,13 @@ function dkr-exec {
 
     local cmd="docker"
     local it="-it"
-    local detachKeys=(--detach-keys "ctrl-q,q")
     if [[ $__is_compose == true ]]; then
         cmd="docker-compose"
         it=""
-        detachKeys=""
     fi
 
-    # echo "Running: ${cmd} exec -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
-    ${cmd} exec -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${detachKeys[@]} ${it} ${__params[@]}
+    # echo "Running: ${cmd} exec -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${it} ${__params[@]}"
+    ${cmd} exec -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${it} ${__params[@]}
 }
 
 function dkr-run {
@@ -48,15 +46,13 @@ function dkr-run {
 
     local cmd="docker"
     local it="-it"
-    local detachKeys=(--detach-keys "ctrl-q,q")
     if [[ $__is_compose == true ]]; then
         cmd="docker-compose"
         it=""
-        detachKeys=""
     fi
 
-    # echo "Running: ${cmd} run -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${detachKeys[@]} ${it} ${__params[@]}"
-    ${cmd} run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${detachKeys[@]} ${it} ${__params[@]}
+    # echo "Running: ${cmd} run -e COLUMNS=\"`tput cols`\" -e LINES=\"`tput lines`\" ${it} ${__params[@]}"
+    ${cmd} run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" ${it} ${__params[@]}
 }
 
 function dkr-stats {
