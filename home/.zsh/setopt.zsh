@@ -10,21 +10,21 @@ setopt HUP
 ## never ever beep ever
 setopt NO_BEEP
 
-setopt complete_in_word
-setopt always_to_end
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
 
-setopt auto_cd
-setopt auto_name_dirs
-setopt auto_pushd
-setopt pushd_silent
+setopt AUTO_CD
+setopt AUTO_NAME_DIRS
+setopt AUTO_PUSHD
+setopt PUSHD_SILENT
 
-setopt append_history
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups # ignore duplication command history list
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history # share command history data
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
-setopt PROMPT_SUBST # Enable prompt expansion
+setopt PROMPT_SUBST
