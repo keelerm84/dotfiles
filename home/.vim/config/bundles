@@ -37,6 +37,7 @@ Plug 'enricobacis/paste.vim'
 " }}}
 
 " Programming {{{
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'sgeb/vim-diff-fold'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/syntastic'
