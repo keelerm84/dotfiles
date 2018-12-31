@@ -15,6 +15,8 @@ set mailcap_path = ~/.mutt/mailcap
 
     set mail_check = 0
     set timeout = 3
+
+    set new_mail_command="notify-send 'New Email' '%n new messages, %u unread' &"
     # }}}
 
     # Status Line {{{
@@ -64,6 +66,7 @@ set uncollapse_jump
 set pager_index_lines = 10
 set pager_context = 3
 set pager_stop
+set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 set menu_scroll
 set tilde
 unset markers
