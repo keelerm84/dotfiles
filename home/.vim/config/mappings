@@ -230,10 +230,6 @@ nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " }}}
 
 " Git {{{
-" Ensure that we are always at the top of the file after we have staged some
-" work
-autocmd User VimagitRefresh execute "normal! zt"
-
 nnoremap <silent> <leader>gs :MagitOnly<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
