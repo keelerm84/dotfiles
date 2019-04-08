@@ -16,4 +16,23 @@ function man {
         man "$@"
 }
 
+function git_ignore {
+    selections=$(curl -s https://www.gitignore.io/api/list?format=json | \
+        jq '.[].name' | \
+        fzf -m --prompt='Template> ' | \
+        sed 's/^"\(.*\)"$/\1/' | \
+        tr '\n' ',' | \
+        sed 's/.$//')
+
+    if [ $? -ne 0 ]; then
+        exit;
+    fi
+
+    if [ -e .gitignore ]; then
+        echo "Appending to existing .gitignore file."
+    fi
+
+    curl -sLw "\n" "https://www.gitignore.io/api/${selections}" >> .gitignore
+}
+
 . ~/.zsh/functions/docker.zsh
