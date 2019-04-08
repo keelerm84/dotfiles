@@ -25,7 +25,7 @@ function git_ignore {
         sed 's/.$//')
 
     if [ $? -ne 0 ]; then
-        exit;
+        return 1
     fi
 
     if [ -e .gitignore ]; then
@@ -45,7 +45,6 @@ function record_gif {
         return 1
     fi
 
-    echo "cd $tmpDir"
     cd $tmpDir
 
     if [ $? -ne 0 ]; then
