@@ -35,4 +35,48 @@ function git_ignore {
     curl -sLw "\n" "https://www.gitignore.io/api/${selections}" >> .gitignore
 }
 
+function record_gif {
+    dir=$(pwd)
+
+    tmpDir=$(mktemp -d /tmp/gif-recording.XXXXXX)
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to create temp dir"
+        return 1
+    fi
+
+    echo "cd $tmpDir"
+    cd $tmpDir
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to change into $tmpDir"
+        return 1
+    fi
+
+    echo "Click the window to record"
+    winInfo=$(xwininfo)
+
+    width=$(echo $winInfo | grep 'Width:' | awk -F: '{ print $2 }')
+    height=$(echo $winInfo | grep 'Height:' | awk -F: '{ print $2 }')
+    upperLeftX=$(echo $winInfo | grep 'Absolute upper-left X:' | awk -F: '{ print $2 }')
+    upperLeftY=$(echo $winInfo | grep 'Absolute upper-left Y:' | awk -F: '{ print $2 }')
+
+    echo "Beginning screen capture. Press [q] when finished"
+    ffmpeg -loglevel quiet -f x11grab -video_size ${width}x${height} -framerate 60 -i :0.0+${upperLeftX},${upperLeftY} -c:v ffvhuff screen.mkv
+
+    if [ $? -ne 0 ]; then
+        echo "An error occurred capturing video"
+        cd -
+        return 1
+    fi
+
+    echo "Generating palette.png"
+    ffmpeg -loglevel quiet -i screen.mkv -vf fps=15,scale=${width}:-1:flags=lanczos,palettegen palette.png
+
+    echo "Converting screen.mkv to ${dir}/${1}.gif"
+    ffmpeg -loglevel quiet -i screen.mkv -i palette.png -filter_complex "fps=15,scale=${width}:-1:flags=lanczos[x];[x][1:v]paletteuse" ${dir}/$1.gif
+
+    cd -
+}
+
 . ~/.zsh/functions/docker.zsh
