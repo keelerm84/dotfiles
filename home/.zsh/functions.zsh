@@ -36,7 +36,7 @@ function git_ignore {
 }
 
 function record_gif {
-    dir=$(pwd)
+    currentDir=$(pwd)
 
     tmpDir=$(mktemp -d /tmp/gif-recording.XXXXXX)
 
@@ -72,7 +72,7 @@ function record_gif {
     echo "Generating palette.png"
     ffmpeg -loglevel quiet -i screen.mkv -vf fps=15,scale=${width}:-1:flags=lanczos,palettegen palette.png
 
-    echo "Converting screen.mkv to ${dir}/${1}.gif"
+    echo "Converting screen.mkv to ${currentDir}/${1}.gif"
     ffmpeg -loglevel quiet -i screen.mkv -i palette.png -filter_complex "fps=15,scale=${width}:-1:flags=lanczos[x];[x][1:v]paletteuse" ${dir}/$1.gif
 
     cd -
