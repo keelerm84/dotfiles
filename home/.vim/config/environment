@@ -225,6 +225,8 @@ autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType markdown let b:noStripWhitespace=1
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.ts set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.tsx set filetype=javascript.jsx
 " }}}
 
 " vim: ft=vim foldlevel=0 foldmethod=marker
