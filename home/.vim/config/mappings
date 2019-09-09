@@ -95,7 +95,7 @@ map <leader>nt :NERDTreeTabsToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 
 let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['__pycache__', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\~$', '\.swo$', '\.swp$', '\.git$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=2
