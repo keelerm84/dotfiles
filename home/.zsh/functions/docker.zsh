@@ -25,6 +25,11 @@ function dkr-container-name {
             __params[$i]="$__container"
         fi
     done
+
+    # This method persists for the lifetime of the terminal so we need to
+    # ensure these variables are reset at the end of each execution.
+    __var=""
+    __container=""
 }
 
 function dkr-exec {
