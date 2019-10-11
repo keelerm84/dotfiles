@@ -10,5 +10,3 @@
 [alias]
     ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %C(bold cyan)%an%C(reset)%C(bold yellow)%d%C(reset)'
     lines = diff --shortstat 4b825dc642cb6eb9a060e54bf8d69288fbee4904
-[url "git@github.com:"]
-	insteadOf = https://github.com/
