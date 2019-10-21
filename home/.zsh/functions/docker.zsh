@@ -177,7 +177,6 @@ function dkr-proxy {
 
     docker pull jrcs/letsencrypt-nginx-proxy-companion && \
         dkr-run --name ssl -d \
-            -e "ACME_CA_URI=https://acme-v01.api.letsencrypt.org/directory" \
             -v /var/run/docker.sock:/var/run/docker.sock:ro \
             -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:rw \
             --volumes-from proxy \
