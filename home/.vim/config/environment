@@ -12,6 +12,9 @@ colorscheme gruvbox
 filetype plugin indent on
 highlight clear SignColumn
 
+" Enable modeline overrides (i.e. # vim: set sw=2)
+set modeline
+
 syntax on
 set mousehide
 scriptencoding utf-8
