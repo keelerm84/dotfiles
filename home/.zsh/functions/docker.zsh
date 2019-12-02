@@ -114,8 +114,8 @@ function dkr-logs {
         cmd="docker-compose"
     fi
 
-    # echo "Running: ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'"
-    ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'
+    # echo "Running: ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -aiE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'"
+    ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -aiE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'
 }
 
 function dkr-reup {
