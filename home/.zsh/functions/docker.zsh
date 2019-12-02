@@ -61,15 +61,16 @@ function dkr-run {
 }
 
 function dkr-stats {
-    if [[ "$1" != "" ]]; then
-        dkr-container-name $1
-    fi
-
-    __containers="$1"
+    dkr-container-name $1
+    __containers="$argv"
 
     # If inside a docker-compose project
-    if [[ -z $__container || "$(docker ps | grep $__container)" != "" ]]; then
-        __containers="${__container}"
+    if [[ $__is_compose == true ]]; then
+        if [[ ! -z "$argv" ]]; then
+            __containers="$(docker-compose ps | grep Up | grep $(echo $argv | sed 's# #\\|#') | awk '{ print $1 }')"
+        else
+            __containers="$(docker-compose ps | grep Up | awk '{ print $1 }')"
+        fi
     fi
 
     # If not inside a docker-compose project and no container is requested, use all
