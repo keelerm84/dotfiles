@@ -36,7 +36,12 @@ function git_ignore {
 }
 
 function record_gif {
-    currentDir=$(pwd)
+    if [ -z "$1" ]; then
+        echo "You must provide a name for the gif"
+        return 1
+    fi
+
+    local currentDir=$(pwd)
 
     tmpDir=$(mktemp -d /tmp/gif-recording.XXXXXX)
 
@@ -73,9 +78,9 @@ function record_gif {
     ffmpeg -loglevel quiet -i screen.mkv -vf fps=15,scale=${width}:-1:flags=lanczos,palettegen palette.png
 
     echo "Converting screen.mkv to ${currentDir}/${1}.gif"
-    ffmpeg -loglevel quiet -i screen.mkv -i palette.png -filter_complex "fps=15,scale=${width}:-1:flags=lanczos[x];[x][1:v]paletteuse" ${dir}/$1.gif
+    ffmpeg -loglevel quiet -i screen.mkv -i palette.png -filter_complex "fps=15,scale=${width}:-1:flags=lanczos[x];[x][1:v]paletteuse" ${currentDir}/$1.gif
 
-    cd -
+    cd "$currentDir"
 }
 
 . ~/.zsh/functions/docker.zsh
