@@ -149,7 +149,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>i <Plug>(go-implements)
-autocmd FileType go nmap <leader>l :GoLint<CR>
+autocmd FileType go nmap <leader>l :GoMetaLinter<CR>
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage)
 autocmd FileType go nmap <leader>gv <Plug>(go-vet)
