@@ -8,6 +8,7 @@ export FZF_DEFAULT_OPTS='
 export FZF_CTRL_R_OPTS="--inline-info --exact"
 
 command -v dircolors > /dev/null && eval "$(dircolors ~/.dircolors)"
+set -o emacs
 
 [ -e "$HOME/Projects/golang" ] && export GOPATH="$HOME/Projects/golang"
 [ -e "/usr/local/go" ] && export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"

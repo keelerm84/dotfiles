@@ -11,3 +11,15 @@ bindkey "^[m" copy-earlier-word
 
 autoload -U select-word-style
 select-word-style bash
+
+bindkey -r "^[c"
+bindkey "^[c" capitalize-word
+
+bindkey -r "^[D"
+bindkey "^[D" fzf-cd-widget
+
+bindkey -r "^t"
+bindkey "^t"  transpose-chars
+
+bindkey -r "^[F"
+bindkey "^[F"  fzf-file-widget
