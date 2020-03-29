@@ -115,4 +115,9 @@ Plug 'smintz/vim-sqlutil'
 Plug 'fatih/vim-go'
 " }}}
 
+" Rust {{{
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+" }}}
+
 " vim: ft=vim foldlevel=0 foldmethod=marker

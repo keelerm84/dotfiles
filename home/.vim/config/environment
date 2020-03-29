@@ -158,6 +158,17 @@ autocmd FileType go let b:noStripWhitespace=1
 autocmd FileType qf let b:noStripWhitespace=1
 " }}}
 
+" Rust {{{
+let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
+
+autocmd FileType rust nmap gd <Plug>(rust-def)
+autocmd FileType rust nmap gs <Plug>(rust-def-split)
+autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
+autocmd FileType rust nmap gt <Plug>(rust-def-tab)
+autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
+" }}}
+
 " SQL {{{
 " SQLUtil requires Align, but I don't want it to conflict with tabularize
 let g:loaded_AlignMapsPlugin = 0
