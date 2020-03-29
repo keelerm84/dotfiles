@@ -89,9 +89,9 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 " Javascript {{{
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
-Plug 'pangloss/vim-javascript'
-Plug 'briancollins/vim-jst'
-Plug 'kchmck/vim-coffee-script'
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'digitaltoad/vim-jade'
 " }}}
 

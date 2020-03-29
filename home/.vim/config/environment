@@ -184,11 +184,10 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }}}
 
 " Markdown {{{
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sql', 'xml', 'php']
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sql', 'xml', 'php']
 autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " }}}
 
@@ -239,9 +238,6 @@ nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType markdown let b:noStripWhitespace=1
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-autocmd BufNewFile,BufRead *.rt set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.ts set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.tsx set filetype=javascript.jsx
 " }}}
 
 " vim: ft=vim foldlevel=0 foldmethod=marker
