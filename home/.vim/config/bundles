@@ -34,6 +34,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/tmux-complete.vim'
 Plug 'junegunn/indentLine'
 Plug 'enricobacis/paste.vim'
+Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
 " Programming {{{
