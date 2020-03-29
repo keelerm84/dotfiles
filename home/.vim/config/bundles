@@ -46,7 +46,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'mattn/webapi-vim' " Required for gist-vim
 Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'vim-vdebug/vdebug'
