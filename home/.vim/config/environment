@@ -156,6 +156,7 @@ autocmd FileType go nmap <leader>gv <Plug>(go-vet)
 autocmd FileType go nmap <leader>gd <Plug>(go-doc)
 autocmd FileType go let b:noStripWhitespace=1
 autocmd FileType qf let b:noStripWhitespace=1
+autocmd FileType make let b:noStripWhitespace=1
 " }}}
 
 " Rust {{{
