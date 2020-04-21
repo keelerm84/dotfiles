@@ -858,7 +858,7 @@ spaceship_docker() {
   docker info > /dev/null 2>&1 || return
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
-  local docker_container_count=$(docker ps -q | wc -l)
+  local docker_container_count=$(docker ps -q | wc -l | tr -d ' ')
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
