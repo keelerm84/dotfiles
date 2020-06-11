@@ -41,7 +41,7 @@ if ${failed} == true; then
     exit 1
 fi
 
-git clone git://github.com/andsens/homeshick.git ${HOME}/.homesick/repos/homeshick
+git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 ${HOME}/.homesick/repos/homeshick/bin/homeshick clone -b https://github.com/keelerm84/dotfiles
 
 # @todo: loop through pre-existing linkable files and directories and move them to `.dotsave` or something.
