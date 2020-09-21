@@ -48,4 +48,6 @@ alias gsta='gst apply'
 alias gsts='gst save'
 alias gstsu='gsts -u'
 
+command -v nvim > /dev/null && alias vim=nvim
+
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
