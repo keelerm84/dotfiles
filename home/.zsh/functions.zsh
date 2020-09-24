@@ -83,4 +83,26 @@ function record_gif {
     cd "$currentDir"
 }
 
+function swatch {
+    if [[ -z ${1} || ${1} == --help || ${1} == -h ]]; then
+        echo "Fetch recent logs and follow for new messages. Parameters:"
+        echo "1. hours of logs in the past to fetch (optional, defaults to 1 hr)"
+        echo "2. log group"
+        return
+    fi
+
+    local hrs=${1:-1}
+    local group=${2}
+
+    if [[ -z ${group} ]]; then
+        group=${1}
+        hrs=1
+    fi
+
+    echo "Fetching ${hrs}h of ${group} logs..."
+
+    saw get ${group} --pretty --start -${hrs}h
+    saw watch ${group}
+}
+
 . ~/.zsh/functions/docker.zsh
