@@ -84,25 +84,47 @@ function record_gif {
 }
 
 function swatch {
-    if [[ -z ${1} || ${1} == --help || ${1} == -h ]]; then
+    if [[ $# == 0 ]]; then
         echo "Fetch recent logs and follow for new messages. Parameters:"
-        echo "1. hours of logs in the past to fetch (optional, defaults to 1 hr)"
-        echo "2. log group"
+        echo "  -h|--hours ..... hours of logs in the past to fetch (optional, defaults to 1 hr)"
+        echo "  -g|--group ..... log group"
+        echo "  -p|--profile ... aws profile"
+        echo "  -x|--prefix .... stream prefix"
         return
     fi
 
-    local hrs=${1:-1}
-    local group=${2}
+    local hours=1
+    local group=
+    local profile=default
+    local prefix=
 
-    if [[ -z ${group} ]]; then
-        group=${1}
-        hrs=1
+    while [[ "$#" > 0 ]]; do
+        case "${1}" in
+            -h|--hours)
+                hours=${2}
+                shift 2;;
+            -g|--group)
+                group=${2}
+                shift 2;;
+            -p|--profile)
+                profile=${2}
+                shift 2;;
+            -x|--prefix)
+                prefix=${2}
+                shift 2;;
+            *)
+                shift;; # unexpected params
+        esac
+    done
+
+    echo "Fetching ${hours}h of ${group} ${prefix} logs using ${profile} profile..."
+
+    if [[ ! -z ${prefix} ]]; then
+        prefix=(--prefix "${prefix}")
     fi
 
-    echo "Fetching ${hrs}h of ${group} logs..."
-
-    saw get ${group} --pretty --start -${hrs}h
-    saw watch ${group}
+    saw --profile ${profile} get ${group} "${prefix[@]}" --pretty --start -${hours}h
+    saw --profile ${profile} watch ${group} "${prefix[@]}"
 }
 
 . ~/.zsh/functions/docker.zsh
