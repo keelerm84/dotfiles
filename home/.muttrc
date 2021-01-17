@@ -13,10 +13,10 @@ set mailcap_path = ~/.mutt/mailcap
 
     set editor = "$EDITOR"
 
-    set mail_check = 0
+    set mail_check = 5
     set timeout = 3
 
-    set new_mail_command="notify-send 'New Email' '%n new messages, %u unread' &"
+    set new_mail_command="notify-send --icon=/usr/share/icons/Arc/actions/22@2x/mail_new.png 'New Email in %f' '%n new messages, %u unread' &"
     # }}}
 
     # Status Line {{{
