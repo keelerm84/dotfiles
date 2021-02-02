@@ -84,6 +84,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 autocmd FileType * silent! setlocal formatoptions+=j
 
 let g:SimpylFold_docstring_preview = 1
+let g:http_client_verify_ssl = 1
 
 " Always open the quickfix window after running any sort of grep command
 autocmd QuickFixCmdPost *grep* cwindow
