@@ -182,8 +182,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " }}}
 
 " Python {{{
-let python_highlight_all=1
-let g:jedi#use_tabs_not_buffers = 1
+" let python_highlight_all=1
+" let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
 " }}}
 
 " PHP {{{
