@@ -103,9 +103,36 @@ set sendmail_wait = 0
 unset record
 # }}}
 
+# Notmuch Commands {{{
+# Find email addresses by searching through all previous email
+set query_command="notmuch-addrlookup --mutt '%s'"
+
+# Search email for a specific keyword
+macro index S \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<shell-escape>notmuch-mutt -r --prompt search<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+     "notmuch: search mail"
+
+# Unroll the thread an email belongs to
+macro index <Esc>t \
+"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
+<pipe-message>notmuch-mutt -r thread<enter>\
+<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+<collapse-thread>\
+<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+     "notmuch: reconstruct thread"
+# }}}
+
 # Misc Bindings {{{
 bind editor <tab> complete-query
 bind editor ^T complete
+# }}}
+
+# Neomutt Specific Additions {{{
+set abort_noattach = ask-yes
+set abort_noattach_regex = "\\<attach(|ed|ments?)\\>"
 # }}}
 
 # Setup your folders, realname, theme overrides, etc.

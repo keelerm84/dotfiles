@@ -1,5 +1,5 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/pdf; evince %s
-image/jpeg; eog %s
-image/jpg; eog %s
-image/tiff; eog %s
+image/jpeg; feh %s
+image/jpg; feh %s
+image/tiff; feh %s
