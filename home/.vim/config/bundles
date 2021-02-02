@@ -112,7 +112,7 @@ Plug 'tpope/vim-rails'
 Plug 'vim-scripts/Align'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'NLKNguyen/pipe.vim'
-Plug 'smintz/vim-sqlutil'
+Plug 'vim-scripts/SQLUtilities'
 " }}}
 
 " Go {{{
