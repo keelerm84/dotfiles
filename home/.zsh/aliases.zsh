@@ -51,8 +51,6 @@ alias gsta='gst apply'
 alias gsts='gst save'
 alias gstsu='gsts -u'
 
-alias sudo='sudo '
+alias dpss='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" | sort -k2'
 
-command -v nvim > /dev/null && alias vim=nvim
-
-[ -e ~/.aliases.local ] && . ~/.aliases.local || true
+alias mutt='TERM=xterm-256color neomutt'
