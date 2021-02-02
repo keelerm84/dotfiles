@@ -243,8 +243,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 " Markdown {{{
-let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sql', 'xml', 'php']
-autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sql', 'xml', 'php', 'java']
+autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags conceallevel=0
 " }}}
 
 " C# {{{
