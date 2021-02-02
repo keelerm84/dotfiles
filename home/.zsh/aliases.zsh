@@ -15,6 +15,8 @@ alias gb='g branch'
 alias gd='g diff'
 alias gdc='gd --cached'
 
+alias gf='g fetch'
+
 alias ga='g add'
 alias gap='ga -p'
 
@@ -22,6 +24,7 @@ alias gc='g commit --verbose'
 alias gca='gc --amend'
 
 alias gco='g checkout'
+alias grs='g restore --staged'
 
 alias gl='g log'
 alias gll='g ll'
