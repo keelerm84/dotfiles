@@ -36,6 +36,7 @@ Plug 'junegunn/tmux-complete.vim'
 Plug 'junegunn/indentLine'
 Plug 'enricobacis/paste.vim'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jparise/vim-graphql'
 Plug 'cespare/vim-toml'
 " }}}
