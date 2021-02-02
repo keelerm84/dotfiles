@@ -28,6 +28,7 @@ Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-abolish'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'aquach/vim-http-client'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
