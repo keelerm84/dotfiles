@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 . ~/.zsh/functions.zsh
 
 . ~/.zsh/git.zsh
