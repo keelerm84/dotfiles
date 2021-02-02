@@ -13,3 +13,5 @@ set -o emacs
 [ -e "$HOME/Projects/golang" ] && export GOPATH="$HOME/Projects/golang"
 [ -e "/usr/local/go" ] && export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 [ -e "$HOME/.cask/bin/" ] && export PATH="$PATH:$HOME/.cask/bin/"
+
+[ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
