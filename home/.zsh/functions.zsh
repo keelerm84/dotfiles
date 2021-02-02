@@ -127,4 +127,34 @@ function swatch {
     saw --profile ${profile} watch ${group} "${prefix[@]}"
 }
 
+function load_nvm () {
+    if [ ! -e "$HOME/.nvm" ]; then
+        >&2 echo "You do not have nvm installed"
+        return
+    fi
+
+    command -v nvm > /dev/null
+    if [ $? -ne 0 ]; then
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use
+    else
+        >&2 echo "nvm already loaded"
+    fi
+}
+
+function load_rvm () {
+    if [ ! -e $HOME/.cache/yay/rvm/rvm.sh ]; then
+        >&2 echo "You do not have rvm installed"
+        return
+    fi
+
+    command -v rvm > /dev/null
+
+    if [ $? -ne 0 ]; then
+        . $HOME/.cache/yay/rvm/rvm.sh
+    else
+        >&2 echo "rvm already loaded"
+    fi
+}
+
 . ~/.zsh/functions/docker.zsh
