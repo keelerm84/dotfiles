@@ -37,6 +37,7 @@ Plug 'junegunn/indentLine'
 Plug 'enricobacis/paste.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'jparise/vim-graphql'
+Plug 'cespare/vim-toml'
 " }}}
 
 " Programming {{{
