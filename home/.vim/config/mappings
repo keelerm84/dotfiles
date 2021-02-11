@@ -42,7 +42,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 map <Leader>= <C-w>=
 
-nnoremap <unique> <leader>r :HTTPClientDoRequest<cr>
+nnoremap <leader>r :HTTPClientDoRequest<cr>
 
 nnoremap <silent> <leader>w :wa<CR>
 
