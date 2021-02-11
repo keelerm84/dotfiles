@@ -65,7 +65,6 @@ nmap <leader>ff :set foldmethod=syntax<CR>
 nmap <leader>fi :set foldmethod=indent<CR>
 nmap <leader>fm :set foldmethod=marker<CR>
 nmap <leader>fd :set foldmethod=diff<CR>
-autocmd FileType php nmap <leader>ff :EnableFastPHPFolds<CR>
 nmap <leader>f0 :set foldlevel=0<CR>
 nmap <leader>f1 :set foldlevel=1<CR>
 nmap <leader>f2 :set foldlevel=2<CR>
@@ -130,54 +129,9 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 " }}}
 
-" PHP {{{
-let g:pdv_template_dir = $HOME."/.vim/plugins/pdv/templates_snip"
-autocmd FileType php noremap <leader>pd :call pdv#DocumentWithSnip()<CR>
-autocmd FileType php nmap <leader>pcf :call PhpCsFixerFixFile()<CR>
-autocmd FileType php setlocal omnifunc=phpactor#Complete
-
-" Include use statement
-nmap <Leader>u :call phpactor#UseAdd()<CR>
-
-" Invoke the context menu
-nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-
-" Invoke the navigation menu
-nmap <Leader>nn :call phpactor#Navigate()<CR>
-
-" Goto definition of class or class member under the cursor
-nmap <Leader>o :call phpactor#GotoDefinition()<CR>
-
-" Transform the classes in the current file
-nmap <Leader>ft :call phpactor#Transform()<CR>
-
-" Generate a new class (replacing the current file)
-nmap <Leader>cc :call phpactor#ClassNew()<CR>
-
-" Extract expression (normal mode)
-nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-
-" Extract expression from selection
-vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-
-" Extract method from selection
-vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-" }}}
-
-" SQL {{{
-autocmd FileType sql,mysql vmap <leader>fr :SQLUFormatter<CR>
-autocmd FileType sql,mysql nmap <leader>fr :SQLUFormatter<CR>
-" }}}
-
 " JSON {{{
 nmap <leader>fj <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 vmap <leader>fj :'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>
-" }}}
-
-" Python {{{
-let g:pymode_lint_checker = "pyflakes"
-let g:pymode_utils_whitespaces = 0
-let g:pymode_options = 0
 " }}}
 
 " FZF {{{
@@ -228,24 +182,6 @@ nnoremap <silent> <leader>tt :TagbarToggle<CR>
 " Syntastic {{{
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-" }}}
-
-" Git {{{
-nnoremap <silent> <leader>gs :MagitOnly<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-" }}}
-
-" Golang {{{
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_command = "golangci-lint"
 " }}}
 
 " Pipe integration {{{
