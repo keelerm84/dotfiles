@@ -31,7 +31,7 @@ endfun
         call LoadFiles([g:plugin_root_dir . '/vim-plug/plug.vim'])
 
         call plug#begin(g:plugin_root_dir)
-        call LoadFiles(["~/.vim/config/bundles", "~/.vim.bundles.local"])
+        call LoadFiles(["~/.vim/plugins.vim", "~/.vim.local/plugins.vim"])
         call plug#end()
     endfun
 
@@ -45,8 +45,8 @@ endfun
     endif
     " }}}
 
-    call LoadFiles(["~/.vim/config/functions", "~/.vim/config/environment", "~/.vim.local"])
-    call InitializeDirectories()
+    call LoadFiles(["~/.vim/config.vim", "~/.vim.local/config.vim"])
+    call functions#InitializeDirectories()
 " }}}
 
 " vim: ft=vim foldlevel=0 foldmethod=marker
