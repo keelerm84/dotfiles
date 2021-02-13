@@ -1,91 +1,82 @@
-" General Utilities {{{
+" General utilities {{{
 Plug 'junegunn/vim-plug'
-Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'spf13/vim-colors'
-Plug 'altercation/vim-colors-solarized'
-Plug 'sickill/vim-monokai'
-Plug 'jnurmine/Zenburn'
-Plug 'morhetz/gruvbox'
 Plug 'myusuf3/numbers.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fweep/vim-tabber'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/ZoomWin'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'bogado/file-line'
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-abolish'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'tpope/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'aquach/vim-http-client'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/tmux-complete.vim'
 Plug 'junegunn/indentLine'
 Plug 'enricobacis/paste.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jparise/vim-graphql'
-Plug 'cespare/vim-toml'
+Plug 'SirVer/ultisnips'
+" }}}
+
+" Themes and appearance {{{
+Plug 'spf13/vim-colors'
+Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
+Plug 'jnurmine/Zenburn'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " Programming {{{
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'sgeb/vim-diff-fold'
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jparise/vim-graphql'
+Plug 'cespare/vim-toml'
 Plug 'mattn/webapi-vim' " Required for gist-vim
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
-Plug 'vim-vdebug/vdebug'
 Plug 'PeterRincker/vim-argumentative'
-Plug 'tpope/vim-endwise'
 Plug 'aklt/plantuml-syntax'
 Plug 'fatih/vim-nginx'
 Plug 'janko-m/vim-test'
 Plug 'matze/vim-ini-fold'
-Plug 'neovimhaskell/haskell-vim'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
 endif
+
+" Git and VCS {{{
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
+Plug 'sgeb/vim-diff-fold'
 " }}}
 
-" PHP {{{
-Plug 'tobyS/pdv'
-Plug 'tobyS/vmustache'
-Plug 'SirVer/ultisnips'
-Plug 'alvan/vim-php-manual'
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'beyondwords/vim-twig'
-Plug 'StanAngeloff/php.vim'
-Plug 'swekaj/php-foldexpr.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+" C# {{{
+Plug 'OmniSharp/omnisharp-vim'
+" }}}
+
+" Go {{{
+Plug 'fatih/vim-go'
+" }}}
+
+" Haskell {{{
+Plug 'neovimhaskell/haskell-vim'
+" }}}
+
+" HTML and CSS {{{
+Plug 'alvan/vim-closetag'
+Plug 'hail2u/vim-css3-syntax'
 " }}}
 
 " Java {{{
+Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/vim-gradle'
-" }}}
-
-" Python {{{
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
-Plug 'davidhalter/jedi-vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
 " }}}
 
 " Javascript {{{
@@ -97,13 +88,34 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'digitaltoad/vim-jade'
 " }}}
 
-" HTML {{{
-Plug 'alvan/vim-closetag'
-Plug 'hail2u/vim-css3-syntax'
+" PHP {{{
+Plug 'vim-vdebug/vdebug'
+Plug 'tobyS/pdv'
+Plug 'tobyS/vmustache'
+Plug 'alvan/vim-php-manual'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'beyondwords/vim-twig'
+Plug 'StanAngeloff/php.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+" }}}
+
+" Python {{{
+Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+Plug 'davidhalter/jedi-vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 " }}}
 
 " Ruby {{{
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+" }}}
+
+" Rust {{{
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 " }}}
 
 " SQL {{{
@@ -111,13 +123,18 @@ Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'NLKNguyen/pipe.vim'
 " }}}
 
-" Go {{{
-Plug 'fatih/vim-go'
 " }}}
 
-" Rust {{{
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+" Search tools {{{
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+" }}}
+
+" Markdown {{{
+Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " }}}
 
 " vim: ft=vim foldlevel=0 foldmethod=marker
