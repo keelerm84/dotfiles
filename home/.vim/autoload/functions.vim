@@ -1,29 +1,27 @@
 " InitializeDirectories {{{
 function! functions#InitializeDirectories()
   let parent = $HOME
-  let prefix = 'vim'
+  let prefix = '.vim/cache/'
   let dir_list = {
-    \ 'backup': 'backupdir',
-    \ 'views': 'viewdir',
-    \ 'swap': 'directory',
-    \ 'undo': 'undodir' }
+    \ 'backupdir': 'backup//',
+    \ 'viewdir': 'views//',
+    \ 'directory': 'swap//',
+    \ 'undodir': 'undo//' }
 
-  let common_dir = parent . '/.' . prefix
+  let common_dir = parent . '/' . prefix
 
-  for [dirname, settingname] in items(dir_list)
-      let directory = common_dir . dirname . '/'
+  for [settingname, dirname] in items(dir_list)
+      let directory = common_dir . dirname
       if exists("*mkdir")
-    if !isdirectory(directory)
-        call mkdir(directory)
-    endif
+          call mkdir(directory, "p")
       endif
 
       if !isdirectory(directory)
-    echo "Warning: Unable to create backup directory: " . directory
-    echo "Try: mkdir -p " . directory
+          echo "Warning: Unable to create backup directory: " . directory
+          echo "Try: mkdir -p " . directory
       else
-    let directory = substitute(directory, " ", "\\\\ ", "g")
-    exec "set " . settingname . "=" . directory
+          let directory = substitute(directory, " ", "\\\\ ", "g")
+          exec "set " . settingname . "=" . directory
       endif
   endfor
 endfunction
