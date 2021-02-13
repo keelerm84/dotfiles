@@ -16,7 +16,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'fweep/vim-tabber'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-unimpaired'
-Plug 'sjl/gundo.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -44,7 +43,6 @@ Plug 'cespare/vim-toml'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'sgeb/vim-diff-fold'
 Plug 'mhinz/vim-signify'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'mattn/webapi-vim' " Required for gist-vim
@@ -109,10 +107,8 @@ Plug 'tpope/vim-rails'
 " }}}
 
 " SQL {{{
-Plug 'vim-scripts/Align'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'NLKNguyen/pipe.vim'
-Plug 'vim-scripts/SQLUtilities'
 " }}}
 
 " Go {{{

@@ -1,4 +1,4 @@
-" General {{{
+" Colors {{{
 set t_ut=  " Force vim to use the background color for the whole line
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -19,8 +19,11 @@ set background=dark
 let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
 
+hi Normal ctermbg=none
+" }}}
+
+" General Settings {{{
 filetype plugin indent on
-highlight clear SignColumn
 
 " Enable modeline overrides (i.e. # vim: set sw=2)
 set modeline
@@ -75,21 +78,15 @@ set completeopt=menu,preview,longest
 
 set tags=./tags;/,~/.vimtags
 
-let g:UltiSnipsSnippetsDir = expand('$HOME', 1) . '/.vim/'
-let g:UltiSnipsSnippetDirectories=["snips"]
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+set nowrap                      " Wrap long lines
+set autoindent                  " Indent at the same level of the previous line
+set shiftwidth=4                " Use indents of 4 spaces
+set expandtab                   " Tabs are spaces, not tabs
+set tabstop=4                   " An indentation every four columns
+set softtabstop=4               " Let backspace delete indent
+set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
-autocmd FileType * silent! setlocal formatoptions+=j
-
-let g:SimpylFold_docstring_preview = 1
-let g:http_client_verify_ssl = 1
-
-" Always open the quickfix window after running any sort of grep command
-autocmd QuickFixCmdPost *grep* cwindow
-
-hi Normal ctermbg=none
+let mapleader = ' '
 " }}}
 
 " UI {{{
@@ -97,8 +94,6 @@ let g:tabber_divider_style = 'unicode'
 set tabline=%!tabber#TabLine()
 
 set laststatus=2
-let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
 
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -121,103 +116,84 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 " }}}
 
-" Formatting {{{
-set nowrap                      " Wrap long lines
-set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
-set expandtab                   " Tabs are spaces, not tabs
-set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
-set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+" Improved window management and movement {{{
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-L> <C-W>l
+noremap <C-H> <C-W>h
+noremap <Leader>= <C-w>=
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap Y y$
+
+vnoremap < <gv
+vnoremap > >gv
 " }}}
 
-" General Programming {{{
-let g:syntastic_always_populate_loc_list = 1
-autocmd FileType {yaml,yml} set ft=yaml ts=2 sw=2 sts=2 smarttab
+" Searching {{{
+nnoremap <leader>gg :Ggrep<SPACE>
+nnoremap <leader>ag :Ag<SPACE>
+" }}}
+"
+" Folding {{{
+nnoremap <leader>ff :set foldmethod=syntax<CR>
+nnoremap <leader>fi :set foldmethod=indent<CR>
+nnoremap <leader>fm :set foldmethod=marker<CR>
+nnoremap <leader>fd :set foldmethod=diff<CR>
+nnoremap <leader>f0 :set foldlevel=0<CR>
+nnoremap <leader>f1 :set foldlevel=1<CR>
+nnoremap <leader>f2 :set foldlevel=2<CR>
+nnoremap <leader>f3 :set foldlevel=3<CR>
+nnoremap <leader>f4 :set foldlevel=4<CR>
+nnoremap <leader>f5 :set foldlevel=5<CR>
+nnoremap <leader>f6 :set foldlevel=6<CR>
+nnoremap <leader>f7 :set foldlevel=7<CR>
+nnoremap <leader>f8 :set foldlevel=8<CR>
+nnoremap <leader>f9 :set foldlevel=9<CR>
+" }}}
+
+" Saving and quitting {{{
+nnoremap zz ZZ
+nnoremap <silent> <leader>w :wa<CR>
+cnoremap w!! w !sudo tee % >/dev/null
+" }}}
+
+" Buffer management and navigation {{{
+nnoremap <leader>ga gg=G
+nnoremap <leader>db :bp\|bd#<CR>
+nnoremap <leader>adb :bufdo bdelete<CR>
+command! Bdi :call DeleteInactiveBufs()
+
+nnoremap <leader>gn :bn<CR>
+nnoremap <leader>gp :bp<CR>
+nnoremap <leader>tn :tabnew<CR>
+
+let g:paste_no_mappings = 1
+nnoremap <leader>v :vsp<CR>
+nnoremap <leader>h :sp<CR>
+" }}}
+
+" Misc {{{
+nnoremap <leader>fj :%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+vnoremap <leader>fj :'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+nnoremap <leader>p :Paste<CR>
+
+nmap <leader>fs :syn sync fromstart<CR>
+nnoremap <leader>no :noh<CR>
+noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 autocmd Syntax * syntax keyword Todo contained WARN NOTE FIXME XXX TODO ATTN containedin=.*Comment
-
-let g:coc_global_extensions = ["coc-git", "coc-go", "coc-html", "coc-java", "coc-json", "coc-omnisharp", "coc-phpls", "coc-python", "coc-rust-analyzer", "coc-yaml"]
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-" }}}
-
-" Git {{{
-augroup git
-    autocmd!
-    autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
-    autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
-    autocmd VimEnter * nnoremap <silent> <leader>gs :MagitOnly<CR>
-    autocmd VimEnter * nnoremap <silent> <leader>gd :Gdiff<CR>
-    autocmd VimEnter * nnoremap <silent> <leader>gc :Gcommit<CR>
-    autocmd VimEnter * nnoremap <silent> <leader>gb :Gblame<CR>
-    autocmd VimEnter * nnoremap <silent> <leader>gl :Glog<CR>
-    autocmd VimEnter * nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-augroup END
-" }}}
-
-" SQL {{{
-" SQLUtil requires Align, but I don't want it to conflict with tabularize
-let g:loaded_AlignMapsPlugin = 0
-let g:sqlutil_keyword_case = '\U'
-
-augroup sql
-    autocmd!
-    autocmd FileType sql,mysql set commentstring=--\ %s
-    autocmd FileType mysql let b:noClosePreview=1
-    " FIXME(mmk) This is a global mapping and doesn't belong here
-    autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
-
-    autocmd FileType sql,mysql vmap <buffer> <leader>fr :SQLUFormatter<CR>
-    autocmd FileType sql,mysql nmap <buffer> <leader>fr :SQLUFormatter<CR>
-augroup END
-" }}}
-
-" Twig {{{
-augroup twig
-    autocmd!
-    autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-augroup END
-" }}}
-
-" Remove trailing whitespaces and ^M chars {{{
-" FIXME(mmk) Decide which augroup you want to make this a part of
+autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
 autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+
+let @d='/^\(<<<<<<<\||||||||\|=======\|>>>>>>>\)' " Navigating merge conflict
 " }}}
 
 " vim: ft=vim foldlevel=0 foldmethod=marker
