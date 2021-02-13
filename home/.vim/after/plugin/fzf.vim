@@ -1,17 +1,17 @@
-nnoremap <C-p> :call functions#SmartFzfSearching()<CR>
-nnoremap g<C-p> :Files<CR>
-nnoremap gs<C-p> :GFiles?<CR>
+nnoremap <silent> <C-p> :call functions#SmartFzfSearching()<CR>
+nnoremap <silent> g<C-p> :Files<CR>
+nnoremap <silent> gs<C-p> :GFiles?<CR>
 
-nnoremap <leader>T :BTags<CR>
-nnoremap g<leader>T :Tags<CR>
+nnoremap <silent> <leader>T :BTags<CR>
+nnoremap <silent> g<leader>T :Tags<CR>
 
-nnoremap <leader>l :BLines<CR>
-nnoremap g<leader>l :Lines<CR>
+nnoremap <silent> <leader>l :BLines<CR>
+nnoremap <silent> g<leader>l :Lines<CR>
 
-nnoremap <leader>b :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
-nnoremap <leader>c :BCommits<CR>
-nnoremap g<leader>c :Commits<CR>
+nnoremap <silent> <leader>c :BCommits<CR>
+nnoremap <silent> g<leader>c :Commits<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
