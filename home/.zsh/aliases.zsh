@@ -22,6 +22,7 @@ alias gap='ga -p'
 
 alias gc='g commit --verbose'
 alias gca='gc --amend'
+alias gcan='gc --amend --no-edit'
 
 alias gco='g checkout'
 alias grs='g restore --staged'
