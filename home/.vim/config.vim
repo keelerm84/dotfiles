@@ -84,6 +84,7 @@ set shiftwidth=4                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4                   " An indentation every four columns
 set softtabstop=4               " Let backspace delete indent
+set nojoinspaces                " When joining lines, don't use double spaces
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
 let mapleader = ' '
