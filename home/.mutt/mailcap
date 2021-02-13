@@ -3,3 +3,4 @@ application/pdf; evince %s
 image/jpeg; feh %s
 image/jpg; feh %s
 image/tiff; feh %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice %s
