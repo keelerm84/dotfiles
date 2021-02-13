@@ -1,5 +1,5 @@
 " InitializeDirectories {{{
-function! InitializeDirectories()
+function! functions#InitializeDirectories()
   let parent = $HOME
   let prefix = 'vim'
   let dir_list = {
@@ -30,7 +30,7 @@ endfunction
 " }}}
 
 " ClosePreviewWindow {{{
-function! ClosePreviewWindow()
+function! functions#ClosePreviewWindow()
     if exists('b:noClosePreview')
         return
     endif
@@ -42,7 +42,7 @@ endfunction
 " }}}
 
 " StripTrailingWhitespace {{{
-function! StripTrailingWhitespace()
+function! functions#StripTrailingWhitespace()
   if exists('b:noStripWhitespace')
     return
   endif
@@ -60,7 +60,7 @@ endfunction
 " }}}
 
 " DeleteInactiveBufs {{{
-function! DeleteInactiveBufs()
+function! functions#DeleteInactiveBufs()
     "From tabpagebuflist() help, get a list of all buffers in all tabs
     let tablist = []
     for i in range(tabpagenr('$'))
@@ -94,7 +94,7 @@ function! s:get_git_root()
   return v:shell_error ? '' : root
 endfunction
 
-function! SmartFzfSearching()
+function! functions#SmartFzfSearching()
     let root = s:get_git_root()
     if empty(root)
         Files
@@ -104,4 +104,4 @@ function! SmartFzfSearching()
 endfunction
 " }}}
 
-" vim: ft=vim foldlevel=0 foldmethod=marker
+" vim: foldlevel=0 foldmethod=marker

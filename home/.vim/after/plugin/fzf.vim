@@ -1,4 +1,4 @@
-nnoremap <C-p> :call SmartFzfSearching()<CR>
+nnoremap <C-p> :call functions#SmartFzfSearching()<CR>
 nnoremap g<C-p> :Files<CR>
 nnoremap gs<C-p> :GFiles?<CR>
 

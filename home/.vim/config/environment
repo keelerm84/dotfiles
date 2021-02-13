@@ -164,7 +164,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <leader>ga gg=G
 nnoremap <leader>db :bp\|bd#<CR>
 nnoremap <leader>adb :bufdo bdelete<CR>
-command! Bdi :call DeleteInactiveBufs()
+command! Bdi :call functions#DeleteInactiveBufs()
 
 nnoremap <leader>gn :bn<CR>
 nnoremap <leader>gp :bp<CR>
@@ -189,8 +189,8 @@ noremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 autocmd Syntax * syntax keyword Todo contained WARN NOTE FIXME XXX TODO ATTN containedin=.*Comment
-autocmd FileType * autocmd CursorMovedI,InsertLeave * call ClosePreviewWindow()
-autocmd FileType * autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType * autocmd CursorMovedI,InsertLeave * call functions#ClosePreviewWindow()
+autocmd FileType * autocmd BufWritePre <buffer> call functions#StripTrailingWhitespace()
 autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
 
 let @d='/^\(<<<<<<<\||||||||\|=======\|>>>>>>>\)' " Navigating merge conflict
