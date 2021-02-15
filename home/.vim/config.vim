@@ -115,6 +115,24 @@ set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
+let g:airline_section_c = '%t'
+let g:airline_skip_empty_sections = 1
+" Sections are defined as
+" a      displays mode + additional flags like crypt/spell/paste (`INSERT`)
+" b      VCS information (branch, hunk summary) (`master`)
+" c      filename + read-only flag (`~/.vim/vimrc RO`)
+" x      filetype  (`vim`)
+" y      file encoding[fileformat] (`utf-8[unix]`)
+" z      current position in the file
+let g:airline#extensions#default#section_truncate_width = {
+    \ 'a': 60,
+    \ 'b': 150,
+    \ 'x': 79,
+    \ 'y': 120,
+    \ 'z': 60,
+    \ 'warning': 79,
+    \ 'error': 79,
+\ }
 " }}}
 
 " Improved window management and movement {{{
