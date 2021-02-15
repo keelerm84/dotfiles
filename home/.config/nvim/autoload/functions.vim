@@ -1,17 +1,13 @@
 " InitializeDirectories {{{
 function! functions#InitializeDirectories()
-  let parent = $HOME
-  let prefix = '.vim/cache/'
   let dir_list = {
     \ 'backupdir': 'backup//',
     \ 'viewdir': 'views//',
     \ 'directory': 'swap//',
     \ 'undodir': 'undo//' }
 
-  let common_dir = parent . '/' . prefix
-
   for [settingname, dirname] in items(dir_list)
-      let directory = common_dir . dirname
+      let directory = stdpath('config') . '/cache/' . dirname
       if exists("*mkdir")
           call mkdir(directory, "p")
       endif
