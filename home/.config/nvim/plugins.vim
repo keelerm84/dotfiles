@@ -19,6 +19,7 @@ Plug 'aquach/vim-http-client'
 Plug 'junegunn/indentLine'
 Plug 'enricobacis/paste.vim'
 Plug 'SirVer/ultisnips'
+Plug 'Konfekt/FastFold'
 " }}}
 
 " Themes and appearance {{{
@@ -101,7 +102,6 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " Python {{{
 Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 " }}}
