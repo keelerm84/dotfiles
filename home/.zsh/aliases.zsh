@@ -40,6 +40,7 @@ alias gra='g rebase --abort'
 alias grc='g rebase --continue'
 
 alias gP='g push'
+alias gPf='g push --force-with-lease'
 alias gm='g merge'
 
 alias gg='g grep'
