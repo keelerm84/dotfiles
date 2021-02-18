@@ -103,8 +103,6 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
-Plug 'davidhalter/jedi-vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 " }}}
 
