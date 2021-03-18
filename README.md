@@ -33,10 +33,10 @@ quite amazing.
 ## Installation ##
 You can quickly install these dotfiles by running the following command:
 ```bash
-$ curl -o- https://raw.githubusercontent.com/keelerm84/dotfiles/master/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/keelerm84/dotfiles/main/install.sh | bash
 ```
 
 Shortened url:
 ```bash
-$ curl -Lo- http://bit.ly/2pztvLf | bash
+$ curl -Lo- https://bit.ly/3tyU82T | bash
 ```
