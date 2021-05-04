@@ -3,7 +3,7 @@
 . ~/.zsh/functions.zsh
 
 . ~/.zsh/git.zsh
-. ~/.zsh/themes/spaceship.zsh
+command -v starship > /dev/null && eval "$(starship init zsh)" || . ~/.zsh/themes/spaceship.zsh
 load_file "aliases.zsh"
 load_file "functions.zsh"
 load_file "environment.zsh"
