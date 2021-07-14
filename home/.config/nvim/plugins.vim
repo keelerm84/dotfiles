@@ -61,6 +61,7 @@ Plug 'sgeb/vim-diff-fold'
 
 " C# {{{
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'jlcrochet/vim-razor'
 " }}}
 
 " Go {{{
