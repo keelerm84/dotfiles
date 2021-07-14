@@ -17,7 +17,7 @@ function man {
 }
 
 function git_ignore {
-    selections=$(curl -s https://www.gitignore.io/api/list?format=json | \
+    selections=$(curl -s 'https://www.toptal.com/developers/gitignore/api/list?format=json' | \
         jq '.[].name' | \
         fzf -m --prompt='Template> ' | \
         sed 's/^"\(.*\)"$/\1/' | \
