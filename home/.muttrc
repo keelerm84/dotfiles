@@ -88,13 +88,14 @@ unset markers
     # }}}
 # }}}
 
-# Compose View Options {{{
+# Compose View {{{
 set include
 set forward_quote
 set edit_headers
 
     # Key Bindings {{{
     bind compose p postpone-message
+    macro compose \cm "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=utf-8\n"
     # }}}
 # }}}
 
