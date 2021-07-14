@@ -46,6 +46,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'fatih/vim-nginx'
 Plug 'janko-m/vim-test'
 Plug 'matze/vim-ini-fold'
+Plug 'uarun/vim-protobuf'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
