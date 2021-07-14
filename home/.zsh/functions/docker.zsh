@@ -158,7 +158,7 @@ function dkr-proxy {
     docker stop proxy && \
         docker rm proxy
 
-    docker pull jwilder/nginx-proxy && \
+    docker pull nginxproxy/nginx-proxy && \
         dkr-run --name proxy -d \
             -p 80:80 \
             -p 443:443 \
@@ -171,7 +171,8 @@ function dkr-proxy {
             --log-opt max-size=5M \
             --net bridge \
             --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true \
-            jwilder/nginx-proxy
+            nginxproxy/nginx-proxy:1586
+    # NOTE: see https://github.com/nginx-proxy/nginx-proxy/issues/1586#issuecomment-818238078
 
     docker stop ssl && \
         docker rm ssl
@@ -180,7 +181,10 @@ function dkr-proxy {
         dkr-run --name ssl -d \
             -v /var/run/docker.sock:/var/run/docker.sock:ro \
             -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:rw \
+            -v ~/.config/nginx-proxy/acme.sh:/etc/acme.sh:rw \
             --volumes-from proxy \
             jrcs/letsencrypt-nginx-proxy-companion
+
+    docker network connect rsc proxy 2> /dev/null || true
 }
 
