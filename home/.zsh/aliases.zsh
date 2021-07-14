@@ -51,6 +51,7 @@ alias gstd='gst drop'
 alias gstp='gst pop'
 alias gsta='gst apply'
 alias gsts='gst save'
+alias gstsp='gst show -p'
 alias gstsu='gsts -u'
 
 alias dpss='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" | sort -k2'
