@@ -7,8 +7,8 @@ let g:go_metalinter_command = "golangci-lint"
 
 let b:noStripWhitespace=1
 " FIXME(mmk) Make shouldn't be within go and why do we need qf?
-" autocmd FileType qf let b:noStripWhitespace=1
-" autocmd FileType make let b:noStripWhitespace=1
+autocmd FileType qf let b:noStripWhitespace=1
+autocmd FileType make let b:noStripWhitespace=1
 
 nnoremap <buffer> <Leader>r <Plug>(go-run)
 nnoremap <buffer> <Leader>e <Plug>(go-rename)
