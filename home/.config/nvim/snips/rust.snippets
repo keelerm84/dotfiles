@@ -1,0 +1,27 @@
+snippet cli "CLI Skeleton" b
+use anyhow::{anyhow, Result};
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+#[structopt(name = "${1/([a-z]*)([A-Z]+)/(?1:$1-)\L$2\E/g}")]
+struct $1 {
+    #[structopt(name = "name", long, short = "n", default_value = "default")]
+    name: String,
+
+    #[structopt(subcommand)]
+    cmd: Command,
+}
+
+#[derive(StructOpt)]
+enum Command {}
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    let opt = $1::from_args();
+
+    match opt.cmd {$0};
+
+	Ok(())
+}
+
+endsnippet
