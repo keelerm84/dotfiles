@@ -59,6 +59,7 @@ set signcolumn=yes
 
 set showmode
 set lazyredraw
+set redrawtime=3000
 
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
