@@ -64,6 +64,10 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'jlcrochet/vim-razor'
 " }}}
 
+" Elixir {{{
+Plug 'elixir-editors/vim-elixir'
+" }}}
+
 " Go {{{
 Plug 'fatih/vim-go'
 " }}}
