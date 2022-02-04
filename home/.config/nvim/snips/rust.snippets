@@ -25,3 +25,17 @@ async fn main() -> Result<()> {
 }
 
 endsnippet
+
+snippet mt "mod tests" b
+#[cfg(test)]
+mod tests {
+	${0}
+}
+endsnippet
+
+snippet test "test" b
+#[test]
+fn ${1:your_awesome_test} {
+	$0
+}
+endsnippet
