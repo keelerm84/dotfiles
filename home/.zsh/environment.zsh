@@ -13,7 +13,9 @@ command -v dircolors > /dev/null && eval "$(dircolors ~/.dircolors)"
 set -o emacs
 
 [ -e "$HOME/Projects/golang" ] && export GOPATH="$HOME/Projects/golang"
-[ -e "/usr/local/go" ] && export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
-[ -e "$HOME/.cask/bin/" ] && export PATH="$PATH:$HOME/.cask/bin/"
+
+[ -e "/usr/local/go" ] && export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
+[ -e "$HOME/.cask/bin/" ] && export PATH="$HOME/.cask/bin/:$PATH"
+[ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
 [ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
