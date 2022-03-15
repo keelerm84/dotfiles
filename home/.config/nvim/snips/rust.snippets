@@ -35,7 +35,18 @@ endsnippet
 
 snippet test "test" b
 #[test]
-fn ${1:your_awesome_test} {
+fn ${1:your_awesome_test}() {
 	$0
 }
+endsnippet
+
+snippet tc "test_case" b
+#[test_case(${2})]
+fn ${1:your_awesome_test}(${3:your_parameter}) {
+	$0
+}
+endsnippet
+
+snippet pd "print debug" b
+println!("{:?}", $0);
 endsnippet
