@@ -9,6 +9,11 @@ alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias g='git'
 
+alias gwt='g worktree'
+alias gwtl='gwt list'
+alias gwta='gwt add'
+alias gwtr='gwt remove'
+
 alias gr='[ ! -z `git rev-parse --show-toplevel` ] && cd `g rev-parse --show-toplevel || pwd`'
 alias gb='g branch'
 
