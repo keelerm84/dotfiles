@@ -1,4 +1,9 @@
-alias ls="ls -N --color=auto"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    alias ls="ls -G"
+else
+    alias ls="ls -N --color=auto"
+fi
+
 alias l="ls -lhF"
 alias ll="ls -alhF"
 alias tmux='tmux -2 -u'
