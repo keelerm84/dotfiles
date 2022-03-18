@@ -41,12 +41,12 @@ if ${failed} == true; then
     exit 1
 fi
 
-git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-${HOME}/.homesick/repos/homeshick/bin/homeshick clone -b https://github.com/keelerm84/dotfiles
+git clone https://github.com/andsens/homeshick.git $HOME/.homeshick/repos/homeshick
+${HOME}/.homeshick/repos/homeshick/bin/homeshick clone -b https://github.com/keelerm84/dotfiles
 
 # @todo: loop through pre-existing linkable files and directories and move them to `.dotsave` or something.
 
-${HOME}/.homesick/repos/homeshick/bin/homeshick link -b
+${HOME}/.homeshick/repos/homeshick/bin/homeshick link -b
 
 echo "${GREEN}${BOLD}Installation complete! You can now run \`sudo chsh -s /bin/zsh $(whoami)\` to set zsh as your default shell."
 echo "${NORMAL}"

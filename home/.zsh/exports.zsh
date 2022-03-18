@@ -5,4 +5,4 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export SAM_CLI_TELEMETRY=0
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && . $HOME/.tmuxinator/scripts/tmuxinator || true
-[[ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]] && source $HOME/.homesick/repos/homeshick/homeshick.sh || true
+[[ -f $HOME/.homeshick/repos/homeshick/homeshick.sh ]] && source $HOME/.homeshick/repos/homeshick/homeshick.sh || true
