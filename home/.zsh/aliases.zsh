@@ -66,3 +66,4 @@ alias gstsu='gsts -u'
 alias dpss='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" | sort -k2'
 
 alias mutt='TERM=xterm-256color neomutt'
+alias mux=tmuxinator
