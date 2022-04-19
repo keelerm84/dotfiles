@@ -1,4 +1,4 @@
-let g:coc_global_extensions = ["coc-elixir", "coc-git", "coc-go", "coc-html", "coc-java", "coc-tsserver", "coc-json", "coc-omnisharp", "coc-phpls", "coc-pyright", "coc-sh", "coc-rust-analyzer", "coc-yaml"]
+let g:coc_global_extensions = ["coc-elixir", "coc-git", "coc-go", "coc-html", "coc-java", "coc-tsserver", "coc-json", "coc-omnisharp", "coc-phpls", "coc-pyright", "coc-sh", "coc-rust-analyzer", "coc-sourcekit", "coc-yaml"]
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics

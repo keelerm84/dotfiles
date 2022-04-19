@@ -127,6 +127,11 @@ Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'NLKNguyen/pipe.vim'
 " }}}
 
+" Swift {{{
+Plug 'keith/swift.vim'
+" }}}
+
+
 " }}}
 
 " Search tools {{{
