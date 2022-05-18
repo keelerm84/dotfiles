@@ -13,6 +13,8 @@ alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias g='git'
 
+alias gwc='g whatchanged'
+
 alias gwt='g worktree'
 alias gwtl='gwt list'
 alias gwta='gwt add'
