@@ -99,7 +99,7 @@ map('n', '<leader>tt', ':TagbarToggle<CR>')          -- open/close
 -- }}}
 
 -- Searching {{{
-map('n', '<leader>gg', ':Ggrep<SPACE>')
+map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
 -- }}}
 
 
@@ -114,6 +114,8 @@ map('n', 'g<leader>T', ':Tags<CR>')
 
 map('n', '<leader>l', ':BLines<CR>')
 map('n', 'g<leader>l', ':Lines<CR>')
+
+map('n', '<leader>b', ':Buffers<CR>')
 
 map('n', '<leader>c', ':BCommits<CR>')
 map('n', 'g<leader>c', ':Commits<CR>')

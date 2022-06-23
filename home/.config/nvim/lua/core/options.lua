@@ -52,6 +52,9 @@ opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
 opt.spell = true
 -- opt.swapfile = false                  -- Don't use swapfile
 -- opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+opt.undofile = true
+opt.undolevels = 1000
+opt.undoreload = 10000
 
 -----------------------------------------------------------
 -- Neovim UI
