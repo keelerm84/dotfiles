@@ -9,7 +9,6 @@
 -- neovim-lua/README.md
 -- https://github.com/brainfucksec/neovim-lua#readme
 
-
 -- Automatically install packer
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -55,6 +54,24 @@ return packer.startup(function(use)
   use 'fweep/vim-tabber'
   -- Consider replacing with https://github.com/phaazon/hop.nvim
   use 'Lokaltog/vim-easymotion'
+
+  use {
+    'cappyzawa/trim.nvim',
+    config = function()
+      require('trim').setup({
+        disable = {"markdown"}
+      })
+    end
+  }
+
+  use 'nvim-treesitter/nvim-treesitter'
+
+  use {
+      'nvim-orgmode/orgmode',
+      config = function()
+          require('orgmode').setup {}
+      end
+  }
   -- }}}
 
   -- Search tools {{{
@@ -96,35 +113,33 @@ return packer.startup(function(use)
   }
   -- }}}
 
-  -- File explorer
+  -- UI {{{
   use 'kyazdani42/nvim-tree.lua'
-
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
-
-  -- Tag viewer
   use 'preservim/tagbar'
 
-  -- Treesitter interface
-  use 'nvim-treesitter/nvim-treesitter'
-
-  -- Orgmode
-  use {
-      'nvim-orgmode/orgmode', 
-      config = function()
-          require('orgmode').setup {}
-      end
-  }
-
-  -- VCS
-  use 'tpope/vim-fugitive'
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-
-  -- Color schemes
+  use 'kyazdani42/nvim-web-devicons'
+  -- Color themes {{{
   use 'morhetz/gruvbox'
   -- use 'eddyekofo94/gruvbox-flat.nvim'
+  -- }}}
 
-  -- LSP
+  use { 'feline-nvim/feline.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+  -- }}}
+
+  -- VCS {{{
+  use 'tpope/vim-fugitive'
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+  -- }}}
+
+  -- LSP {{{
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use {
@@ -134,8 +149,9 @@ return packer.startup(function(use)
           require("trouble").setup {}
       end
   }
+  -- }}}
 
-  -- Autocomplete
+  -- Autocomplete {{{
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -146,27 +162,7 @@ return packer.startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
-
-  -- Statusline
-  use {
-    'feline-nvim/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
-
-  -- git labels
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-
-  -- Dashboard (start screen)
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  -- }}}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
