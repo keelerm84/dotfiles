@@ -13,6 +13,10 @@ end
 -- Change leader to a comma
 vim.g.mapleader = ' '
 
+vim.cmd[[
+let @d="/^\(<<<<<<<\||||||||\|=======\|>>>>>>>\)\n"
+]]
+
 -----------------------------------------------------------
 -- Neovim shortcuts
 -----------------------------------------------------------
@@ -101,7 +105,6 @@ map('n', '<leader>tt', ':TagbarToggle<CR>')          -- open/close
 -- Searching {{{
 map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
 -- }}}
-
 
 -- FZF {{{
 -- TODO(mmk): We need to port the SmartFzfSearching function here
