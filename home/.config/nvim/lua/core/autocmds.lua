@@ -38,3 +38,11 @@ autocmd('BufLeave', {
   pattern = 'term://*',
   command = 'stopinsert'
 })
+
+autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    require('go.format').goimport()
+    require('go.format').gofmt()
+  end
+})

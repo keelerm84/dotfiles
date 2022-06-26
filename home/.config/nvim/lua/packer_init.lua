@@ -68,6 +68,13 @@ return packer.startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
 
   use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
+
+  use {
       'nvim-orgmode/orgmode',
       config = function()
           require('orgmode').setup {}
@@ -111,6 +118,22 @@ return packer.startup(function(use)
             ['header'] = {'fg', 'Comment'}
           }
       end
+  }
+
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        highlight = {
+          keyword = "bg",
+          pattern = [[.*<(KEYWORDS)>]],
+        },
+        search = {
+          pattern = [[\b(KEYWORDS)\b]]
+        }
+      }
+    end
   }
   -- }}}
 
@@ -170,7 +193,7 @@ return packer.startup(function(use)
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-          require("trouble").setup {}
+        require("trouble").setup {}
       end
   }
   -- }}}
@@ -185,6 +208,19 @@ return packer.startup(function(use)
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
     },
+  }
+  -- }}}
+
+  -- Language support {{{
+  use 'ray-x/guihua.lua'
+  use {
+    'ray-x/go.nvim',
+    -- TODO Add something to actually run GoInstallBinaries
+    config = function()
+      require('go').setup({
+        goimport = "goimports"
+      })
+    end
   }
   -- }}}
 
