@@ -200,6 +200,12 @@ return packer.startup(function(use)
 
   -- Autocomplete {{{
   use {
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require("luasnip.loaders.from_lua").load({paths = vim.fn.stdpath('config') .. "/lua/snippets"})
+    end
+  }
+  use {
     'hrsh7th/nvim-cmp',
     requires = {
       'L3MON4D3/LuaSnip',
