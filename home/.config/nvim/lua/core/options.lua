@@ -64,6 +64,7 @@ opt.virtualedit = 'onemore'
 opt.wrap = false
 opt.autoindent = true
 opt.number = true           -- Show line number
+opt.relativenumber = true
 opt.showmatch = true        -- Highlight matching parenthesis
 -- opt.foldmethod = 'marker'   -- Enable folding (default 'foldmarker')
 -- opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
@@ -92,7 +93,6 @@ opt.joinspaces = false
 -- opt.smartindent = true      -- Autoindent new lines
 opt.list = true
 opt.listchars = "tab:› ,trail:•,extends:#,nbsp:." --  Highlight problematic whitespace
-
 
 -----------------------------------------------------------
 -- Memory, CPU
