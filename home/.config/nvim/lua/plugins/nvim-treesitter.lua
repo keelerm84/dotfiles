@@ -4,8 +4,6 @@
 
 -- Plugin: nvim-treesitter
 -- url: https://github.com/nvim-treesitter/nvim-treesitter
-
-
 local treesitter_status_ok, nvim_treesitter = pcall(require, 'nvim-treesitter.configs')
 if not treesitter_status_ok then
   return
@@ -22,23 +20,23 @@ orgmode.setup_ts_grammar()
 nvim_treesitter.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
-    'bash', 
-    'c', 
-    'cpp', 
-    'c_sharp', 
-    'css', 
-    'dockerfile', 
-    'elixir', 
-    'go', 
-    'graphql', 
-    'html', 
-    'java', 
-    'javascript', 
-    'javascript', 
-    'json', 
-    'json', 
-    'latex', 
-    'lua', 
+    'bash',
+    'c',
+    'cpp',
+    'c_sharp',
+    'css',
+    'dockerfile',
+    'elixir',
+    'go',
+    'graphql',
+    'html',
+    'java',
+    'javascript',
+    'javascript',
+    'json',
+    'json',
+    'latex',
+    'lua',
     'org',
     'php',
     'phpdoc',
@@ -47,15 +45,16 @@ nvim_treesitter.setup {
     'rust',
     'swift',
     'toml',
-    'typescript', 
+    'typescript',
     'vim',
     'yaml',
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-    additional_vim_regex_highlighting = {'org'},
+    enable = false,
   },
+  indent = {
+    enable = false,
+  }
 }

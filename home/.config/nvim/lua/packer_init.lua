@@ -65,7 +65,12 @@ return packer.startup(function(use)
     end
   }
 
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      require('nvim-treesitter.install').update({ with_sync = true })
+    end,
+  }
 
   use {
     'lewis6991/spellsitter.nvim',
@@ -74,12 +79,7 @@ return packer.startup(function(use)
     end
   }
 
-  use {
-      'nvim-orgmode/orgmode',
-      config = function()
-          require('orgmode').setup {}
-      end
-  }
+  use 'nvim-orgmode/orgmode'
   -- }}}
 
   -- Search tools {{{
@@ -140,8 +140,8 @@ return packer.startup(function(use)
   -- UI {{{
   use 'kyazdani42/nvim-tree.lua'
   use 'preservim/tagbar'
-
   use 'kyazdani42/nvim-web-devicons'
+
   -- Color themes {{{
   use 'morhetz/gruvbox'
   -- use 'eddyekofo94/gruvbox-flat.nvim'
@@ -188,7 +188,12 @@ return packer.startup(function(use)
 
   -- LSP {{{
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason-lspconfig.nvim'
+  use {
+    'williamboman/mason.nvim',
+    requires = 'williamboman/mason-lspconfig.nvim',
+  }
+
   use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -201,8 +206,11 @@ return packer.startup(function(use)
   -- Autocomplete {{{
   use {
     'L3MON4D3/LuaSnip',
+    tag = 'v1.*',
     config = function()
-      require("luasnip.loaders.from_lua").load({paths = vim.fn.stdpath('config') .. "/lua/snippets"})
+      require("luasnip.loaders.from_lua").load({
+        paths = vim.fn.stdpath('config') .. "/lua/snippets"
+      })
     end
   }
   use {
