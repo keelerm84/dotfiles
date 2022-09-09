@@ -12,10 +12,22 @@ export FZF_CTRL_R_OPTS="--inline-info --exact"
 command -v dircolors > /dev/null && eval "$(dircolors ~/.dircolors)"
 set -o emacs
 
-[ -e "$HOME/Projects/golang" ] && export GOPATH="$HOME/Projects/golang"
+paths=(
+    "/usr/local/go/bin"
+    "$HOME/code/golang"
+    "$HOME/go/bin"
+    "$HOME/.ghcup/bin"
+    "$HOME/.cask/bin/"
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+    "$HOME/.local/share/nvim/mason/bin/"
+    "$HOME/Android/Sdk/platform-tools/"
+    "$HOME/Android/Sdk/emulator/"
+    "$HOME/.local/share/JetBrains/Toolbox/scripts/"
+)
 
-[ -e "/usr/local/go" ] && export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
-[ -e "$HOME/.cask/bin/" ] && export PATH="$HOME/.cask/bin/:$PATH"
-[ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+for p ("$paths[@]") [[ -e "$p" ]] && export PATH="$p:$PATH"
 
+[ -e "$HOME/code/golang" ] && export GOPATH="$HOME/code/golang"
+[ -e "$HOME/Android/Sdk" ] && export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 [ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
