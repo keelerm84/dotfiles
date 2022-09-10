@@ -46,3 +46,10 @@ autocmd('BufWritePre', {
     require('go.format').gofmt()
   end
 })
+
+autocmd('FileType', {
+  pattern = "qf",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "n", "q", ":cclose<CR>", { noremap = true, silent = true })
+  end
+})
