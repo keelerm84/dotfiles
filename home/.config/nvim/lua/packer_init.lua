@@ -198,7 +198,16 @@ return packer.startup(function(use)
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require("trouble").setup {}
+        require("trouble").setup({
+          mode = "document_diagnostics",
+          group = false,
+          action_keys = {
+            open_split = { "s" },
+            open_vsplit = { "v" },
+            open_tab = { "t" },
+          },
+          auto_preview = false,
+        })
       end
   }
   -- }}}

@@ -81,6 +81,11 @@ map('n', '<leader>f8', ':set foldlevel=8<CR>')
 map('n', '<leader>f9', ':set foldlevel=9<CR>')
 -- }}}
 
+-- Function Keys {{{
+map('n', '<F2>', ':TodoQuickFix<CR>')
+map('n', '<F3>', ':TroubleToggle<CR>')
+-- }}}
+
 -- Misc {{{
 map('n', '<leader>fj', ':%!python -m json.tool<CR><Esc>:set filetype=json<CR>')
 map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>")
