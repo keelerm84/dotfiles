@@ -113,7 +113,7 @@ map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
 
 -- FZF {{{
 -- TODO(mmk): We need to port the SmartFzfSearching function here
-map('n', '<C-p>', ':GFiles<CR>')
+map('n', '<C-p>', ':call SmartFzfSearching()<CR>')
 map('n', 'g<C-p>', ':Files<CR>')
 map('n', 'gs<C-p>', ':GFiles?<CR>')
 
