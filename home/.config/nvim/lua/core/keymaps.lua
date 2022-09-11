@@ -91,9 +91,6 @@ map('n', '<leader>fj', ':%!python -m json.tool<CR><Esc>:set filetype=json<CR>')
 map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>")
 -- }}}
 
--- Reload configuration without restart nvim
-map('n', '<leader>r', ':so %<CR>')
-
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------

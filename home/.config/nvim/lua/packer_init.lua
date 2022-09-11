@@ -245,6 +245,8 @@ return packer.startup(function(use)
       })
     end
   }
+
+  use 'rust-lang/rust.vim'
   -- }}}
 
   -- Automatically set up your configuration after cloning packer.nvim
