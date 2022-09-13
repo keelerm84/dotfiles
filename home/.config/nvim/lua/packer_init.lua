@@ -147,7 +147,13 @@ return packer.startup(function(use)
   -- use 'eddyekofo94/gruvbox-flat.nvim'
   -- }}}
 
-  use { 'feline-nvim/feline.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require("lualine").setup()
+    end
+  }
   use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   -- }}}
 
