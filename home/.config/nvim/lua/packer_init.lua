@@ -149,9 +149,16 @@ return packer.startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+      'arkav/lualine-lsp-progress',
+    },
     config = function()
-      require("lualine").setup()
+      require("lualine").setup{
+        sections = {
+          lualine_c = {'filename', 'lsp_progress'},
+        }
+      }
     end
   }
   use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
