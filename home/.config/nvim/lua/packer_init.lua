@@ -125,6 +125,14 @@ return packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {
+        keywords = {
+          FIX = {
+            icon = " ", -- icon used for the sign, and in search results
+            color = "#d3869b", -- can be a hex color, or a named color (see below)
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } -- a set of other keywords that all map to this FIX keywords
+          }
+        },
+        merge_keywords = true,
         highlight = {
           keyword = "bg",
           pattern = [[.*<(KEYWORDS)>]],

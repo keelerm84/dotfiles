@@ -47,6 +47,11 @@ autocmd('BufWritePre', {
   end
 })
 
+-- Open quickfix after populating list
+autocmd('QuickFixCmdPost', {
+  command = 'copen 8'
+})
+
 autocmd('FileType', {
   pattern = "qf",
   callback = function()
