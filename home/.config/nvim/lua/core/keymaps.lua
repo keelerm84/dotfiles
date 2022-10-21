@@ -82,8 +82,9 @@ map('n', '<leader>f9', ':set foldlevel=9<CR>')
 -- }}}
 
 -- Function Keys {{{
-map('n', '<F2>', ':TodoQuickFix<CR>')
-map('n', '<F3>', ':TroubleToggle<CR>')
+map('n', '<F2>', ':call ToggleQuickfixList()<CR>')
+map('n', '<F3>', ':TodoQuickFix<CR>')
+map('n', '<F4>', ':TroubleToggle<CR>')
 -- }}}
 
 -- Misc {{{

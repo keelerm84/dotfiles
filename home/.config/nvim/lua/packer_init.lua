@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use 'fweep/vim-tabber'
   -- Consider replacing with https://github.com/phaazon/hop.nvim
   use 'Lokaltog/vim-easymotion'
+  use 'milkypostman/vim-togglelist'
 
   use {
     'cappyzawa/trim.nvim',
