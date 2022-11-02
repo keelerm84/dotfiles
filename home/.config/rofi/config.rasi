@@ -9,6 +9,9 @@ configuration {
     kb-mode-complete: "";
     kb-mode-next: "Control+l";
     kb-mode-previous: "Control+h";
+    kb-row-tab: "";
+    kb-row-select: "Tab";
+    kb-element-next: "";
     show-icons: true;
 }
 
