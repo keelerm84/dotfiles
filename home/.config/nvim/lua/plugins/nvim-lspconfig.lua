@@ -90,13 +90,6 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 --]]
 
--- Define `root_dir` when needed
--- See: https://github.com/neovim/nvim-lspconfig/issues/320
--- This is a workaround, maybe not work with some servers.
-local root_dir = function()
-  return vim.fn.getcwd()
-end
-
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
@@ -125,7 +118,6 @@ installer_nvim_lsp.setup({
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
-    root_dir = root_dir,
     capabilities = capabilities,
     flags = {
       -- default in neovim 0.7+
