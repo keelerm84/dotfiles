@@ -3,3 +3,7 @@
 vendor
 bower_components
 .idea
+.busted
+.exercism/metadata.json
+.tool-versions
+*.DotSettings.user
