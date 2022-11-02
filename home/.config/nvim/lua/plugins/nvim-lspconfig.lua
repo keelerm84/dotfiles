@@ -107,6 +107,7 @@ local servers = {
     'hls',
     'html',
     'omnisharp',
+    'intelephense',
     'phpactor',
     'pyright',
     'rust_analyzer',
