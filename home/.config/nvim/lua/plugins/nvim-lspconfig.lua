@@ -105,7 +105,6 @@ local servers = {
     'pyright',
     'rust_analyzer',
     'solargraph',
-    'sourcekit',
     'tsserver'
 }
 
