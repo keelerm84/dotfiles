@@ -28,7 +28,11 @@ paths=(
 
 for p ("$paths[@]") [[ -e "$p" ]] && export PATH="$p:$PATH"
 
-[ -e "$HOME/code/golang" ] && export GOPATH="$HOME/code/golang"
+if [ -e "$HOME/code/golang" ]; then
+ export GOPATH="$HOME/code/golang"
+ export PATH="$GOPATH/bin:$PATH"
+fi
+
 [ -e "$HOME/Android/Sdk" ] && export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 [ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 command -v rbenv > /dev/null && eval "$(rbenv init -)"
