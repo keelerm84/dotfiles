@@ -12,6 +12,8 @@ export FZF_CTRL_R_OPTS="--inline-info --exact"
 command -v dircolors > /dev/null && eval "$(dircolors ~/.dircolors)"
 set -o emacs
 
+export ANDROID_HOME="$HOME/Android/Sdk"
+
 paths=(
     "/usr/local/go/bin"
     "$HOME/code/golang"
@@ -21,8 +23,8 @@ paths=(
     "$HOME/.local/bin"
     "$HOME/go/bin"
     "$HOME/.local/share/nvim/mason/bin/"
-    "$HOME/Android/Sdk/platform-tools/"
-    "$HOME/Android/Sdk/emulator/"
+    "$ANDROID_HOME/platform-tools/"
+    "$ANDROID_HOME/emulator/"
     "$HOME/.local/share/JetBrains/Toolbox/scripts/"
 )
 
@@ -33,6 +35,5 @@ if [ -e "$HOME/code/golang" ]; then
  export PATH="$GOPATH/bin:$PATH"
 fi
 
-[ -e "$HOME/Android/Sdk" ] && export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 [ -e /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 command -v rbenv > /dev/null && eval "$(rbenv init -)"
