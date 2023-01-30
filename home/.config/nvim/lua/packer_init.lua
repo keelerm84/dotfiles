@@ -265,9 +265,7 @@ return packer.startup(function(use)
     'ray-x/go.nvim',
     -- TODO Add something to actually run GoInstallBinaries
     config = function()
-      require('go').setup({
-        goimport = "goimports"
-      })
+      require('go').setup()
     end
   }
 
