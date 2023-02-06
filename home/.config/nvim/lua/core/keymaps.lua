@@ -99,7 +99,6 @@ map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR
 -- NvimTree {{{
 map('n', '<leader>nt', ':NvimTreeToggle<CR>')        -- open/close
 map('n', '<leader>nf', ':NvimTreeFindFile<CR>')      -- search file
-map('n', '<leader>gnf', ':NvimTreeFocus<CR>')      -- search file
 -- }}}
 
 -- Tagbar {{{
