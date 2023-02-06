@@ -152,7 +152,12 @@ return packer.startup(function(use)
   -- }}}
 
   -- UI {{{
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    }
+  }
   use 'preservim/tagbar'
   use 'kyazdani42/nvim-web-devicons'
 
