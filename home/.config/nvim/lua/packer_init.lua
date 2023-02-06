@@ -50,7 +50,12 @@ return packer.startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-speeddating'
   use 'tpope/vim-abolish'
-  use 'tpope/vim-commentary'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
   use 'mg979/vim-visual-multi'
   use 'fweep/vim-tabber'
   -- Consider replacing with https://github.com/phaazon/hop.nvim
