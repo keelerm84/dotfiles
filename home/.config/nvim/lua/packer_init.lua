@@ -280,6 +280,9 @@ return packer.startup(function(use)
   }
 
   use 'rust-lang/rust.vim'
+
+  use 'lumiliet/vim-twig'
+
   -- }}}
 
   -- Automatically set up your configuration after cloning packer.nvim
