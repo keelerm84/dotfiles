@@ -28,8 +28,8 @@ autocmd('TermOpen', {
   command = 'setlocal listchars= nonumber norelativenumber nocursorline',
 })
 
-autocmd('TermOpen', {
-  pattern = '*',
+autocmd('TermOpen, TermEnter', {
+  pattern = 'term://*',
   command = 'startinsert'
 })
 
