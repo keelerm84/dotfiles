@@ -33,6 +33,22 @@ autocmd('TermOpen, TermEnter', {
   command = 'startinsert'
 })
 
+-- Add blank line and move into insert mode when committing via Neogit
+autocmd('BufEnter', {
+  pattern = 'COMMIT_EDITMSG',
+  callback = function()
+    local ok, wasEntered = pcall(vim.api.nvim_buf_get_var, 0, 'mmk:wasEntered')
+
+    if ok and wasEntered then
+      return
+    end
+
+    vim.api.nvim_buf_set_var(0, 'mmk:wasEntered', 1)
+    vim.api.nvim_command('normal O')
+    vim.cmd('startinsert')
+  end
+})
+
 -- Close terminal buffer on process exit
 autocmd('BufLeave', {
   pattern = 'term://*',
