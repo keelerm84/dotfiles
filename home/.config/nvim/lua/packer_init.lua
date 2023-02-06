@@ -185,7 +185,15 @@ return packer.startup(function(use)
 
   -- VCS {{{
   use 'tpope/vim-fugitive'
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = require('neogit').setup({
+      commit_popup = {
+        kind = "replace"
+      }
+    })
+  }
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
