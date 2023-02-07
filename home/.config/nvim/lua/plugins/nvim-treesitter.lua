@@ -4,6 +4,7 @@
 
 -- Plugin: nvim-treesitter
 -- url: https://github.com/nvim-treesitter/nvim-treesitter
+
 local treesitter_status_ok, nvim_treesitter = pcall(require, 'nvim-treesitter.configs')
 if not treesitter_status_ok then
   return
@@ -29,6 +30,7 @@ nvim_treesitter.setup {
     'elixir',
     'go',
     'graphql',
+    'haskell',
     'html',
     'java',
     'javascript',
