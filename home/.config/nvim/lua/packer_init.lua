@@ -128,15 +128,30 @@ return packer.startup(function(use)
 
   use {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "sainnhe/gruvbox-material"
+    },
     config = function()
+      local configuration = vim.fn['gruvbox_material#get_configuration']()
+      local palette = vim.fn['gruvbox_material#get_palette'](configuration.background, configuration.foreground, configuration.colors_override)
+
       require("todo-comments").setup {
         keywords = {
           FIX = {
             icon = " ", -- icon used for the sign, and in search results
-            color = "#d3869b", -- can be a hex color, or a named color (see below)
             alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } -- a set of other keywords that all map to this FIX keywords
-          }
+          },
+          WARN = { icon = " ", alt = { "WARNING", "XXX" } },
+          NOTE = { icon = " ", alt = { "INFO" } },
+        },
+        colors = {
+          error = { palette.purple[1], "DiagnosticError", "ErrorMsg", "#DC2626" },
+          warning = { palette.yellow[1], "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+          info = { palette.blue[1], "DiagnosticInfo", "#2563EB" },
+          hint = { palette.blue[1], "DiagnosticHint", "#10B981" },
+          default = {"Identifier", "#7C3AED" },
+          test = { palette.aqua[1], "Identifier", "#FF00FF" }
         },
         merge_keywords = true,
         highlight = {

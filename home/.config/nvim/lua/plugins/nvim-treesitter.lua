@@ -52,9 +52,9 @@ nvim_treesitter.setup {
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   highlight = {
-    enable = false,
+    enable = true,
   },
   indent = {
-    enable = false,
+    enable = true,
   }
 }
