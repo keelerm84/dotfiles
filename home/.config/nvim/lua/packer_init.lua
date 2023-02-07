@@ -163,6 +163,7 @@ return packer.startup(function(use)
 
   -- Color themes {{{
   use 'morhetz/gruvbox'
+  use 'sainnhe/gruvbox-material'
   -- use 'eddyekofo94/gruvbox-flat.nvim'
   -- }}}
 
