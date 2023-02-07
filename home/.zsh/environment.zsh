@@ -18,6 +18,7 @@ paths=(
     "/usr/local/go/bin"
     "$HOME/code/golang"
     "$HOME/go/bin"
+    "$HOME/.cabal/bin"
     "$HOME/.ghcup/bin"
     "$HOME/.cask/bin/"
     "$HOME/.local/bin"
