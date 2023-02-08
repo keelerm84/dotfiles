@@ -73,6 +73,12 @@ return packer.startup(function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
+    config = function()
+      local configuration = vim.fn['gruvbox_material#get_configuration']()
+      local palette = vim.fn['gruvbox_material#get_palette'](configuration.background, configuration.foreground, configuration.colors_override)
+
+      vim.api.nvim_set_hl(0, "@variable.php", { fg = palette.blue[1] })
+    end,
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
     end,
