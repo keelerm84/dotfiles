@@ -66,7 +66,7 @@ return packer.startup(function(use)
     'cappyzawa/trim.nvim',
     config = function()
       require('trim').setup({
-        disable = {"markdown"}
+        ft_blocklist = {"markdown"}
       })
     end
   }
