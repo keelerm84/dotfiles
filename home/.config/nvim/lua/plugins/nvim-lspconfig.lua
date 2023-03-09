@@ -18,6 +18,11 @@ if not cmp_status_ok then
   return
 end
 
+local mason_status_ok, mason = pcall(require, 'mason')
+if not mason_status_ok then
+  return
+end
+
 local installer_status_ok, installer_nvim_lsp = pcall(require, 'mason-lspconfig')
 if not installer_status_ok then
   return
@@ -55,7 +60,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function()
+  vim.keymap.set('n', '<space>ff', function()
     vim.lsp.buf.format { async = true }
   end, bufopts)
 
@@ -109,19 +114,29 @@ local servers = {
     'tsserver'
 }
 
+installer_nvim_lsp.setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = {
+        -- default in neovim 0.7+
+        debounce_text_changes = 150,
+      }
+    }
+  end,
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+  -- ["rust_analyzer"] = function ()
+  --   require("rust-tools").setup {}
+  -- end
+}
+
+mason.setup()
 installer_nvim_lsp.setup({
     ensure_installed = servers,
     automatic_installation = true
 })
-
--- Call setup
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      -- default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
-end
