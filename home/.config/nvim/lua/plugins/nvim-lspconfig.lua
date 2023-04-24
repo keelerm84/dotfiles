@@ -110,7 +110,7 @@ local servers = {
     'pyright',
     'rust_analyzer',
     'solargraph',
-    'sqls',
+    'sqlls',
     'tsserver'
 }
 
