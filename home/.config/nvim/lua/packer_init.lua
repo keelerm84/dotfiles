@@ -49,7 +49,12 @@ return packer.startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-speeddating'
-  use 'tpope/vim-abolish'
+  use {
+    'arthurxavierx/vim-caser',
+    setup = function ()
+      vim.g.caser_prefix = 'cr'
+    end
+  }
   use {
     'numToStr/Comment.nvim',
     config = function()
