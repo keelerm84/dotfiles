@@ -46,6 +46,7 @@ nvim_treesitter.setup {
     'ruby',
     'rust',
     'swift',
+    'terraform',
     'toml',
     'typescript',
     'vim',

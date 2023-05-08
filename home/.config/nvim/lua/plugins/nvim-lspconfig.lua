@@ -111,6 +111,7 @@ local servers = {
     'rust_analyzer',
     'solargraph',
     'sqlls',
+    'terraformls',
     'tsserver'
 }
 
