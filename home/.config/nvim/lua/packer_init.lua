@@ -148,6 +148,7 @@ return packer.startup(function(use)
           },
           WARN = { icon = " ", alt = { "WARNING", "XXX" } },
           NOTE = { icon = " ", alt = { "INFO" } },
+          QUESTION = { icon = "? ", color = "warning", alt = { "RESEARCH" } },
         },
         colors = {
           error = { palette.purple[1], "DiagnosticError", "ErrorMsg", "#DC2626" },

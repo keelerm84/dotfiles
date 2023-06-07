@@ -23,8 +23,10 @@ local function todo_marker(trigger, marker)
 end
 
 return {
+  todo_marker("q", "QUESTION"),
   todo_marker("t", "TODO"),
   todo_marker("f", "FIXME"),
+  todo_marker("w", "WARN"),
   todo_marker("x", "XXX"),
   todo_marker("n", "NOTE"),
 }
