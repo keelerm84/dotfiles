@@ -12,6 +12,13 @@ alias tl='tmux list-sessions'
 alias e='emacsclient -t'
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
+alias t='tmux'
+alias ta='t attach'
+alias tat='ta -t'
+alias tl='t ls'
+alias tn='t new'
+alias tns='tn -s'
+
 alias g='git'
 
 alias gwc='g whatchanged'
