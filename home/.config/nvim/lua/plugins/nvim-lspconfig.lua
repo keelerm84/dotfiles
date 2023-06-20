@@ -107,7 +107,7 @@ local servers = {
     'omnisharp',
     'intelephense',
     'phpactor',
-    'pyright',
+    'pylsp',
     'rust_analyzer',
     'solargraph',
     'sqlls',
