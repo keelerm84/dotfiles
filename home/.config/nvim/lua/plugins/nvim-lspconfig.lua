@@ -123,10 +123,6 @@ installer_nvim_lsp.setup_handlers {
     require("lspconfig")[server_name].setup {
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = {
-        -- default in neovim 0.7+
-        debounce_text_changes = 150,
-      }
     }
   end,
   -- Next, you can provide a dedicated handler for specific servers.
