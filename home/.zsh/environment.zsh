@@ -27,6 +27,7 @@ paths=(
     "$ANDROID_HOME/platform-tools/"
     "$ANDROID_HOME/emulator/"
     "$HOME/.local/share/JetBrains/Toolbox/scripts/"
+    "/var/lib/snapd/snap/bin"
 )
 
 for p ("$paths[@]") [[ -e "$p" ]] && export PATH="$p:$PATH"
