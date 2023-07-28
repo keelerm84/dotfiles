@@ -389,6 +389,8 @@ return packer.startup(function(use)
 
   use 'lumiliet/vim-twig'
 
+  use 'weihanglo/polar.vim'
+
   -- }}}
 
   -- Automatically set up your configuration after cloning packer.nvim
