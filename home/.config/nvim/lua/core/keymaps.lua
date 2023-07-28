@@ -85,6 +85,14 @@ map('n', '<leader>f9', ':set foldlevel=9<CR>')
 map('n', '<F2>', ':call ToggleQuickfixList()<CR>')
 map('n', '<F3>', ':TodoQuickFix<CR>')
 map('n', '<F4>', ':TroubleToggle<CR>')
+
+map('n', '<F5>', ':DapToggleBreakpoint<CR>')
+map('n', '<F6>', ':DapStepOut<CR>')
+map('n', '<F7>', ':DapStepInto<CR>')
+map('n', '<F8>', ':DapStepOver<CR>')
+map('n', '<F9>', ':DapContinue<CR>')
+
+
 -- }}}
 
 -- Misc {{{
@@ -111,7 +119,6 @@ map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
 -- }}}
 
 -- FZF {{{
--- TODO(mmk): We need to port the SmartFzfSearching function here
 map('n', '<C-p>', ':call SmartFzfSearching()<CR>')
 map('n', 'g<C-p>', ':Files<CR>')
 map('n', 'gs<C-p>', ':GFiles?<CR>')

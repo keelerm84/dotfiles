@@ -28,6 +28,11 @@ if not installer_status_ok then
   return
 end
 
+local mason_nvim_dap_status_ok, mason_nvim_dap = pcall(require, 'mason-nvim-dap')
+if not installer_status_ok then
+  return
+end
+
 -- Diagnostic options, see: `:help vim.diagnostic.config`
 vim.diagnostic.config({ virtual_text = true })
 
@@ -134,6 +139,20 @@ installer_nvim_lsp.setup_handlers {
 
 mason.setup()
 installer_nvim_lsp.setup({
-    ensure_installed = servers,
-    automatic_installation = true
+  ensure_installed = servers,
+  automatic_installation = true
+})
+
+local dap_servers = {
+  'python'
+}
+
+mason_nvim_dap.setup({
+  ensure_installed = dap_servers,
+  automatic_installation = true,
+  handlers = {
+    python = function(config)
+      require('mason-nvim-dap').default_setup(config) -- don't forget this!
+    end,
+  }
 })
