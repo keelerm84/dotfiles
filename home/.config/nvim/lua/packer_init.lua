@@ -8,21 +8,22 @@
 -- For information about installed plugins see the README:
 -- neovim-lua/README.md
 -- https://github.com/brainfucksec/neovim-lua#readme
+--
 
--- Automatically install packer
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    'git',
-    'clone',
-    '--depth',
-    '1',
-    'https://github.com/wbthomason/packer.nvim',
-    install_path
-  })
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 -- Autocommand that reloads neovim whenever you save the packer_init.lua file
 vim.cmd [[
@@ -32,14 +33,8 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
-
 -- Install plugins
-return packer.startup(function(use)
+return require('packer').startup(function(use)
   -- Add you plugins here:
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
@@ -250,7 +245,17 @@ return packer.startup(function(use)
 
   -- Color themes {{{
   use 'morhetz/gruvbox'
-  use 'sainnhe/gruvbox-material'
+  use {
+      'sainnhe/gruvbox-material',
+      config = function()
+          vim.cmd [[
+            let g:gruvbox_material_foreground = 'material'
+            let g:gruvbox_material_background = 'soft'
+            let g:gruvbox_material_disable_italic_comment = 1
+            colorscheme gruvbox-material
+        ]]
+      end
+  }
   -- use 'eddyekofo94/gruvbox-flat.nvim'
   -- }}}
 
@@ -275,8 +280,12 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'
   use {
     'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
-    config = require('neogit').setup({})
+    requires = { 'nvim-lua/plenary.nvim', 'NeogitOrg/neogi' },
+    config = require('neogit').setup({
+      commit_popup = {
+        kind = "replace"
+      }
+    })
   }
   use {
     'lewis6991/gitsigns.nvim',

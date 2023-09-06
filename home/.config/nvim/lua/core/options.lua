@@ -29,15 +29,6 @@ if (empty($TMUX))
 endif
 
 set background=dark
-
-" let g:gruvbox_contrast_dark='soft'
-" colorscheme gruvbox
-
-let g:gruvbox_material_foreground = 'material'
-let g:gruvbox_material_background = 'soft'
-let g:gruvbox_material_disable_italic_comment = 1
-colorscheme gruvbox-material
-
 " hi Normal ctermbg=none
 ]]
 
