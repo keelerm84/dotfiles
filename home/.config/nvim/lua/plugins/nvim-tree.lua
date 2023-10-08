@@ -173,7 +173,7 @@ nvim_tree.setup {
     args = {},
   },
   diagnostics = {
-    enable = false,
+    enable = true,
     show_on_dirs = false,
     icons = {
       hint = "",
@@ -195,7 +195,7 @@ nvim_tree.setup {
   actions = {
     use_system_clipboard = true,
     change_dir = {
-      enable = true,
+      enable = false,
       global = false,
       restrict_above_cwd = false,
     },
