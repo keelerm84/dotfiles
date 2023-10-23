@@ -276,11 +276,7 @@ return packer.startup(function(use)
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
-    config = require('neogit').setup({
-      commit_popup = {
-        kind = "replace"
-      }
-    })
+    config = require('neogit').setup({})
   }
   use {
     'lewis6991/gitsigns.nvim',
