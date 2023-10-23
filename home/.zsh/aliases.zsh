@@ -77,3 +77,5 @@ alias dpss='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" | sort -k
 
 alias mutt='TERM=xterm-256color neomutt'
 alias mux=tmuxinator
+
+command -v microk8s > /dev/null && alias kubectl='microk8s kubectl'
