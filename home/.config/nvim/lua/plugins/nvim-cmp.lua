@@ -40,15 +40,17 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Insert,
       select = false,
     },
-
     -- Tab mapping
     ['<Tab>'] = cmp.mapping(function(fallback)
+      -- local copilot_keys = vim.fn['copilot#Accept']()
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      -- elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
+      --   vim.api.nvim_feedkeys(copilot_keys, 'i', true)
       elseif has_words_before() then
         cmp.complete()
       else
@@ -74,5 +76,14 @@ cmp.setup({
     { name = 'path' },
     { name = 'buffer' },
     { name = 'orgmode' },
+    { name = 'copilot' },
   },
 })
+
+cmp.event:on("menu_opened", function()
+  vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on("menu_closed", function()
+  vim.b.copilot_suggestion_hidden = false
+end)

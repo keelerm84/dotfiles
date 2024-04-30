@@ -377,6 +377,7 @@ return packer.startup(function(use)
   -- }}}
 
   -- Language support {{{
+  use 'github/copilot.vim'
   use 'ray-x/guihua.lua'
   use {
     'ray-x/go.nvim',

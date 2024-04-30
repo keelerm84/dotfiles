@@ -41,6 +41,12 @@ colorscheme gruvbox-material
 " hi Normal ctermbg=none
 ]]
 
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_tab_fallback = ""
+
 -- Add standard dictionary words if they exist
 if fn.empty(fn.glob("/usr/share/dict/words")) == 0 then
   opt.dictionary:append("/usr/share/dict/words")
