@@ -7,3 +7,4 @@ bower_components
 .exercism/metadata.json
 .tool-versions
 *.DotSettings.user
+.vscode

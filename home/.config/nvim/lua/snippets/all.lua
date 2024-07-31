@@ -18,7 +18,7 @@ local function todo_marker(trigger, marker)
     t(marker),
     f(append_initials, {}, {}),
     t(": "),
-    i(0)
+    i(0),
   })
 end
 
