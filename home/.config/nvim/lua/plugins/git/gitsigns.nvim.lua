@@ -7,21 +7,21 @@ return {
   config = function()
     require("gitsigns").setup({
       numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
-      linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+      -- linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
+      -- word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
 
       -- watch_gitdir = {
       --   follow_files = true,
       -- },
       -- auto_attach = true,
-      -- attach_to_untracked = false,
+      -- attach_to_untracked = true,
 
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {
         virt_text = true,
-        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+        virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
         delay = 100,
-        ignore_whitespace = false,
+        ignore_whitespace = true,
         virt_text_priority = 100,
       },
 
