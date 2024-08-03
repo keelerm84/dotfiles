@@ -7,8 +7,6 @@ return {
   config = function()
     require("gitsigns").setup({
       numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
-      -- linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
-      -- word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
 
       -- watch_gitdir = {
       --   follow_files = true,
