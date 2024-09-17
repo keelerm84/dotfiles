@@ -4,6 +4,8 @@ else
     alias ls="ls -N --color=auto"
 fi
 
+alias -g @r='| vim -R'
+
 alias l="ls -lhF"
 alias ll="ls -alhF"
 alias tmux='tmux -2 -u'
