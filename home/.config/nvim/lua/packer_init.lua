@@ -147,7 +147,7 @@ return packer.startup(function(use)
             alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } -- a set of other keywords that all map to this FIX keywords
           },
           WARN = { icon = " ", alt = { "WARNING", "XXX" } },
-          NOTE = { icon = " ", alt = { "INFO" } },
+          NOTE = { icon = "🗈 ", alt = { "INFO" } },
           QUESTION = { icon = "? ", color = "warning", alt = { "RESEARCH" } },
         },
         colors = {
@@ -160,7 +160,7 @@ return packer.startup(function(use)
         },
         merge_keywords = true,
         highlight = {
-          keyword = "bg",
+          keyword = "fg",
           pattern = [[.*<(KEYWORDS)>]],
         },
         search = {
