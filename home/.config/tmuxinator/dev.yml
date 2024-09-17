@@ -1,6 +1,6 @@
 # /home/mkeeler/.config/tmuxinator/sdk.yml
 
-name: <%= ENV['PWD'].split('/').last(2).join("/").sub('-private.git', '').sub('.git', '') %>
+name: <%= ENV['PWD'].split('/').last(2).join("/").sub('-private.git', '').sub('.git', '').sub('.', '-') %>
 root: <%= ENV['PWD'] %>
 
 # Optional tmux socket
