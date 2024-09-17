@@ -48,6 +48,9 @@ alias gcan='gc --amend --no-edit'
 alias gco='g checkout'
 alias grs='g restore --staged'
 
+alias grc='g rebase --continue'
+alias gra='g rebase --abort'
+
 alias gl='g log'
 alias gll='g ll'
 
@@ -63,6 +66,7 @@ alias grc='g rebase --continue'
 alias gP='g push'
 alias gPf='g push --force-with-lease'
 alias gm='g merge'
+alias gma='gm --abort'
 
 alias gg='g grep'
 
