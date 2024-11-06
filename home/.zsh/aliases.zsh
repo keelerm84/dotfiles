@@ -10,6 +10,7 @@ alias l="ls -lhF"
 alias ll="ls -alhF"
 alias tmux='tmux -2 -u'
 alias mux='tmuxinator'
+alias ms="mux start ${MUX_DEFAULT:-dev}"
 alias tl='tmux list-sessions'
 alias e='emacsclient -t'
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
