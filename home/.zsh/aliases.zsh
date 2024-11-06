@@ -5,6 +5,8 @@ else
 fi
 
 alias -g @r='| vim -R'
+alias -g @sum='| awk "{s+=\$1} END {print s}"'
+alias -g @avg='| awk "{s+=\$1} END {print s/NR}"'
 
 alias l="ls -lhF"
 alias ll="ls -alhF"
