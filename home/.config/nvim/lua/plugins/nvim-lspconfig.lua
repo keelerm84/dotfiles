@@ -118,6 +118,7 @@ local servers = {
     'sqlls',
     'terraformls',
     'ts_ls',
+    'zls'
 }
 
 installer_nvim_lsp.setup_handlers {
