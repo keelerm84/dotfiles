@@ -117,7 +117,7 @@ local servers = {
     'solargraph',
     'sqlls',
     'terraformls',
-    'tsserver'
+    'ts_ls',
 }
 
 installer_nvim_lsp.setup_handlers {
