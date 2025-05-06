@@ -146,9 +146,9 @@ return packer.startup(function(use)
             icon = " ", -- icon used for the sign, and in search results
             alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } -- a set of other keywords that all map to this FIX keywords
           },
-          WARN = { icon = " ", alt = { "WARNING", "XXX" } },
-          NOTE = { icon = "🗈 ", alt = { "INFO" } },
-          QUESTION = { icon = "? ", color = "warning", alt = { "RESEARCH" } },
+          WARN = { icon = "", alt = { "WARNING", "XXX" } },
+          NOTE = { icon = "🗈", alt = { "INFO" } },
+          QUESTION = { color = "warning", alt = { "RESEARCH" } },
         },
         colors = {
           error = { palette.purple[1], "DiagnosticError", "ErrorMsg", "#DC2626" },
