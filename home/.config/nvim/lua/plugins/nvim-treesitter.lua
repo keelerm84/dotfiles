@@ -41,6 +41,7 @@ nvim_treesitter.setup {
     'terraform',
     'toml',
     'typescript',
+    'twig',
     'vim',
     'yaml',
     'zig',
