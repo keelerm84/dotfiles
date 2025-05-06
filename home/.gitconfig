@@ -20,3 +20,5 @@
     path = nvim
 [init]
 	defaultBranch = main
+[rebase]
+	updateRefs = true
