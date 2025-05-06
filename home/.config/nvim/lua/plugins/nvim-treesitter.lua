@@ -32,7 +32,6 @@ nvim_treesitter.setup {
     'json',
     'latex',
     'lua',
-    'org',
     'php',
     'phpdoc',
     'python',
