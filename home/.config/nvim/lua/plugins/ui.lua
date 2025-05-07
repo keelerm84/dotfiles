@@ -4,9 +4,9 @@ return {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     init = function()
-      vim.ggruvbox_material_foreground = 'material'
-      vim.ggruvbox_material_background = 'soft'
-      vim.ggruvbox_material_disable_italic_comment = 1
+      vim.g.gruvbox_material_foreground = 'material'
+      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_disable_italic_comment = 1
     end,
     config = function()
       vim.cmd.colorscheme "gruvbox-material"
