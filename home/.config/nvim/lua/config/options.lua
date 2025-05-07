@@ -5,6 +5,8 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.diagnostic.config({ virtual_text = true })
+
 -- Add standard dictionary words if they exist
 if vim.fn.empty(vim.fn.glob("/usr/share/dict/words")) == 0 then
   opt.dictionary:append("/usr/share/dict/words")
