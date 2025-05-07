@@ -7,9 +7,11 @@ return {
       vim.g.gruvbox_material_foreground = 'material'
       vim.g.gruvbox_material_background = 'soft'
       vim.g.gruvbox_material_disable_italic_comment = 1
+      vim.g.termguicolors = true
     end,
     config = function()
       vim.cmd.colorscheme "gruvbox-material"
+      vim.api.nvim_set_hl(0, "Todo", {})
     end
   },
 
