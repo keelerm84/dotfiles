@@ -78,6 +78,18 @@ return {
   },
 
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    opts = {
+      sections = {
+          lualine_c = {'filename'},
+      }
+    }
+  },
+
+  {
     "goolord/alpha-nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
