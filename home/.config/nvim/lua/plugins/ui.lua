@@ -75,5 +75,49 @@ return {
         }
       }
     end
-  }
+  },
+
+  {
+    "goolord/alpha-nvim",
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local dashboard = require("alpha.themes.dashboard")
+
+      local banner = {
+        "                                                    ",
+        " ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+        " ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+        " ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+        " ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+        " ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+        " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+        "                                                    ",
+      }
+
+      local function footer()
+        local version = vim.version()
+        local print_version = "v" .. version.major .. '.' .. version.minor .. '.' .. version.patch
+        local datetime = os.date('%Y/%m/%d %H:%M:%S')
+
+        return print_version .. ' ' .. datetime
+      end
+
+      dashboard.section.header.val = banner
+
+      dashboard.section.buttons.val = {
+        dashboard.button('e', '  New file', ':ene<CR>'),
+        dashboard.button('f', '  Find file', ':NvimTreeOpen<CR>'),
+        dashboard.button('s', '  Settings', ':e $MYVIMRC<CR>'),
+        dashboard.button('q', '  Quit', ':qa<CR>'),
+      }
+
+      dashboard.section.footer.val = footer()
+
+      -- available: devicons, mini, default is mini
+      -- if provider not loaded and enabled is true, it will try to use another provider
+      require("alpha").setup(
+        dashboard.config
+      )
+    end,
+  },
 }
