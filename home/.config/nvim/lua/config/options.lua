@@ -12,6 +12,7 @@ if vim.fn.empty(vim.fn.glob("/usr/share/dict/words")) == 0 then
   opt.dictionary:append("/usr/share/dict/words")
 end
 
+opt.background = "dark"
 opt.complete:append("k")
 opt.spell = true
 
