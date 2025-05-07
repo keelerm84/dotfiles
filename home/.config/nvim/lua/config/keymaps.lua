@@ -72,6 +72,8 @@ map('n', '<leader>f9', ':set foldlevel=9<CR>')
 -- Misc {{{
 map('n', '<leader>fj', ':%!python -m json.tool<CR><Esc>:set filetype=json<CR>')
 map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>")
+
+map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
 -- }}}
 
 -- vim: foldmethod=marker foldlevel=0
