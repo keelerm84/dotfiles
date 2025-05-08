@@ -27,13 +27,6 @@ autocmd('BufLeave', {
   command = 'stopinsert'
 })
 
-autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    require('go.format').goimport()
-  end
-})
-
 -- Open quickfix after populating list
 autocmd('QuickFixCmdPost', {
   command = 'copen 8'
