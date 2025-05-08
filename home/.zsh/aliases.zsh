@@ -28,6 +28,7 @@ alias tns='tn -s'
 alias g='git'
 
 alias gwc='g whatchanged'
+alias gwcs='gwc --stat'
 
 alias gwt='g worktree'
 alias gwtl='gwt list'
