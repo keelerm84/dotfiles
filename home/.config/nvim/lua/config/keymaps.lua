@@ -1,7 +1,3 @@
------------------------------------------------------------
--- Define keymaps of Neovim and installed plugins.
------------------------------------------------------------
-
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
@@ -10,16 +6,11 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Change leader to a comma
-vim.g.mapleader = ' '
+vim.fn.setreg('d', [[/^\(<<<<<<<\|=======\|>>>>>>>\)]])
 
-vim.cmd[[
-let @d="/^\\(<<<<<<<\\|=======\\|>>>>>>>\\)\n"
-]]
-
------------------------------------------------------------
+--
 -- Neovim shortcuts
------------------------------------------------------------
+--
 
 -- Disable arrow keys
 map('', '<up>', '<nop>')
@@ -27,11 +18,14 @@ map('', '<down>', '<nop>')
 map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
--- Open magit status buffer
-map('n', '<leader>gs', ':Neogit<CR>')
-
 -- Clear search highlighting with <leader> and c
 map('n', '<leader>no', ':nohl<CR>')
+
+-- Quickfix navigation
+map('n', '<M-j>', ':cnext<CR>')
+map('n', '<M-k>', ':cprev<CR>')
+map('n', '<M-l>', ':cnewer<CR>')
+map('n', '<M-h>', ':colder<CR>')
 
 -- Improved window manager and movement {{{
 -- Move around splits using Ctrl + {h,j,k,l}
@@ -81,58 +75,11 @@ map('n', '<leader>f8', ':set foldlevel=8<CR>')
 map('n', '<leader>f9', ':set foldlevel=9<CR>')
 -- }}}
 
--- Function Keys {{{
-map('n', '<F2>', ':call ToggleQuickfixList()<CR>')
-map('n', '<F3>', ':TodoQuickFix<CR>')
-map('n', '<F4>', ':TroubleToggle<CR>')
-
-map('n', '<F5>', ':DapToggleBreakpoint<CR>')
-map('n', '<F6>', ':DapStepOut<CR>')
-map('n', '<F7>', ':DapStepInto<CR>')
-map('n', '<F8>', ':DapStepOver<CR>')
-map('n', '<F9>', ':DapContinue<CR>')
-
-
--- }}}
-
 -- Misc {{{
 map('n', '<leader>fj', ':%!python -m json.tool<CR><Esc>:set filetype=json<CR>')
 map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>")
--- }}}
 
------------------------------------------------------------
--- Applications and Plugins shortcuts
------------------------------------------------------------
-
--- NvimTree {{{
-map('n', '<leader>nt', ':NvimTreeToggle<CR>')        -- open/close
-map('n', '<leader>nf', ':NvimTreeFindFile<CR>')      -- search file
--- }}}
-
--- Tagbar {{{
-map('n', '<leader>tt', ':TagbarOpen fj<CR>')          -- open/close
-map('n', '<leader>tc', ':TagbarClose<CR>')          -- open/close
--- }}}
-
--- Searching {{{
 map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
--- }}}
-
--- FZF {{{
-map('n', '<C-p>', ':call SmartFzfSearching()<CR>')
-map('n', 'g<C-p>', ':Files<CR>')
-map('n', 'gs<C-p>', ':GFiles?<CR>')
-
-map('n', '<leader>T', ':BTags<CR>')
-map('n', 'g<leader>T', ':Tags<CR>')
-
-map('n', '<leader>l', ':BLines<CR>')
-map('n', 'g<leader>l', ':Lines<CR>')
-
-map('n', '<leader>b', ':Buffers<CR>')
-
-map('n', '<leader>c', ':BCommits<CR>')
-map('n', 'g<leader>c', ':Commits<CR>')
 -- }}}
 
 -- vim: foldmethod=marker foldlevel=0
