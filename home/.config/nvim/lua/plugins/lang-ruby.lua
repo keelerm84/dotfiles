@@ -1,0 +1,3 @@
+return {
+  { 'weihanglo/polar.vim' }
+}
