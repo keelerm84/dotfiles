@@ -21,6 +21,12 @@ map('', '<right>', '<nop>')
 -- Clear search highlighting with <leader> and c
 map('n', '<leader>no', ':nohl<CR>')
 
+-- Quickfix navigation
+map('n', '<M-j>', ':cnext<CR>')
+map('n', '<M-k>', ':cprev<CR>')
+map('n', '<M-l>', ':cnewer<CR>')
+map('n', '<M-h>', ':colder<CR>')
+
 -- Improved window manager and movement {{{
 -- Move around splits using Ctrl + {h,j,k,l}
 map('n', '<C-h>', '<C-w>h')
