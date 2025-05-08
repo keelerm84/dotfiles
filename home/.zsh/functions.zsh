@@ -157,4 +157,8 @@ function load_rvm () {
     fi
 }
 
+function git_root() {
+    [ ! -z `git rev-parse --show-toplevel` ] && cd `git rev-parse --show-toplevel || pwd`
+}
+
 . ~/.zsh/functions/docker.zsh

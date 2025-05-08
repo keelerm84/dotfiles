@@ -34,7 +34,7 @@ alias gwtl='gwt list'
 alias gwta='gwt add'
 alias gwtr='gwt remove'
 
-alias gr='[ ! -z `git rev-parse --show-toplevel` ] && cd `g rev-parse --show-toplevel || pwd`'
+alias gr='git_root'
 alias gb='g branch'
 
 alias gd='g diff'
