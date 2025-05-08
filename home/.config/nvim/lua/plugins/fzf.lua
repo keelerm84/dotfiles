@@ -1,9 +1,7 @@
 return {
   {
     'junegunn/fzf',
-    build = function()
-      vim.fn["fzf#install"]()
-    end
+    build = ":call fzf#install()",
   },
 
   {
@@ -43,22 +41,18 @@ return {
       }
 
       vim.g.fzf_preview_window = {'right:50%:hidden', 'ctrl-o'}
-    end,
-    config = function()
-      local configuration = vim.fn['gruvbox_material#get_configuration']()
-      local palette = vim.fn['gruvbox_material#get_palette'](configuration.background, configuration.foreground, configuration.colors_override)
 
       vim.g.fzf_colors = {
         ['fg'] = {'fg', 'Normal'},
         ['bg'] = {'bg', 'Normal'},
-        ['hl'] = {'fg', palette.aqua[1]},
+        ['hl'] = {'fg', 'GruvboxAqua'},
         ['fg+'] = {'fg', 'String'},
         ['bg+'] = {'bg', 'Normal'},
-        ['hl+'] = {'fg', palette.blue[1]},
+        ['hl+'] = {'fg', 'GruboxBlue'},
         ['info'] = {'fg', 'PreProc'},
         ['border'] = {'fg', 'Comment'},
-        ['prompt'] = {'fg', palette.purple[1]},
-        ['pointer'] = {'fg', palette.purple[1]},
+        ['prompt'] = {'fg', 'GruvboxPurple'},
+        ['pointer'] = {'fg', 'GruvboxPurple'},
         ['marker'] = {'fg', 'Keyword'},
         ['spinner'] = {'fg', 'Label'},
         ['header'] = {'fg', 'Comment'}
