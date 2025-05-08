@@ -11,10 +11,13 @@ return {
     opts = {
       ensure_installed = {
         'bashls',
+        'bright_script',
+        'clangd',
         'dockerls',
         'gopls',
         'hls',
         'html',
+        'jdtls',
         'omnisharp',
         'intelephense',
         'phpactor',

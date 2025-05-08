@@ -20,6 +20,7 @@ return {
         'cpp',
         'c_sharp',
         'css',
+        'dart',
         'dockerfile',
         'elixir',
         'go',
