@@ -9,7 +9,9 @@ return {
     'mason-org/mason-lspconfig.nvim',
     dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
     init = function()
-      vim.api.nvim_set_keymap('n', 'gd', '<C-]>', { noremap = false, silent = true })
+      vim.keymap.set('n', 'gd', '<C-]>', { noremap = false, silent = true })
+      vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostic", noremap = true, silent = true })
+
     end,
     opts = {
       ensure_installed = {
