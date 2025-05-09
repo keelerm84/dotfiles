@@ -8,6 +8,9 @@ return {
   {
     'mason-org/mason-lspconfig.nvim',
     dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
+    init = function()
+      vim.api.nvim_set_keymap('n', 'gd', '<C-]>', { noremap = false, silent = true })
+    end,
     opts = {
       ensure_installed = {
         'bashls',
