@@ -13,27 +13,44 @@ return {
       vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostic", noremap = true, silent = true })
 
     end,
-    opts = {
-      ensure_installed = {
-        'bashls',
-        'bright_script',
-        'clangd',
-        'dockerls',
-        'gopls',
-        'hls',
-        'html',
-        'jdtls',
-        'omnisharp',
-        'intelephense',
-        'phpactor',
-        'pylsp',
-        'rust_analyzer',
-        'solargraph',
-        'sqlls',
-        'terraformls',
-        'ts_ls',
-        'zls'
-      }
-    }
+    config = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'bashls',
+          'bright_script',
+          'clangd',
+          'dockerls',
+          'gopls',
+          'hls',
+          'html',
+          'intelephense',
+          'jdtls',
+          'lua_ls',
+          'omnisharp',
+          'phpactor',
+          'pylsp',
+          'rust_analyzer',
+          'solargraph',
+          'sqlls',
+          'terraformls',
+          'ts_ls',
+          'zls',
+        },
+      })
+
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            completion = {
+              callSnippet = "Replace",
+            },
+          },
+        },
+      })
+    end,
   }
 }
