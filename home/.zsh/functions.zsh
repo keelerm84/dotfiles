@@ -97,21 +97,44 @@ function swatch {
     local group=
     local profile=default
     local prefix=
+    local raw=
+    local pretty=--pretty
 
     while [[ "$#" > 0 ]]; do
         case "${1}" in
             -h|--hours)
                 hours=${2}
-                shift 2;;
+
+                [[ -z ${2} ]] && \
+                    shift ||
+                    shift 2
+                ;;
             -g|--group)
                 group=${2}
-                shift 2;;
+
+                [[ -z ${2} ]] && \
+                    shift ||
+                    shift 2
+                ;;
             -p|--profile)
                 profile=${2}
-                shift 2;;
+
+                [[ -z ${2} ]] && \
+                    shift ||
+                    shift 2
+                ;;
+            -r|--raw)
+                raw="--raw"
+                pretty=""
+                shift;;
+
             -x|--prefix)
                 prefix=${2}
-                shift 2;;
+
+                [[ -z ${2} ]] && \
+                    shift ||
+                    shift 2
+                ;;
             *)
                 shift;; # unexpected params
         esac
@@ -123,8 +146,8 @@ function swatch {
         prefix=(--prefix "${prefix}")
     fi
 
-    saw --profile ${profile} get ${group} "${prefix[@]}" --pretty --start -${hours}h
-    saw --profile ${profile} watch ${group} "${prefix[@]}"
+    unbuffer saw --profile ${profile} get ${group} "${prefix[@]}" --start -${hours}h ${pretty} | sed '/^$/d'
+    unbuffer saw --profile ${profile} watch ${group} "${prefix[@]}" ${raw}
 }
 
 function load_nvm () {
@@ -157,4 +180,5 @@ function load_rvm () {
     fi
 }
 
-. ~/.zsh/functions/docker.zsh
+load_file "functions/docker.zsh"
+load_file "functions/tmate.zsh"

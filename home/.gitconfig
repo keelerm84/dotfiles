@@ -1,5 +1,5 @@
 [color]
-    ui = auto
+	ui = true
 [core]
     filemode = false
     excludesfile = ~/.gitignore
@@ -19,3 +19,9 @@
     path = nvim
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = false
+[rerere]
+	enabled = true
+[branch]
+	sort = -committerdate

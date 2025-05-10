@@ -2,18 +2,22 @@ configuration {
     font: "JetBrains Mono Medium 18";
     terminal: "kitty";
     ssh-command: "{terminal} -- kitty +kitten {ssh-client} {host}";
-    disable-history: true;
+    disable-history: false;
     sidebar-mode: true;
     parse-known-hosts: false;
     kb-remove-char-back: "BackSpace";
     kb-mode-complete: "";
-    kb-mode-next: "Control+l";
-    kb-mode-previous: "Control+h";
     kb-row-tab: "";
-    kb-row-select: "Tab";
-    kb-element-next: "";
+    /* kb-row-select: "Tab"; */
+    /* kb-mode-next: "Control+l"; */
+    kb-mode-next: "Alt+l";
+    /* kb-mode-previous: "Control+h"; */
+    kb-mode-previous: "Alt+h";
+    modi: "window,filebrowser,drun,run,ssh,calc";
     show-icons: true;
 }
+
+/* @theme "/usr/share/rofi/themes/glue_pro_blue.rasi" */
 
 /* global settings and color variables */
 * {
@@ -43,7 +47,7 @@ configuration {
 
 window {
    background-color: @background-color;
-   width: 33%;
+   width: 60%;
    padding: 10px;
    fullscreen: false;
    border:  2px;
