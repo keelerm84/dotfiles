@@ -4,6 +4,7 @@ return {
     dependencies = {
       'sainnhe/gruvbox-material',
     },
+    event = { "BufRead", "BufNewFile" },
     config = function()
       local configuration = vim.fn['gruvbox_material#get_configuration']()
       local palette = vim.fn['gruvbox_material#get_palette'](configuration.background, configuration.foreground, configuration.colors_override)

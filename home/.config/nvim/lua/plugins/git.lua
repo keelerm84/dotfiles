@@ -21,6 +21,7 @@ return {
     'lewis6991/gitsigns.nvim',
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons",
     },
     opts = {
       on_attach = function(bufnr)

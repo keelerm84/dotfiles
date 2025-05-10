@@ -25,6 +25,7 @@ return {
 
   {
     'preservim/tagbar',
+    event = { "BufReadPre", "BufNewFile" },
     keys = {
       { '<leader>tt', ':TagbarOpen fj<CR>', silent = true },
       { '<leader>tc', ':TagbarClose<CR>', silent = true },
@@ -108,6 +109,7 @@ return {
   {
     "goolord/alpha-nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = "VimEnter",
     config = function()
       local dashboard = require("alpha.themes.dashboard")
 
@@ -136,6 +138,7 @@ return {
         dashboard.button('e', '  New file', ':ene<CR>'),
         dashboard.button('f', '  Find file', ':NvimTreeOpen<CR>'),
         dashboard.button('s', '  Settings', ':e $MYVIMRC<CR>'),
+        dashboard.button("p", "  Plugins", ":Lazy<CR>"),
         dashboard.button('q', '  Quit', ':qa<CR>'),
       }
 

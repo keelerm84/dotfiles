@@ -5,6 +5,8 @@ return {
   { 'tpope/vim-unimpaired' },
   { 'tpope/vim-speeddating' },
 
+  { "mong8se/actually.nvim" },
+
   {
     'arthurxavierx/vim-caser',
     init = function()
@@ -12,7 +14,10 @@ return {
     end,
   },
 
-  { 'numToStr/Comment.nvim' },
+  {
+    'numToStr/Comment.nvim',
+    event = { "BufReadPre", "BufNewFile" },
+  },
   { 'mg979/vim-visual-multi' },
   { 'fweep/vim-tabber' },
 
