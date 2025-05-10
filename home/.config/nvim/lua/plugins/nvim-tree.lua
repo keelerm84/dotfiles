@@ -8,8 +8,8 @@ return {
       vim.g.loaded_netrwPlugin = 1
     end,
     keys = {
-      { '<leader>nt', ':NvimTreeToggle<CR>', silent = true },
-      { '<leader>nf', ':NvimTreeFindFile<CR>', silent = true },
+      { '<leader>nt', ':NvimTreeToggle<CR>', silent = true, desc = "NvimTree: Toggle file explorer" },
+      { '<leader>nf', ':NvimTreeFindFile<CR>', silent = true, desc = "NvimTree: Find current file" },
     },
     opts = {
       on_attach = function(bufnr)
