@@ -24,11 +24,18 @@ return {
   },
 
   {
+    "szw/vim-maximizer",
+    keys = {
+      { "<C-w>z", ":MaximizerToggle<CR>", desc = "Maximize the current window" },
+    },
+  },
+
+  {
     'preservim/tagbar',
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      { '<leader>tt', ':TagbarOpen fj<CR>', silent = true },
-      { '<leader>tc', ':TagbarClose<CR>', silent = true },
+      { '<leader>tt', ':TagbarOpen fj<CR>', silent = true, desc = "Open tagbar" },
+      { '<leader>tc', ':TagbarClose<CR>', silent = true, desc = "Close tagbar" },
     },
     init = function()
       vim.g.tagbar_type_haskell = {
@@ -84,12 +91,31 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'kyazdani42/nvim-web-devicons',
+      "sainnhe/gruvbox-material",
     },
-    opts = {
-      sections = {
-          lualine_c = {'filename'},
-      }
-    }
+    config = function()
+      local lualine = require("lualine")
+      local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+
+      local configuration = vim.fn['gruvbox_material#get_configuration']()
+      local palette = vim.fn['gruvbox_material#get_palette'](configuration.background, configuration.foreground, configuration.colors_override)
+
+      lualine.setup({
+        sections = {
+          lualine_c = {
+            "filename",
+            "lsp_progress",
+          },
+          lualine_x = {
+            {
+              lazy_status.updates,
+              cond = lazy_status.has_updates,
+              color = { fg = palette.orange[1] },
+            },
+          },
+        },
+      })
+    end,
   },
 
   {
