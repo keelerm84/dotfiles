@@ -1,4 +1,1 @@
-home/.config/nvim/node_modules/
-home/.config/nvim/package-lock.json
-home/.config/nvim/package.json
-home/.config/nvim/plugin/
+home/.config/nvim/lua/plugins/local/
