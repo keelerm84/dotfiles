@@ -47,6 +47,7 @@ map('v', '>', '>gv')
 -- }}}
 
 -- Saving and quitting {{{
+map("v", "<leader>y", '"+y')
 map('n', 'zz', 'ZZ')
 map('n', '<leader>w', ':wa<CR>')
 map('c', 'w!!', 'w !sudo tee % >/dev/null')
@@ -80,6 +81,7 @@ map('n', '<leader>fj', ':%!python -m json.tool<CR><Esc>:set filetype=json<CR>')
 map('v', '<leader>fj', ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR>")
 
 map('n', '<leader>gg', ':Ggrep<SPACE>', { silent = false })
+map("n", "<leader>adb", ":%bd<CR>")
 -- }}}
 
 -- vim: foldmethod=marker foldlevel=0
