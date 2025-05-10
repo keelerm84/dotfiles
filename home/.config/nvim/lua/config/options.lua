@@ -14,6 +14,7 @@ end
 
 opt.background = "dark"
 opt.complete:append("k")
+opt.completeopt = "menu,preview,longest,noselect"
 opt.spell = true
 
 opt.undofile = true
