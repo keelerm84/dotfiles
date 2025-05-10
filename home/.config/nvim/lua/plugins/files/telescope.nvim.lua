@@ -8,9 +8,9 @@ return {
     local telescope = require("telescope")
 
     telescope.setup({
-      defaults = {
-        path_display = { "smart" },
-      },
+      -- defaults = {
+      --   path_display = { "smart" },
+      -- },
     })
 
     local keymap = vim.keymap -- for conciseness

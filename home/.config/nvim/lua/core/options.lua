@@ -63,7 +63,7 @@ opt.undoreload = 10000
 -----------------------------------------------------------
 opt.cursorline = true
 opt.virtualedit = "onemore"
-opt.wrap = false
+opt.wrap = true
 opt.autoindent = true
 opt.number = true -- Show line number
 opt.relativenumber = true

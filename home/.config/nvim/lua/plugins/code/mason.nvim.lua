@@ -18,6 +18,7 @@ return {
 
         -- Language Server (LSP)
         --
+        "bzl", -- (keywords: starlark)
         "bashls", -- (keywords: bash)
         "cssls", -- (keywords: css, scss, less)
         "dockerls", -- (keywords: docker)
@@ -40,7 +41,8 @@ return {
         "eslint_d", -- (keywords: typescript, javascript)
         "golangci-lint", -- (keywords: go)
         -- "sonarlint-language-server" FYI: Didn't do anything
-        -- "sonarlint-language-server", -- (keywords: c, c++, c#, cloudformation, css, docker, go, html, ipython, java, javascript, kubernetes, typescript, python, php, terraform, text, xml, yaml)
+        "sonarlint-language-server", -- (keywords: c, c++, c#, cloudformation, css, docker, go, html, ipython, java, javascript, kubernetes, typescript, python, php, terraform, text, xml, yaml)
+        "sqlfluff", -- (keywords: sql)
         -- "trivy" FYI: Didn't do anything
         "trivy", -- (keywords: c, c#, c++, dart, docker, elixir, go, helm, java, javascript, php, python, ruby, rust, terraform, typescript)
 

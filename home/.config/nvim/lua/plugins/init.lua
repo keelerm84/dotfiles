@@ -9,7 +9,8 @@ return {
   -- Handles accidentally opened files without extension
   { "mong8se/actually.nvim" },
 
-  { "mg979/vim-visual-multi" },
+  -- breaks ability to switch panes in tmux with <C-arrows>
+  -- { "mg979/vim-visual-multi" },
   { "fweep/vim-tabber" },
 
   -- Consider replacing with https://github.com/phaazon/hop.nvim
@@ -32,4 +33,43 @@ return {
       vim.g.caser_prefix = "cr"
     end,
   },
+
+  -- ones I have in local
+  -- Session handling
+  {
+    "dhruvasagar/vim-prosession",
+    dependencies = {
+      "tpope/vim-obsession",
+    },
+    init = function()
+      vim.g.prosession_dir = vim.fn.stdpath("data") .. "/sessions/"
+      os.execute("mkdir -pv " .. vim.g.prosession_dir)
+    end,
+  },
+
+  -- Git-driven history
+  {
+    "ColinKennedy/vim-git-backup",
+    init = function()
+      vim.g.custom_backup_dir = vim.fn.stdpath("config") .. "/lua/local/backups/"
+    end,
+  },
+
+  -- Fanciness
+  { "dominikduda/vim_current_word" },
+  { "wuelnerdotexe/vim-enfocado" },
+
+  -- going to next searched item keeps you in the same spot
+  { "haya14busa/vim-asterisk" },
+
+  -- Better search
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
+      require("hlslens").setup()
+    end,
+  },
+
+  { "Einenlum/yaml-revealer" },
+  { "pedrohdz/vim-yaml-folds" },
 }

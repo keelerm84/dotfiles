@@ -74,6 +74,21 @@ return {
       --   require("rust-tools").setup {}
       -- end
 
+      ["gopls"] = function()
+        lspconfig.gopls.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          cmd = { "gopls", "-remote=auto" },
+          settings = {
+            gopls = {
+              env = {
+                GOPACKAGESDRIVER = vim.fn.expand("tools/go/gopackagesdriver.sh"),
+              },
+            },
+          },
+        })
+      end,
+
       ["graphql"] = function()
         -- configure graphql language server
         lspconfig["graphql"].setup({
