@@ -23,12 +23,6 @@ let @d="/^\\(<<<<<<<\\|=======\\|>>>>>>>\\)\n"
 -- Neovim shortcuts
 -----------------------------------------------------------
 
--- Disable arrow keys
-map("", "<up>", "<nop>")
-map("", "<down>", "<nop>")
-map("", "<left>", "<nop>")
-map("", "<right>", "<nop>")
-
 -- Open magit status buffer
 map("n", "<leader>gs", ":Neogit<CR>")
 
@@ -41,6 +35,12 @@ map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
+
+-- Move around splits using Ctrl + Arrow keys
+map("n", "<C-Left>", "<C-w>h")
+map("n", "<S-Down>", "<C-w>j")
+map("n", "<S-Up>", "<C-w>k")
+map("n", "<C-Right>", "<C-w>l")
 
 -- Rebalance splits
 map("n", "<leader>=", "<C-w>=")

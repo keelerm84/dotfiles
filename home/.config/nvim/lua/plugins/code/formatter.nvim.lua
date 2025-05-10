@@ -24,8 +24,23 @@ return {
         python = { require("formatter.filetypes.python").black },
         react = { require("formatter.filetypes.javascriptreact").prettier },
         rust = { require("formatter.filetypes.rust").rustfmt },
-        sh = { require("formatter.filetypes.sh").shfmt },
-        terraform = { require("formatter.filetypes.terraform").terraformfmt },
+        sh = {
+          function()
+            local shiftwidth = vim.opt.shiftwidth:get()
+            local expandtab = vim.opt.expandtab:get()
+
+            if not expandtab then
+              shiftwidth = 0
+            end
+
+            return {
+              exe = "shfmt",
+              args = { "-i", shiftwidth, "-ci" },
+              stdin = true,
+            }
+          end,
+        },
+        -- terraform = { require("formatter.filetypes.terraform").terraformfmt },
         typescript = { require("formatter.filetypes.typescript").prettier },
         yaml = { require("formatter.filetypes.yaml").prettier },
         zsh = { require("formatter.filetypes.zsh").beautyzsh },

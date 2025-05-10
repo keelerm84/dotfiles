@@ -1,5 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
+  -- TODO: Remove this when this issue is resolved:
+  -- https://github.com/williamboman/mason-lspconfig.nvim/issues/469
+  version = "1.x.x",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("lspconfig").lua_ls.setup({

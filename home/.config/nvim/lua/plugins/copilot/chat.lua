@@ -1,128 +1,128 @@
 return {
-  "CopilotC-Nvim/CopilotChat.nvim",
-  event = "InsertEnter",
-  dependencies = {
-    "zbirenbaum/copilot.lua",
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim", -- Use telescope for help actions
-  },
-  branch = "canary",
-  opts = {
-    debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-    disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-    context = "buffers", -- Default context to use, 'buffers', 'buffer' or none (can be specified manually in prompt via @).
-    -- proxy = "socks5://127.0.0.1:3000", -- Proxies requests via https or socks.
-    -- temperature = 0.1,
-  },
-  build = function()
-    vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
-  end,
-  keys = {
-    { mode = { "n", "v" }, "<leader>cc", "<cmd>CopilotChat<cr>", desc = "CopilotChat - Toggle" },
-    { mode = { "n", "v" }, "<leader>ccc", "<cmd>CopilotChatCommit<cr>", desc = "CopilotChat - Generate commit" },
-    { mode = { "n", "v" }, "<leader>ccd", "<cmd>CopilotChatDocs<cr>", desc = "CopilotChat - Generate docs" },
-    { mode = { "n", "v" }, "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-    { mode = { "n", "v" }, "<leader>ccf", "<cmd>CopilotChatFix<cr>", desc = "CopilotChat - Fix issue" },
-    { mode = { "n", "v" }, "<leader>cci", "<cmd>CopilotChatInline<cr>", desc = "CopilotChat - Inline" },
-    { mode = { "n", "v" }, "<leader>cco", "<cmd>CopilotChatOptimize<cr>", desc = "CopilotChat - Optimize code" },
-    { mode = { "n", "v" }, "<leader>ccr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
-    { mode = { "n", "v" }, "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Write tests" },
-    -- Show prompts actions with telescope
-    {
-      "<leader>ccp",
-      function()
-        local actions = require("CopilotChat.actions")
-        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-      end,
-      mode = { "n", "v" },
-      desc = "CopilotChat - Prompt actions",
-    },
-    -- Quick chat with Copilot
-    {
-      "<leader>ccq",
-      function()
-        local input = vim.fn.input("Quick Chat: ")
-        if input ~= "" then
-          vim.cmd("CopilotChatBuffer " .. input)
-        end
-      end,
-      desc = "CopilotChat - Quick chat",
-    },
-  },
-  config = function(_, opts)
-    local chat = require("CopilotChat")
-    local select = require("CopilotChat.select")
-    -- Use unnamed register for the selection
-    opts.selection = select.unnamed
-
-    -- Override the git prompts message
-    if opts.prompts == nil then
-      opts.prompts = {}
-    end
-
-    opts.prompts.Commit = {
-      prompt = "Write commit message for the change with commitizen convention",
-      selection = select.gitdiff,
-    }
-    opts.prompts.CommitStaged = {
-      prompt = "Write commit message for the change with commitizen convention",
-      selection = function(source)
-        return select.gitdiff(source, true)
-      end,
-    }
-
-    opts.model = "gpt-4o"
-
-    chat.setup(opts)
-    -- Setup the CMP integration
-    require("CopilotChat.integrations.cmp").setup()
-
-    vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
-      chat.ask(args.args, { selection = select.visual })
-    end, { nargs = "*", range = true })
-
-    -- Inline chat with Copilot
-    vim.api.nvim_create_user_command("CopilotChatInline", function(args)
-      chat.ask(args.args, {
-        selection = select.visual,
-        window = {
-          layout = "float",
-          relative = "cursor",
-          width = 1,
-          height = 0.4,
-          row = 1,
-        },
-      })
-    end, { nargs = "*", range = true })
-
-    -- Restore CopilotChatBuffer
-    vim.api.nvim_create_user_command("CopilotChatBuffer", function(args)
-      chat.ask(args.args, { selection = select.buffer })
-    end, { nargs = "*", range = true })
-
-    -- Custom buffer for CopilotChat
-    vim.api.nvim_create_autocmd("BufEnter", {
-      pattern = "copilot-*",
-      callback = function()
-        vim.opt_local.relativenumber = true
-        vim.opt_local.number = true
-
-        -- Get current filetype and set it to markdown if the current filetype is copilot-chat
-        local ft = vim.bo.filetype
-        if ft == "copilot-chat" then
-          vim.bo.filetype = "markdown"
-        end
-      end,
-    })
-
-    -- Add which-key mappings
-    local wk = require("which-key")
-    wk.add({
-      { "<leader>gm", group = "+Copilot Chat" }, -- group
-      { "<leader>gmd", desc = "Show diff" },
-      { "<leader>gmp", desc = "System prompt" },
-      { "<leader>gms", desc = "Show selection" },
-      { "<leader>gmy", desc = "Yank diff" },
-    })
-  end,
+  -- "CopilotC-Nvim/CopilotChat.nvim",
+  -- event = "InsertEnter",
+  -- dependencies = {
+  --   "zbirenbaum/copilot.lua",
+  --   "nvim-lua/plenary.nvim",
+  --   "nvim-telescope/telescope.nvim", -- Use telescope for help actions
+  -- },
+  -- branch = "main",
+  -- opts = {
+  --   debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
+  --   disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
+  --   context = "buffers", -- Default context to use, 'buffers', 'buffer' or none (can be specified manually in prompt via @).
+  --   -- proxy = "socks5://127.0.0.1:3000", -- Proxies requests via https or socks.
+  --   -- temperature = 0.1,
+  -- },
+  -- build = function()
+  --   vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+  -- end,
+  -- keys = {
+  --   { mode = { "n", "v" }, "<leader>cc", "<cmd>CopilotChat<cr>", desc = "CopilotChat - Toggle" },
+  --   { mode = { "n", "v" }, "<leader>ccc", "<cmd>CopilotChatCommit<cr>", desc = "CopilotChat - Generate commit" },
+  --   { mode = { "n", "v" }, "<leader>ccd", "<cmd>CopilotChatDocs<cr>", desc = "CopilotChat - Generate docs" },
+  --   { mode = { "n", "v" }, "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+  --   { mode = { "n", "v" }, "<leader>ccf", "<cmd>CopilotChatFix<cr>", desc = "CopilotChat - Fix issue" },
+  --   { mode = { "n", "v" }, "<leader>cci", "<cmd>CopilotChatInline<cr>", desc = "CopilotChat - Inline" },
+  --   { mode = { "n", "v" }, "<leader>cco", "<cmd>CopilotChatOptimize<cr>", desc = "CopilotChat - Optimize code" },
+  --   { mode = { "n", "v" }, "<leader>ccr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+  --   { mode = { "n", "v" }, "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Write tests" },
+  --   -- Show prompts actions with telescope
+  --   {
+  --     "<leader>ccp",
+  --     function()
+  --       local actions = require("CopilotChat.actions")
+  --       require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+  --     end,
+  --     mode = { "n", "v" },
+  --     desc = "CopilotChat - Prompt actions",
+  --   },
+  --   -- Quick chat with Copilot
+  --   {
+  --     "<leader>ccq",
+  --     function()
+  --       local input = vim.fn.input("Quick Chat: ")
+  --       if input ~= "" then
+  --         vim.cmd("CopilotChatBuffer " .. input)
+  --       end
+  --     end,
+  --     desc = "CopilotChat - Quick chat",
+  --   },
+  -- },
+  -- config = function(_, opts)
+  --   local chat = require("CopilotChat")
+  --   local select = require("CopilotChat.select")
+  --   -- Use unnamed register for the selection
+  --   opts.selection = select.unnamed
+  --
+  --   -- Override the git prompts message
+  --   if opts.prompts == nil then
+  --     opts.prompts = {}
+  --   end
+  --
+  --   -- opts.prompts.Commit = {
+  --   --   prompt = "Write commit message for the change with commitizen convention",
+  --   --   selection = select.gitdiff,
+  --   -- }
+  --   -- opts.prompts.CommitStaged = {
+  --   --   prompt = "Write commit message for the change with commitizen convention",
+  --   --   selection = function(source)
+  --   --     return select.gitdiff(source, true)
+  --   --   end,
+  --   -- }
+  --
+  --   -- opts.model = "gpt-4o"
+  --
+  --   chat.setup(opts)
+  --   -- -- Setup the CMP integration
+  --   -- require("CopilotChat.integrations.cmp").setup()
+  --
+  --   vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
+  --     chat.ask(args.args, { selection = select.visual })
+  --   end, { nargs = "*", range = true })
+  --
+  --   -- Inline chat with Copilot
+  --   vim.api.nvim_create_user_command("CopilotChatInline", function(args)
+  --     chat.ask(args.args, {
+  --       selection = select.visual,
+  --       window = {
+  --         layout = "float",
+  --         relative = "cursor",
+  --         width = 1,
+  --         height = 0.4,
+  --         row = 1,
+  --       },
+  --     })
+  --   end, { nargs = "*", range = true })
+  --
+  --   -- Restore CopilotChatBuffer
+  --   vim.api.nvim_create_user_command("CopilotChatBuffer", function(args)
+  --     chat.ask(args.args, { selection = select.buffer })
+  --   end, { nargs = "*", range = true })
+  --
+  --   -- Custom buffer for CopilotChat
+  --   vim.api.nvim_create_autocmd("BufEnter", {
+  --     pattern = "copilot-*",
+  --     callback = function()
+  --       vim.opt_local.relativenumber = true
+  --       vim.opt_local.number = true
+  --
+  --       -- Get current filetype and set it to markdown if the current filetype is copilot-chat
+  --       local ft = vim.bo.filetype
+  --       if ft == "copilot-chat" then
+  --         vim.bo.filetype = "markdown"
+  --       end
+  --     end,
+  --   })
+  --
+  --   -- Add which-key mappings
+  --   local wk = require("which-key")
+  --   wk.add({
+  --     { "<leader>gm", group = "+Copilot Chat" }, -- group
+  --     { "<leader>gmd", desc = "Show diff" },
+  --     { "<leader>gmp", desc = "System prompt" },
+  --     { "<leader>gms", desc = "Show selection" },
+  --     { "<leader>gmy", desc = "Yank diff" },
+  --   })
+  -- end,
 }

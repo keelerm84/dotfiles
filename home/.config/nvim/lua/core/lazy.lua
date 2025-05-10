@@ -23,13 +23,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load local overrides
-local locals = {}
-local file_path = vim.fn.stdpath("config") .. "/../nvim.local/lazy.lua"
-if vim.api.nvim_call_function("filereadable", { file_path }) == 1 then
-  locals = dofile(file_path)
-end
-
 -- Use a protected call so we don't error out on first use
 local lazy_ok, lazy = pcall(require, "lazy")
 if not lazy_ok then
@@ -47,7 +40,6 @@ lazy.setup({
     { import = "plugins.git" },
     { import = "plugins.ui" },
     { import = "local.plugins" },
-    locals,
   },
   checker = {
     enabled = true,

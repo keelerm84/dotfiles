@@ -12,6 +12,9 @@ return {
         -- Debug Adapter Protocol (DAP)
         --
         -- "go-debug-adapter", -- (keywords: go)
+        --
+        -- Linter, Formatter, LSP
+        "ruff", -- (keywords: python)
 
         -- Language Server (LSP)
         --
@@ -19,10 +22,11 @@ return {
         "cssls", -- (keywords: css, scss, less)
         "dockerls", -- (keywords: docker)
         "gopls", -- (keywords: go)
+        "helm_ls", -- (keywords: helm)
         "ltex", -- (keywords: text, markdown, latex, restructuredtext)
         "lua_ls", -- (keywords: lua)
         "pyright", -- (keywords: python)
-        "spectral", -- (keywords: json, yaml)
+        "jsonls", -- (keywords: json)
         "sqlls", -- (keywords: sql)
         "stimulus_ls", -- (keywords: blade, html, php, ruby)
         "terraformls", -- (keywords: terraform)
@@ -38,7 +42,7 @@ return {
         -- "sonarlint-language-server" FYI: Didn't do anything
         -- "sonarlint-language-server", -- (keywords: c, c++, c#, cloudformation, css, docker, go, html, ipython, java, javascript, kubernetes, typescript, python, php, terraform, text, xml, yaml)
         -- "trivy" FYI: Didn't do anything
-        -- "trivy", -- (keywords: c, c#, c++, dart, docker, elixir, go, helm, java, javascript, php, python, ruby, rust, terraform, typescript)
+        "trivy", -- (keywords: c, c#, c++, dart, docker, elixir, go, helm, java, javascript, php, python, ruby, rust, terraform, typescript)
 
         -- Linter + Formatter
         --

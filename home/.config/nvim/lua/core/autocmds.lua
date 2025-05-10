@@ -16,6 +16,7 @@ autocmd("Filetype", {
   pattern = {
     "css",
     "html",
+    "go",
     "javascript",
     "lua",
     "ruby",
