@@ -24,10 +24,12 @@ fi
 echo "${BOLD}Note: git and zsh are required."
 
 failed=false
-packages=( git zsh )
-for package in "${packages[@]}"
-do
-    command -v ${package} >/dev/null 2>&1 || { echo "${RED}${package} is missing."; failed=true; }
+packages=(git zsh)
+for package in "${packages[@]}"; do
+    command -v ${package} >/dev/null 2>&1 || {
+        echo "${RED}${package} is missing."
+        failed=true
+    }
 done
 
 if ${failed} == true; then
