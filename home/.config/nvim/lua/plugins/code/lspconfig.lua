@@ -13,33 +13,39 @@ return {
           require("mason-tool-installer").setup({
             ensure_installed = {
               --
-              -- Language Server (LSP)
+              -- Linter, Formatter, & LSP
+              --
+              "ruff",
+
+              --
+              -- LSP
               --
               "bashls",
               "bright_script",
+              "bzl",
               "clangd",
-              "cssls", -- css, scss, less
+              "cssls",
               "dockerls",
               "gopls",
               "helm_ls",
-              "hls", -- haskell
+              "hls",
               "html",
-              "intelephense", -- php
+              "intelephense",
+              "jsonls",
               "jdtls",
-              "ltex", -- text, markdown, latex, restructuredtext
+              "ltex",
               "lua_ls",
               "omnisharp",
               "phpactor",
               "pylsp",
               "pyright",
               "rust_analyzer",
-              "solargraph", -- ruby
-              "spectral", -- json, yaml
+              "solargraph",
               "sqlls",
-              "stimulus_ls", -- blade, html, php, ruby
+              "stimulus_ls",
               "terraformls",
-              "ts_ls", -- javascript, typescript
-              "zls", -- zig
+              "ts_ls",
+              "zls",
 
               --
               -- Linter
@@ -47,26 +53,28 @@ return {
               "checkmake",
               "eslint_d",
               "golangci-lint",
+              "sonarlint-language-server",
+              "sqlfluff",
 
               --
               -- Linter + Formatter
               --
-              "buf", -- protobuf
+              "buf",
 
               --
               -- Formatter only
               --
               "beautysh",
-              "black", -- python
+              "black",
               "gofumpt",
               "goimports",
               "google-java-format",
               "phpcbf",
-              "prettier", -- angular, css, flow, graphql, html, json, jsx, javascript, less, markdown, scss, typescript, vue, yaml
-              "shfmt", -- bash, mksh, shell
-              "stylua", -- lua, luau
+              "prettier",
+              "shfmt",
+              "stylua",
 
-              "trivy", -- security scanning
+              "trivy",
             },
           })
 

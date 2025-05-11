@@ -43,7 +43,7 @@ configuration {
 
 window {
    background-color: @background-color;
-   width: 33%;
+   width: 60%;
    padding: 10px;
    fullscreen: false;
    border:  2px;
