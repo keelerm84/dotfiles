@@ -66,14 +66,18 @@ return {
               --
               "beautysh",
               "black",
+              "brighterscript-formatter",
+              "fourmolu",
               "gofumpt",
               "goimports",
               "google-java-format",
-              "phpcbf",
+              "jq",
+              "php-cs-fixer",
               "prettier",
+              "rubocop",
+              "rubyfmt",
               "shfmt",
               "stylua",
-
               "trivy",
             },
           })
