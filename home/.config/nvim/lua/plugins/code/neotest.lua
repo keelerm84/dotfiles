@@ -27,9 +27,9 @@ return {
       {
         "<leader>ta",
         function()
-          require("neotest").run.attach()
+          require("neotest").run.run(vim.uv.cwd())
         end,
-        desc = "[t]est [a]ttach",
+        desc = "[t]est [a]ll files",
       },
       {
         "<leader>tf",
@@ -37,13 +37,6 @@ return {
           require("neotest").run.run(vim.fn.expand("%"))
         end,
         desc = "[t]est run [f]ile",
-      },
-      {
-        "<leader>tA",
-        function()
-          require("neotest").run.run(vim.uv.cwd())
-        end,
-        desc = "[t]est [A]ll files",
       },
       {
         "<leader>ts",
@@ -67,6 +60,13 @@ return {
         desc = "[t]est [l]ast",
       },
       {
+        "<leader>tA",
+        function()
+          require("neotest").run.attach()
+        end,
+        desc = "[t]est [A]ttach",
+      },
+      {
         "<leader>tS",
         function()
           require("neotest").summary.toggle()
@@ -88,7 +88,7 @@ return {
         desc = "[t]est [O]utput panel",
       },
       {
-        "<leader>tt",
+        "<leader>tT",
         function()
           require("neotest").run.stop()
         end,
