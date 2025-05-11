@@ -31,6 +31,7 @@ alias gf='g fetch'
 
 alias ga='g add'
 alias gap='ga -p'
+alias gau='ga --update'
 
 alias gc='g commit --verbose'
 alias gca='gc --amend'
