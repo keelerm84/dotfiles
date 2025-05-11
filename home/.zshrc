@@ -3,12 +3,11 @@
 . ~/.zsh/functions.zsh
 
 . ~/.zsh/git.zsh
-command -v starship > /dev/null && eval "$(starship init zsh)" || . ~/.zsh/themes/spaceship.zsh
+command -v starship >/dev/null && eval "$(starship init zsh)" || . ~/.zsh/themes/spaceship.zsh
 load_file "aliases.zsh"
 load_file "functions.zsh"
 load_file "environment.zsh"
 load_file "setopt.zsh"
-load_file "exports.zsh"
 load_file "completion.zsh"
 load_file "history.zsh"
 

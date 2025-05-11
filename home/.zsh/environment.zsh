@@ -1,4 +1,11 @@
 command -v xset > /dev/null && [ -n "$DISPLAY" ] && xset r rate 500 25
+command -v nvim > /dev/null && export EDITOR=nvim || export EDITOR=vim
+command -v nvim > /dev/null && export MANPAGER="$EDITOR +Man!" || export MANPAGER="vim -c MANPAGER -"
+
+export MYSQL_PS1="mysql  \d  \R:\m:\s  "
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export SAM_CLI_TELEMETRY=0
+export BAT_THEME="Solarized (dark)"
 
 export TERM=${TERM:-xterm-256color}
 export LANG=en_US.UTF-8
@@ -49,3 +56,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
 
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && . $HOME/.tmuxinator/scripts/tmuxinator || true
+[[ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]] && . $HOME/.homesick/repos/homeshick/homeshick.sh || true
