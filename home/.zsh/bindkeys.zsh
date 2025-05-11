@@ -1,4 +1,5 @@
 bindkey -e ## Default to standard emacs bindings
+set -o emacs
 
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -19,7 +20,7 @@ bindkey -r "^[D"
 bindkey "^[D" fzf-cd-widget
 
 bindkey -r "^t"
-bindkey "^t"  transpose-chars
+bindkey "^t" transpose-chars
 
 bindkey -r "^[F"
-bindkey "^[F"  fzf-file-widget
+bindkey "^[F" fzf-file-widget
