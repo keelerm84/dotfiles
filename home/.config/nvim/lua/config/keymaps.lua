@@ -12,12 +12,6 @@ vim.fn.setreg('d', [[/^\(<<<<<<<\|=======\|>>>>>>>\)]])
 -- Neovim shortcuts
 --
 
--- Disable arrow keys
-map('', '<up>', '<nop>')
-map('', '<down>', '<nop>')
-map('', '<left>', '<nop>')
-map('', '<right>', '<nop>')
-
 -- Clear search highlighting with <leader> and c
 map('n', '<leader>no', ':nohl<CR>')
 
@@ -33,6 +27,12 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
+
+-- Also mapping these to Ctrl + arrows for Beshoy
+map('n', '<C-Left>', '<C-w>h')
+map('n', '<C-Down>', '<C-w>j')
+map('n', '<C-Up>', '<C-w>k')
+map('n', '<C-Right>', '<C-w>l')
 
 -- Rebalance splits
 map('n', '<leader>=', '<C-w>=')

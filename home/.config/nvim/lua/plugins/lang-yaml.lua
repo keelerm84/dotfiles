@@ -1,0 +1,3 @@
+return {
+  { "Einenlum/yaml-revealer" },
+}
