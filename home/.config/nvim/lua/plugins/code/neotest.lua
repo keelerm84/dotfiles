@@ -5,23 +5,23 @@ return {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "nohns/neotest-golang-bazel", -- Installation
+      "nvim-neotest/neotest-vim-test",
+      "fredrikaverpil/neotest-golang",
     },
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-golang-bazel"), -- Registration
+          require("neotest-golang")({
+            runner = "go",
+            go_test_args = {
+              "-v",
+              "-race",
+              "-count=1",
+              "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
+            },
+          }),
         },
       })
-
-      local neotest_ns = vim.api.nvim_create_namespace("neotest")
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            return diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-          end,
-        },
-      }, neotest_ns)
     end,
     keys = {
       {
