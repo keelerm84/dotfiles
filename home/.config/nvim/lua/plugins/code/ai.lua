@@ -5,14 +5,13 @@ return {
     version = false,
     opts = {
       provider = "copilot",
+      behavior = {
+        enable_cursor_planning_mode = true,
+      },
       windows = {
         width = 40,
-        height = 10,
         input = {
           height = 4,
-        },
-        edit = {
-          start_insert = false,
         },
       },
     },
