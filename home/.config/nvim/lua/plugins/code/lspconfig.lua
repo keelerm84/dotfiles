@@ -102,13 +102,9 @@ return {
       },
     },
     init = function()
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
       vim.keymap.set("n", "gd", "<C-]>", { noremap = false, silent = true })
-      vim.keymap.set(
-        "n",
-        "<leader>d",
-        vim.diagnostic.open_float,
-        { desc = "Show diagnostic", noremap = true, silent = true }
-      )
     end,
   },
 }
