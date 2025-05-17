@@ -40,6 +40,7 @@ return {
           "gomod",
           "gosum",
           "gotmpl",
+          "gowork",
           "graphql",
           "haskell",
           "hcl",
