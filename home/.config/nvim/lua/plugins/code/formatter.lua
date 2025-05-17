@@ -21,7 +21,7 @@ return {
           quiet = true,
         },
         formatters_by_ft = {
-          brightscript = { "brighterscript" },
+          brightscript = { "bsfmt" },
           go = { "gofumpt", "goimports" },
           haskell = { "fourmolu" },
           javascript = { "prettierd", "prettier", stop_after_first = true },
