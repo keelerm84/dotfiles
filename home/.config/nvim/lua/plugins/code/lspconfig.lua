@@ -75,7 +75,6 @@ return {
               "php-cs-fixer",
               "prettier",
               "rubocop",
-              "rubyfmt",
               "shfmt",
               "stylua",
               "trivy",

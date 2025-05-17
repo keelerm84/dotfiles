@@ -29,7 +29,7 @@ return {
           lua = { "stylua" },
           php = { "php-cs-fixer" },
           python = { "isort", "black" },
-          ruby = { "rubocop", "rubyfmt" },
+          ruby = { "rubocop" },
           rust = { "rustfmt" },
           sh = { "beautysh", "shfmt" },
           yaml = { "prettierd", "prettier", stop_after_first = true },
