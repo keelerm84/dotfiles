@@ -1,0 +1,12 @@
+[Unit]
+Description=Auto-set Bluetooth headset PulseAudio profile
+After=sound.target
+
+[Service]
+ExecStart=%h/.local/bin/auto-set-bt-profile.sh
+Restart=always
+RestartSec=5
+Environment="PULSE_RUNTIME_PATH=/run/user/%U/pulse"
+
+[Install]
+WantedBy=default.target
