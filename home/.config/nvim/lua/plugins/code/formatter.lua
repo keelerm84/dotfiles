@@ -27,7 +27,7 @@ return {
           javascript = { "prettierd", "prettier", stop_after_first = true },
           json = { "jq", "prettierd", "prettier", stop_after_first = true },
           lua = { "stylua" },
-          php = { "php-cs-fixer" },
+          php = { "php_cs_fixer" },
           python = { "isort", "black" },
           ruby = { "rubocop" },
           rust = { "rustfmt" },
