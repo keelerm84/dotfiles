@@ -94,6 +94,16 @@ return {
             },
           })
 
+          vim.lsp.config("intelephense", {
+            settings = {
+              intelephense = {
+                format = {
+                  enable = false,
+                },
+              },
+            },
+          })
+
           vim.lsp.config("stylua", {
             settings = {
               indent_type = "Spaces",
