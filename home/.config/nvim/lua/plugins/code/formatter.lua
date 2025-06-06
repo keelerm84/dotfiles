@@ -1,6 +1,3 @@
-vim.g.disable_autoformat = false
-vim.b.disable_autoformat = false
-
 return {
   {
     "stevearc/conform.nvim",
@@ -9,20 +6,20 @@ return {
       {
         "<leader>fa",
         function()
-          if vim.g.disable_autoformat then
-            vim.g.disable_autoformat = false
+          if vim.b.disable_autoformat then
             vim.b.disable_autoformat = false
             vim.notify("Auto formatting enabled")
           else
-            vim.g.disable_autoformat = true
             vim.b.disable_autoformat = true
             vim.notify("Auto formatting disabled")
           end
         end,
-        mode = "",
         desc = "Toggle auto formatting on save",
       },
     },
+    init = function()
+      vim.g.disable_autoformat = false
+    end,
     config = function()
       require("conform").setup({
         format_on_save = function(bufnr)
