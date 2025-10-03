@@ -13,7 +13,7 @@ load_file "history.zsh"
 
 [ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+command -v fzf >/dev/null && source <(fzf --zsh) || true
 
 # # Moved down so I can remap some of the fzf bindings
 load_file "bindkeys.zsh"
