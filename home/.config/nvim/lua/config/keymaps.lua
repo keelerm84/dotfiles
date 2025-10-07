@@ -14,6 +14,7 @@ vim.fn.setreg("d", [[/^\(<<<<<<<\|=======\|>>>>>>>\)]])
 
 -- Clear search highlighting with <leader> and c
 map("n", "<leader>no", ":nohl<CR>")
+map("n", "<leader>rl", ":bufdo e!<CR>e")
 
 -- Quickfix navigation
 map("n", "<M-j>", ":cnext<CR>")
