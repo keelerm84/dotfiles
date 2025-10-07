@@ -6,11 +6,17 @@ local f = ls.function_node
 local i = ls.insert_node
 
 local function append_initials(args, snip, user_arg_1)
-  if vim.g.initials == nil then
-    return ""
+  -- Check for custom marker tag first
+  if vim.g.marker_tag ~= nil and vim.g.marker_tag ~= "" then
+    return "(" .. vim.g.marker_tag .. ")"
   end
 
-  return "(" .. vim.g.initials .. ")"
+  -- Fall back to initials
+  if vim.g.initials ~= nil then
+    return "(" .. vim.g.initials .. ")"
+  end
+
+  return ""
 end
 
 local function todo_marker(trigger, marker)

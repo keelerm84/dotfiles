@@ -83,6 +83,7 @@ map("v", "<leader>fj", ":'<,'>!python -m json.tool<CR><Esc>:set filetype=json<CR
 
 map("n", "<leader>gg", ":Ggrep<SPACE>", { silent = false })
 map("n", "<leader>adb", ":%bd<CR>")
+map("n", "<leader>mt", ":lua SetMarkerTag()<CR>", { desc = "Set marker tag for TODOs" })
 -- }}}
 
 -- vim: foldmethod=marker foldlevel=0
