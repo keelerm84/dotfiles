@@ -15,7 +15,7 @@ return {
 
       vim.api.nvim_set_hl(0, "@variable.php", { fg = palette.blue[1] })
 
-      local configs = require("nvim-treesitter.configs")
+      local configs = require("nvim-treesitter.config")
       configs.setup({
         highlight = {
           enable = true,
