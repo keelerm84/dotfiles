@@ -42,6 +42,7 @@ return {
         },
       }
 
+      -- ctags --list-kinds-full | grep -i ruby
       vim.g.tagbar_type_ruby = {
         kinds = {
           "m:modules",
