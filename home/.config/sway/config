@@ -17,7 +17,7 @@ exec swayidle -w \
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+n exec nautilus $HOME/Downloads
-bindsym $mod+Shift+n exec $HOME/.config/i3/scripts/rename-workspace.sh
+bindsym $mod+Shift+n exec $HOME/.config/sway/rename-workspace.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill

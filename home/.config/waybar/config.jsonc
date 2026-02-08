@@ -71,13 +71,10 @@
     },
     /* === Modules Center === */
     "sway/workspaces": {
-        "format": "{name}: {icon}",
+        "format": "{value} {icon}",
         "format-icons": {
             "default": "",
-            "active": ""
-        },
-        "persistent-workspaces": {
-            "*": 2
+            "focused": ""
         },
         "disable-scroll": true,
         "all-outputs": true,
