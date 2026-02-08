@@ -1,0 +1,6 @@
+ignore-empty-password
+show-failed-attempts
+color=1e1e2e
+font=Fira Mono Medium for Powerline
+indicator-radius=100
+indicator-thickness=10

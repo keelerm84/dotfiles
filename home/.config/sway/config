@@ -7,6 +7,13 @@ font pango:Fira Mono Medium for Powerline Medium 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Idle configuration
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * power off"' \
+         resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f'
+
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+n exec nautilus $HOME/Downloads
@@ -137,6 +144,9 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 # Save screenshot to file
 bindsym $mod+Shift+Print exec grim -g "$(slurp)" "/home/keelerm/Pictures/screenshots/$(date +%Y-%m-%d-%H%M%S).png"
+
+# Lock screen manually
+bindsym $mod+Ctrl+l exec swaylock -f
 
 # Turn off display (Wayland equivalent of xset dpms)
 bindsym ctrl+shift+l exec swaymsg "output * dpms off"
