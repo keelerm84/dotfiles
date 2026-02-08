@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     version = false,
     opts = {
-      provider = "copilot",
+      provider = "claude",
       behavior = {
         enable_cursor_planning_mode = true,
       },
