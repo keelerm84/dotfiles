@@ -1,5 +1,6 @@
 ignore-empty-password
 show-failed-attempts
+image=~/.config/sway/bg.jpg
 color=1e1e2e
 font=Fira Mono Medium for Powerline
 indicator-radius=100
