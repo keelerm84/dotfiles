@@ -84,33 +84,47 @@ window#waybar.hidden {
 
 /* Modules center */
 #workspaces {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(34, 36, 54, 0.6);
   border-radius: 10px;
   margin: 6px 5px;
   padding: 0px 6px;
 }
 
 #workspaces button {
-  color: #B5E8E0;
-  background: transparent;
-  padding: 4px 4px;
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  color: #a6adc8;
+  background: rgba(69, 71, 90, 0.6);
+  padding: 6px 10px;
+  margin: 2px;
+  border-radius: 6px;
+  min-width: 30px;
 }
 
-#workspaces button.occupied {
-  color: #A6E3A1;
+#workspaces button:hover,
+#workspaces button.occupied:hover,
+#workspaces button.visible:hover {
+  box-shadow: none;
+  /* Remove predefined box-shadow */
+  text-shadow: none;
+  /* Remove predefined text-shadow */
+  background: none;
+  /* Remove predefined background color (white) */
+  transition: none;
+  /* Disable predefined animations */
+
+  background: rgba(85, 87, 110, 0.8);
+  color: #cdd6f4;
 }
 
-#workspaces button.active {
-  color: #89B4FA;
-  text-shadow: 0 0 4px #ABE9B3;
+#workspaces button.occupied,
+#workspaces button.visible {
+  background: rgba(69, 71, 90, 0.6);
+  color: #a6adc8;
 }
 
-#workspaces button:hover {
-  color: #89B4FA;
+#workspaces button.focused {
+  background: #96CDFB;
+  color: #161320;
 }
-
-#workspaces button.active:hover {}
 
 /* Modules right */
 #taskbar {
