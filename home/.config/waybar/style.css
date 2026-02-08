@@ -36,7 +36,6 @@ window#waybar.hidden {
 
 /* Separation to the left */
 #custom-archicon,
-#cpu,
 #idle_inhibitor {
   margin-left: 5px;
   border-top-left-radius: 10px;
@@ -44,7 +43,6 @@ window#waybar.hidden {
 }
 
 /* Separation to the rigth */
-#clock,
 #temperature,
 #network {
   margin-right: 5px;
@@ -63,7 +61,8 @@ window#waybar.hidden {
 }
 
 #clock {
-  background: #ABE9B3;
+  color: #a6adc8;
+  background: transparent;
 }
 
 #cpu {

@@ -10,7 +10,6 @@
         /* === Modules Order === */
         "modules-left": [
             "custom/archicon",
-            "clock",
             "cpu",
             "memory",
             "disk",
@@ -28,14 +27,6 @@
             "format": "",
             "on-click": "rofi -show drun",
             "tooltip": false
-        },
-        "clock": {
-            "timezone": "America/New_York",
-            "format": "{:%I:%M %p on %b %d}",
-            "tooltip-format": "{calendar}",
-            "calendar": {
-                "mode": "month"
-            }
         },
         "cpu": {
             "format": "{usage}% ",
@@ -115,7 +106,8 @@
         ],
         "modules-center": [],
         "modules-right": [
-            "wlr/taskbar"
+            "wlr/taskbar",
+            "clock"
         ],
         /* === Modules Left === */
         "sway/workspaces": {
@@ -140,6 +132,14 @@
                 "kitty",
                 "rofi"
             ]
-        }
+        },
+        "clock": {
+            "timezone": "America/New_York",
+            "format": "{:%I:%M %p on %b %d}",
+            "tooltip-format": "{calendar}",
+            "calendar": {
+                "mode": "month"
+            }
+        },
     }
 ]
