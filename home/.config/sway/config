@@ -47,7 +47,7 @@ for_window [class="^.*"] border pixel 3
 for_window [app_id="^.*"] border pixel 3
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
-default_border pixel 5
+default_border pixel 1
 
 # Color scheme
 # client.focused          #282828 #665c54 #d79921 #689d6a   #665c54
