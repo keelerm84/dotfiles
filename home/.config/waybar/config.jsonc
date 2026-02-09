@@ -20,7 +20,8 @@
             "idle_inhibitor",
             "pulseaudio/slider",
             "pulseaudio",
-            "network"
+            "network",
+            "custom/notifications"
         ],
         /* === Modules Left === */
         "custom/archicon": {
@@ -90,6 +91,11 @@
             "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
             "tooltip-format-disconnected": "Disconnected",
             "max-length": 50
+        },
+        "custom/notifications": {
+            "format": "",
+            "tooltip": false,
+            "on-click": "swaync-client -t -sw"
         }
     },
     {

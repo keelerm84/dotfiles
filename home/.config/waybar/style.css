@@ -180,3 +180,13 @@ window#waybar.hidden {
     color: #B5E8E0;
   }
 }
+
+#custom-notifications {
+  color: #be7cfc;
+  font-size: 20px;
+  /* transition: background 0.2s; */
+  /* padding: 0px 15px; */
+  min-width: 25px;
+  padding-right: 12px;
+  /* fixes icon slightly leaning towards right */
+}
