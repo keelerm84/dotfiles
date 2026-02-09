@@ -22,7 +22,6 @@ return {
               --
               "bashls",
               "bright_script",
-              "bzl",
               "clangd",
               "cssls",
               "dockerls",
@@ -40,6 +39,7 @@ return {
               "pylsp",
               "pyright",
               "rust_analyzer",
+              "starpls",
               "solargraph",
               "sqlls",
               "stimulus_ls",
