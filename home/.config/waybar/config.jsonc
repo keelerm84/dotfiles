@@ -53,7 +53,7 @@
                 "/sys/class/hwmon/hwmon2/temp5_input"
             ],
             "tooltip": true,
-            "tooltip-format": "Actual temperature: {temperatureC}°C\nCritical if > 175°F",
+            "tooltip-format": "Actual temperature: {temperatureF}°F\nCritical if > 175°F",
             "format-icons": [
                 ""
             ]
