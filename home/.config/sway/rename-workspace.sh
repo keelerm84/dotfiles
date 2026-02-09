@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# Get the current workspace number
-current_workspace=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .name')
+workspace_number=$(swaymsg -t get_workspaces 2>&1 | jq -r '.[] | select(.focused) | .num')
 
-# Extract the number from the current workspace name
-workspace_number=$(echo $current_workspace | grep -o '^[0-9]*')
+[ -z "$workspace_number" ] && exit 0
 
 new_name=$(rofi -dmenu -lines 0 -p 'New Workspace name')
 
-if [ -n "$new_name" ]; then
-    new_name=:$new_name
-fi
+[ -z "$new_name" ] && exit 0
 
-swaymsg rename workspace to $workspace_number$new_name
+swaymsg rename workspace to "${workspace_number}:${new_name}"
