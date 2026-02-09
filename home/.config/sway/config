@@ -14,6 +14,8 @@ exec swayidle -w \
          resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f'
 
+exec swaync
+
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+n exec nautilus $HOME/Downloads
