@@ -136,8 +136,6 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart sway inplace (preserves your layout/session)
-bindsym $mod+Shift+r restart
 # exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
