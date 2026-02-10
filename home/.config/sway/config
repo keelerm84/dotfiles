@@ -45,6 +45,8 @@ for_window [class="zoom" title="Zoom Meeting"] floating disable
 for_window [app_id="zoom" title="Zoom Meeting"] floating disable
 for_window [class="^join.*" title="Zoom Meeting"] floating disable
 
+for_window [app_id="google-chrome" title=".*Google Calendar.*"] floating enable
+
 for_window [class="^.*"] border pixel 3
 for_window [app_id="^.*"] border pixel 3
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
