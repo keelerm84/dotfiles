@@ -11,7 +11,7 @@ return {
       windows = {
         width = 40,
         input = {
-          height = 4,
+          height = 10,
         },
       },
     },
