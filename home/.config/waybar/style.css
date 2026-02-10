@@ -90,8 +90,8 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  color: #a6adc8;
-  background: rgba(69, 71, 90, 0.6);
+  color: #d0d0d0;
+  background: rgba(69, 71, 90, 0.8);
   padding: 6px 10px;
   margin: 2px;
   border-radius: 6px;
@@ -110,14 +110,14 @@ window#waybar.hidden {
   transition: none;
   /* Disable predefined animations */
 
-  background: rgba(85, 87, 110, 0.8);
-  color: #cdd6f4;
+  background: rgba(85, 87, 110, 0.9);
+  color: #f0f0f0;
 }
 
 #workspaces button.occupied,
 #workspaces button.visible {
-  background: rgba(69, 71, 90, 0.6);
-  color: #a6adc8;
+  background: rgba(69, 71, 90, 0.8);
+  color: #d0d0d0;
 }
 
 #workspaces button.focused {
@@ -141,11 +141,11 @@ window#waybar.hidden {
 }
 
 #taskbar button.active {
-  background: rgba(34, 36, 54, 0.5);
+  background: rgba(85, 87, 110, 0.7);
 }
 
 #taskbar button:hover {
-  background: rgba(34, 36, 54, 0.5);
+  background: rgba(85, 87, 110, 0.6);
 }
 
 #idle_inhibitor {
