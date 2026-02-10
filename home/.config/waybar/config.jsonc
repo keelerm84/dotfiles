@@ -130,7 +130,7 @@
         "wlr/taskbar": {
             "format": "{icon}",
             "all-outputs": true,
-            "active-first": false,
+            "sort-by-app-id": true,
             "tooltip-format": "{name}",
             "on-click": "activate",
             "on-click-middle": "close",
