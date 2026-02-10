@@ -125,6 +125,11 @@ window#waybar.hidden {
   color: #161320;
 }
 
+#workspaces button.urgent {
+  background: #F5C2E7;
+  color: #161320;
+}
+
 /* Modules right */
 #taskbar {
   background: transparent;
