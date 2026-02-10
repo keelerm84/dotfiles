@@ -60,6 +60,9 @@ default_border pixel 1
 
 client.background       #ffffff
 
+# Mark workspaces as urgent when windows open on inactive workspaces
+focus_on_window_activation urgent
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
