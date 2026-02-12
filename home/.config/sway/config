@@ -7,6 +7,10 @@ font pango:Fira Mono Medium for Powerline Medium 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Import environment variables for systemd user services (needed for screen sharing)
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 # Idle configuration
 exec swayidle -w \
     timeout 300 'swaylock -f' \
