@@ -114,10 +114,14 @@ window#waybar.hidden {
   color: #f0f0f0;
 }
 
-#workspaces button.occupied,
-#workspaces button.visible {
+#workspaces button.occupied {
   background: rgba(69, 71, 90, 0.8);
   color: #d0d0d0;
+}
+
+#workspaces button.visible {
+  background: rgba(69, 71, 90, 0.8);
+  color: #F5C2E7;
 }
 
 #workspaces button.focused {
