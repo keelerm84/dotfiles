@@ -40,9 +40,9 @@
             "tooltip-format": "RAM Usage: {used} / {total} ({percentage}%)"
         },
         "disk": {
-            "format": "{percentage_free}% ",
+            "format": "{percentage_used}% ",
             "tooltip": true,
-            "tooltip-format": "Free space: {free} / {total} ({percentage_free}%)"
+            "tooltip-format": "Used space: {used} / {total} ({percentage_used}%)"
         },
         "temperature": {
             "format": "{temperatureF}°F {icon}",
