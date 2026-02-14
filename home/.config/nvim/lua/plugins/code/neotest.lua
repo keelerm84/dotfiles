@@ -7,7 +7,12 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-vim-test",
-      "fredrikaverpil/neotest-golang",
+      {
+        "fredrikaverpil/neotest-golang",
+        build = function()
+          vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+        end,
+      },
       "mrcjkb/rustaceanvim",
       "olimorris/neotest-rspec",
       "nvim-neotest/neotest-python",
@@ -16,13 +21,8 @@ return {
       require("neotest").setup({
         adapters = {
           require("neotest-golang")({
-            runner = "go",
-            go_test_args = {
-              "-v",
-              "-race",
-              "-count=1",
-              "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
-            },
+            runner = "gotestsum",
+          }),
           require("rustaceanvim.neotest"),
           require("neotest-rspec"),
           require("neotest-python")({
