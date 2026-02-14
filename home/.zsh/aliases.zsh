@@ -48,7 +48,7 @@ alias ga='g add'
 alias gap='ga -p'
 alias gau='ga --update'
 
-alias gc='g commit --verbose'
+alias gc='g commit --verbose --signoff'
 alias gca='gc --amend'
 alias gcan='gc --amend --no-edit'
 
