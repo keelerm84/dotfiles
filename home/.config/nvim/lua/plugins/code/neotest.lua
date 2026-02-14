@@ -4,9 +4,13 @@ return {
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-vim-test",
       "fredrikaverpil/neotest-golang",
+      "mrcjkb/rustaceanvim",
+      "olimorris/neotest-rspec",
+      "nvim-neotest/neotest-python",
     },
     config = function()
       require("neotest").setup({
@@ -19,6 +23,11 @@ return {
               "-count=1",
               "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
             },
+          require("rustaceanvim.neotest"),
+          require("neotest-rspec"),
+          require("neotest-python")({
+            dap = { justMyCode = false },
+            runner = "pytest",
           }),
         },
       })
