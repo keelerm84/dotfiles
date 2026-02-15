@@ -1,3 +1,0 @@
-return {
-  { "lumiliet/vim-twig" },
-}
