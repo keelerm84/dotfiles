@@ -51,18 +51,18 @@ for_window [class="^join.*" title="Zoom Meeting"] floating disable
 
 for_window [app_id="google-chrome" title=".*Google Calendar.*"] floating enable
 
-for_window [class="^.*"] border pixel 3
-for_window [app_id="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 5
+for_window [app_id="^.*"] border pixel 5
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
-default_border pixel 1
+default_border pixel 5
 
-# Color scheme
-# client.focused          #282828 #665c54 #d79921 #689d6a   #665c54
-# client.focused_inactive #3c3836 #504945 #a89984 #7c6f64   #504945
-# client.unfocused        #1d2021 #282828 #928374 #3c3836   #282828
-# client.urgent           #cc241d #44232f #fb4934 #cc241d   #44232f
-# client.placeholder      #1d2021 #32302f #ebdbb2 #1d2021   #32302f
+# Color scheme (border, background, text, indicator, child_border)
+client.focused          #96CDFB #96CDFB #161320 #96CDFB   #96CDFB
+client.focused_inactive #3c3836 #504945 #a89984 #504945   #504945
+client.unfocused        #1d2021 #282828 #928374 #282828   #282828
+client.urgent           #F5C2E7 #F5C2E7 #161320 #F5C2E7   #F5C2E7
+client.placeholder      #1d2021 #32302f #ebdbb2 #1d2021   #32302f
 
 client.background       #ffffff
 
