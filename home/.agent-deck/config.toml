@@ -38,8 +38,7 @@ mcp_default_scope = ""
 [worktree]
   auto_cleanup = false
   default_enabled = false
-  default_location = ""
-  path_template = "../{branch}"
+  default_location = "../{branch}"
 
 [global_search]
   enabled = true
