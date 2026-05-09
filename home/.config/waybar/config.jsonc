@@ -135,8 +135,10 @@
             "on-click": "activate",
             "on-click-middle": "close",
             "ignore-list": [
+                "google-chrome",
                 "kitty",
-                "rofi"
+                "rofi",
+                "zen"
             ]
         },
         "clock": {

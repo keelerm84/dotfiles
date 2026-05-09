@@ -164,7 +164,7 @@ bindsym $mod+Shift+Print exec grim -g "$(slurp)" "/home/keelerm/Pictures/screens
 bindsym $mod+Ctrl+l exec swaylock -f
 
 # Turn off display (Wayland equivalent of xset dpms)
-bindsym ctrl+shift+l exec swaymsg "output * dpms off"
+# bindsym ctrl+shift+l exec swaymsg "output * dpms off"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
