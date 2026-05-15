@@ -9,6 +9,8 @@ mcp_default_scope = ""
 
 [mcps]
 
+[plugins]
+
 [claude]
   command = ""
   config_dir = "~/.claude"
@@ -30,6 +32,7 @@ mcp_default_scope = ""
   env_file = ""
 
 [codex]
+  command = ""
   yolo_mode = false
 
 [copilot]
@@ -37,8 +40,9 @@ mcp_default_scope = ""
 
 [worktree]
   auto_cleanup = false
-  default_enabled = false
-  default_location = "../{branch}"
+  default_enabled = true
+  default_location = "subdirectory"
+  branch_prefix = "mk/"
 
 [global_search]
   enabled = true
@@ -89,7 +93,7 @@ mcp_default_scope = ""
   default_tool = ""
 
 [notifications]
-  enabled = false
+  enabled = true
   max_shown = 0
   show_all = false
   minimal = false
