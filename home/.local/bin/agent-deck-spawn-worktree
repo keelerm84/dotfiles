@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+set -u
+
+# Sway started before your interactive shell, so sway's env may lack ~/.local/bin.
+# Without this export, the inner `sh -c` below would fail to find `agent-deck`.
+export PATH="$HOME/.local/bin:$PATH"
+
+repo=$(find "$HOME/code" -maxdepth 4 -type d -name '*.git' 2>/dev/null \
+  | sed 's|/\.git$||' | awk '!seen[$0]++' \
+  | sed "s|^$HOME|~|" | rofi -dmenu -p "Repo" -i)
+[[ -z "$repo" ]] && exit 0
+repo="${repo/#\~/$HOME}"
+
+all_branches() {
+  git -C "$repo" for-each-ref --format='%(refname:short)' refs/heads refs/remotes \
+    | grep -vE '/HEAD$' | awk '!seen[$0]++'
+}
+default_branch() {
+  local ref
+  ref=$(git -C "$repo" symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null) || true
+  [[ -n "$ref" ]] && print -- "${ref#origin/}" || print -- main
+}
+
+choice=$(printf "+ new branch...\n%s" "$(all_branches)" | rofi -dmenu -p "Branch" -i)
+[[ -z "$choice" ]] && exit 0
+
+if [[ "$choice" == "+ new branch..." ]]; then
+  default=$(default_branch)
+  others=$(all_branches | grep -vxE "$default|origin/$default" || true)
+  base=$(printf "%s\n%s" "$default" "$others" | rofi -dmenu -p "Base branch" -i -selected-row 0)
+  [[ -z "$base" ]] && exit 0
+
+  name=$(printf "" | rofi -dmenu -p "New branch name" -i)
+  [[ -z "$name" ]] && exit 0
+
+  if ! git -C "$repo" branch "$name" "$base" 2>/tmp/agent-deck-spawn.err; then
+    notify-send -u critical "agent-deck" "git branch failed: $(cat /tmp/agent-deck-spawn.err)"
+    exit 1
+  fi
+  branch="$name"
+else
+  branch="${choice#origin/}"
+fi
+
+setsid -f sh -c '
+  repo=$1; branch=$2
+  if agent-deck launch "$repo" -w "$branch" -c claude >>/tmp/agent-deck-spawn.log 2>&1; then
+    notify-send "agent-deck" "Launched $branch in $(basename "$repo" .git)"
+  else
+    notify-send -u critical "agent-deck" "Launch failed: see /tmp/agent-deck-spawn.log"
+  fi
+' _ "$repo" "$branch"

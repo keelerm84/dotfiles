@@ -33,6 +33,9 @@ bindsym $mod+p exec "rofi -modi window,drun,ssh,filebrowser,emoji -show drun"
 bindsym $mod+Shift+p exec rofi -show window
 bindsym $mod+Shift+f exec rofi -show filebrowser
 
+# spawn a new agent-deck session in a git worktree
+bindsym $mod+Shift+d exec $HOME/.local/bin/agent-deck-spawn-worktree
+
 gaps inner 10
 gaps outer 10
 
