@@ -122,6 +122,10 @@ bindsym $mod+semicolon focus parent
 # focus the child container
 bindsym $mod+d focus child
 
+# scratchpad: move focused window to it / show (cycle) scratchpad windows
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
