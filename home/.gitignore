@@ -7,3 +7,6 @@ bower_components
 .exercism/metadata.json
 .tool-versions
 *.DotSettings.user
+
+**/.claude/settings.local.json
+**/__pycache__/
