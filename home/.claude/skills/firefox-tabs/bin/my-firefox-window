@@ -1,0 +1,216 @@
+#!/usr/bin/env python3
+"""Print the fftabs window id of the Firefox window on THIS session's sway workspace.
+
+The workspace is derived from the calling process's own ancestry -- never from what is
+focused, and never from `tmux display-message` without a target, which returns whichever
+client was most recently active (i.e. it follows the user around).
+
+Output on stdout, one line:
+    window=<id> workspace=<name>      exit 0  -- use `fftabs ... --window <id>`
+    no-firefox-window workspace=<name> exit 3  -- create one, then move it to this workspace
+    ambiguous workspace=<name> candidates=<id,id> exit 4
+    error: <reason>                   exit 1
+
+Anything non-zero means DO NOT fall back to a bare `fftabs open` -- fix the cause or ask.
+"""
+
+import json
+import os
+import re
+import subprocess
+import sys
+
+TERMINALS = {
+    "kitty", "alacritty", "foot", "ghostty", "xterm", "konsole",
+    "wezterm-gui", "gnome-terminal-", "urxvt", "st",
+}
+STAT_RE = re.compile(r"^\d+ \((.*)\) [A-Za-z] (\d+)")
+
+
+def die(msg, code=1):
+    print(f"error: {msg}" if code == 1 else msg)
+    sys.exit(code)
+
+
+def proc_stat(pid):
+    """Return (comm, ppid). comm is parenthesized and may contain spaces, so the
+    ppid is the first field AFTER ') <state> ' -- not stat field 4 by naive split."""
+    try:
+        with open(f"/proc/{pid}/stat") as fh:
+            m = STAT_RE.match(fh.read())
+    except OSError:
+        return None, None
+    return (m.group(1), int(m.group(2))) if m else (None, None)
+
+
+def ancestry(pid):
+    seen = set()
+    while pid and pid != 1 and pid not in seen:
+        seen.add(pid)
+        comm, ppid = proc_stat(pid)
+        if comm is None:
+            return
+        yield pid, comm
+        pid = ppid
+
+
+def sway(*args):
+    sock = os.environ.get("SWAYSOCK", "")
+    if not os.path.exists(sock):
+        # The inherited SWAYSOCK is routinely stale: it names a sway session that is gone.
+        # Only the socket whose pid matches the running sway is live.
+        try:
+            pid = subprocess.run(["pgrep", "-x", "sway"], capture_output=True, text=True,
+                                 check=True).stdout.split()[0]
+        except (subprocess.CalledProcessError, IndexError):
+            die("sway is not running (pgrep -x sway found nothing)")
+        sock = f"/run/user/{os.getuid()}/sway-ipc.{os.getuid()}.{pid}.sock"
+        if not os.path.exists(sock):
+            die(f"no live sway ipc socket at {sock}")
+        os.environ["SWAYSOCK"] = sock
+    res = subprocess.run(["swaymsg", *args], capture_output=True, text=True)
+    if res.returncode != 0:
+        die(f"swaymsg {' '.join(args)} failed: {res.stderr.strip()}")
+    return res.stdout
+
+
+def proc_environ(pid):
+    try:
+        with open(f"/proc/{pid}/environ", "rb") as fh:
+            raw = fh.read()
+    except OSError:
+        return {}
+    return dict(kv.split("=", 1) for kv in raw.decode(errors="replace").split("\0") if "=" in kv)
+
+
+def tmux(socket, *args):
+    cmd = ["tmux"] + (["-S", socket] if socket else []) + list(args)
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
+def session_terminal(session, socket=None):
+    """The terminal pid showing tmux SESSION. Several attached clients are fine as long
+    as they all live in the same terminal (e.g. a TUI that runs its own tmux client)."""
+    clients = tmux(socket, "list-clients", "-t", session, "-F", "#{client_pid}").stdout.split()
+    if not clients:
+        die(f"tmux session {session!r} has no attached client, so it is on no workspace")
+    terms = set()
+    for client in clients:
+        term = next((pid for pid, comm in ancestry(int(client)) if comm in TERMINALS), None)
+        if term is None:
+            die(f"could not walk tmux client {client} up to a terminal emulator")
+        terms.add(term)
+    if len(terms) > 1:
+        die(f"tmux session {session!r} is attached from {len(terms)} terminals "
+            f"({', '.join(map(str, sorted(terms)))}); cannot tell which window is mine -- ask")
+    return terms.pop()
+
+
+def launcher_pane(chain):
+    """Background jobs run under a daemon that is detached from any terminal, but the
+    daemon's environment still records the tmux pane it was launched from. Use the nearest
+    ancestor's TMUX/TMUX_PANE, and only if that tmux server is still the same process."""
+    for pid, _ in chain:
+        env = proc_environ(pid)
+        pane, tmux_var = env.get("TMUX_PANE"), env.get("TMUX", "")
+        if not pane or not tmux_var:
+            continue
+        socket, _, rest = tmux_var.partition(",")
+        server_pid = rest.split(",")[0]
+        # Match the pane id exactly: `display-message -t <missing pane>` exits 0 with an
+        # empty session, which tmux then resolves to its default -- following the user.
+        res = tmux(socket, "list-panes", "-a", "-F", "#{pid} #{pane_id} #{session_name}")
+        if res.returncode != 0:
+            die(f"could not list panes on tmux socket {socket}: {res.stderr.strip()}")
+        rows = [line.split(" ", 2) for line in res.stdout.splitlines()]
+        live_pid = rows[0][0] if rows else None
+        if live_pid != server_pid:
+            die(f"launcher pane {pane} belongs to tmux server {server_pid}, but that server "
+                f"is gone (now {live_pid}); cannot trust the pane id")
+        session = next((r[2] for r in rows if len(r) == 3 and r[1] == pane), None)
+        if not session:
+            die(f"launcher tmux pane {pane} (from pid {pid}'s environment) no longer exists")
+        return socket, session
+    return None
+
+
+def my_terminal_pid():
+    """The terminal-emulator pid that owns this session, or a clear failure."""
+    chain = list(ancestry(os.getppid()))
+    for pid, comm in chain:
+        if comm in TERMINALS:
+            return pid
+    # Not a direct child of a terminal: we are inside a tmux pane, whose processes are
+    # children of the tmux SERVER (which owns no window). Resolve the client of OUR OWN
+    # session -- never the globally most-recent one.
+    if not any(comm.startswith("tmux") for _, comm in chain):
+        launched = launcher_pane(chain)
+        if launched is None:
+            die("could not find a terminal emulator, tmux server, or launcher tmux pane in my "
+                "ancestry: " + " -> ".join(f"{c}({p})" for p, c in chain))
+        return session_terminal(launched[1], launched[0])
+    mine = {pid for pid, _ in chain}
+    session = None
+    try:
+        panes = subprocess.run(["tmux", "list-panes", "-a", "-F", "#{pane_pid} #{session_name}"],
+                               capture_output=True, text=True, check=True).stdout
+    except (subprocess.CalledProcessError, FileNotFoundError) as exc:
+        die(f"inside tmux but could not list panes: {exc}")
+    for line in panes.splitlines():
+        pane_pid, _, name = line.partition(" ")
+        if pane_pid.isdigit() and int(pane_pid) in mine:
+            session = name
+            break
+    if session is None:
+        die("inside a tmux pane but no pane_pid matched my ancestry")
+    return session_terminal(session)
+
+
+def walk(node, ws=None):
+    if node.get("type") == "workspace":
+        ws = node.get("name")
+    for key in ("nodes", "floating_nodes"):
+        for child in node.get(key, []):
+            yield from walk(child, ws)
+    yield node, ws
+
+
+def main():
+    term = my_terminal_pid()
+    tree = json.loads(sway("-t", "get_tree"))
+    nodes = list(walk(tree))
+
+    workspace = next((ws for node, ws in nodes if node.get("pid") == term), None)
+    if workspace is None:
+        die(f"terminal pid {term} is not in the sway tree")
+
+    titles = [node.get("name") for node, ws in nodes
+              if ws == workspace and node.get("app_id") == "firefox"]
+    if not titles:
+        print(f"no-firefox-window workspace={workspace}")
+        sys.exit(3)
+
+    try:
+        tabs = json.loads(subprocess.run(["fftabs", "--json", "list"], capture_output=True,
+                                         text=True, check=True).stdout)
+    except (subprocess.CalledProcessError, FileNotFoundError) as exc:
+        die(f"fftabs list failed (is Firefox running with the extension?): {exc}")
+    tabs = tabs if isinstance(tabs, list) else tabs.get("tabs", [])
+
+    # Join sway -> fftabs on the active tab title: a sway firefox container is named
+    # "<active tab title> — Mozilla Firefox". Geometry cannot be used -- fftabs reports
+    # every window at 0,0 in a different coordinate space from sway's rect.
+    active = {t.get("windowId"): (t.get("title") or "") for t in tabs if t.get("active")}
+    hits = sorted({wid for wid, title in active.items()
+                   if any((title and title in (name or "")) for name in titles)})
+    if not hits:
+        die(f"no fftabs window's active tab matches a firefox title on workspace "
+            f"{workspace}: {titles}")
+    if len(hits) > 1:
+        print(f"ambiguous workspace={workspace} candidates={','.join(map(str, hits))}")
+        sys.exit(4)
+    print(f"window={hits[0]} workspace={workspace}")
+
+
+if __name__ == "__main__":
+    main()
