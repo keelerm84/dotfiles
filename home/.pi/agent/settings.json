@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.87.0",
+  "theme": "dark",
+  "skills": ["~/.claude/skills"],
+  "packages": [
+    "npm:@joelazar/pi-tuicr"
+  ]
+}
