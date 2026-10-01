@@ -52,6 +52,11 @@ for_window [class="zoom" title="Zoom Meeting"] floating disable
 for_window [app_id="zoom" title="Zoom Meeting"] floating disable
 for_window [class="^join.*" title="Zoom Meeting"] floating disable
 
+# Zoom's annotation toolbar maps as a focused floating window on hover and
+# steals keyboard focus. Leave it visible/usable, but stop it grabbing focus.
+no_focus [class="zoom" title="annotate_toolbar"]
+no_focus [app_id="zoom" title="annotate_toolbar"]
+
 for_window [app_id="google-chrome" title=".*Google Calendar.*"] floating enable
 
 for_window [class="^.*"] border pixel 5
