@@ -1,1 +1,3 @@
 theme = "gruvbox-dark"
+ignore_whitespace = true
+diff_view = "side-by-side"
