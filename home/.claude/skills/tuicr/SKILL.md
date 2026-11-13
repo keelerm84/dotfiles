@@ -47,11 +47,23 @@ exits, which burns a Bash call for the length of a human review and caps out at 
 
 ```sh
 mkdir -p /tmp/artifacts; log=/tmp/artifacts/tuicr-<slug>.log
-win=$(tmux new-window -d -n tuicr -P -F '#{window_id}' -c "$repo" \
+me=$(tmux display-message -p -t "$TMUX_PANE" '#{session_name}')
+win=$(tmux new-window -d -t "$me:" -n tuicr -P -F '#{window_id}' -c "$repo" \
   "cd '$repo' && tuicr -w 2> '$log'")
 tmux select-window -t "$win"
 ```
 
+- `-t "$me:"` is mandatory. Without a target, `new-window` uses the most recently active session,
+  which is whatever session the user touched last, not mine. Hit 2026-10-01: the window landed in
+  another agent-deck session and the user could not find it. `$TMUX_PANE` names my own pane, so
+  `display-message -t "$TMUX_PANE"` resolves my session, not the user's.
+- **Check `$TMUX_PANE` is set in the same call, every time.** It can disappear mid-session: after a
+  session fork, my Bash ran under a detached parent with `$TMUX` and `$TMUX_PANE` unset. Then
+  `-t ""` resolves to the user's active session, and the window lands in the wrong place again (hit
+  2026-10-02). If it is unset, use the sections below instead. For an agent-deck session,
+  `agent-deck list --json` maps the session title to its tmux session (`agentdeck_<title>_<id>`);
+  match the title the user knows, not `$AGENTDECK_INSTANCE_ID`, which can name a different session
+  after a fork.
 - `-d` keeps the new window from stealing focus while it is being created, then `select-window`
   hands the user the review deliberately. No size arithmetic is needed, which also sidesteps the
   `split-window -p <percent>` "size missing" error that hits every TTY-less call I make.
@@ -112,6 +124,7 @@ Then find the session with `tuicr review list --repo <path>` and look for `"acti
 
 ```sh
 tuicr review list --repo /path/to/repo     # that checkout's local sessions + its repo's PR sessions
+tuicr review list --repo owner/repo        # every local and PR session for that forge repo
 tuicr review list --all                    # every session, when the repo is unclear
 tuicr review comments --repo <worktree> --session <slug>   # local session: --repo is required
 tuicr review comments --session <slug>     # PR slugs are self-contained; no --repo needed
@@ -150,15 +163,46 @@ tuicr counts an extra entry that `git diff --name-only` does not list. Compare `
 against `git diff --name-only <revset>` rather than against `file_count`, and when they agree
 treat the review as complete.
 
+## Reconstructing the diff
+
+To review a patch myself, or to map a comment's line back to code, rebuild the diff the user sees.
+The slug's source segment says which:
+
+| Slug segment | Diff |
+|---|---|
+| `worktree/<head>`, `staged-and-unstaged/<head>` | `git diff HEAD` |
+| `staged/<head>` | `git diff --cached` |
+| `unstaged/<head>` | `git diff` |
+| `commits/<base>..<head>` | `git diff <base>~1..<head>` |
+| `pr/<n>` | `gh pr diff <n>` |
+| `pristine` | none; every tracked file shown in full |
+
+Range endpoints are inclusive and printed oldest-first, so `<base>` without `~1` drops the first
+commit and shifts every line number derived from it. Check the file list with `--name-only` on
+the same range; per the note above, don't expect it to match `file_count` exactly.
+
 ## Writing comments
 
 In a user-led review of code I wrote: don't. No self-review comments, no impersonating the user.
 
-For an agent review the user asked for, `tuicr review add --session <slug> --target-file <path>
---line <n> --side new --type issue --username Claude "<text>"`. Omit `--target-file` for a
-review-level comment, add `--end-line` for a range, `--side old` for removed lines. Then verify by
-re-reading `comments`: a line outside the diff stores, echoes back, and exits 0 while never
-rendering — successful-looking to me, invisible to the user.
+For an agent review the user asked for, `tuicr review add --repo <worktree> --session <slug>
+--target-file <path> --line <n> --side new --type issue --username Claude "<text>"`. Omit
+`--target-file` for a review-level comment, add `--end-line` for a range, `--side old` for removed
+lines. `--repo` follows the same rule as `comments`: required for a local slug, not for a PR slug
+or a session JSON path. `--type` defaults to `none`, so pass it.
+
+For structured input, `--input` takes literal JSON, `@file.json`, or `-` for stdin. One object per
+call (an array is a parse error), the file key is `file` not `path`, and the target type is
+inferred from which fields are present:
+
+```sh
+tuicr review add --repo <worktree> --session <slug> --username Claude --input \
+  '{"file":"src/main.rs","line":42,"side":"new","comment_type":"issue","content":"Handle the empty case."}'
+```
+
+Then verify by re-reading `comments`: a line outside the diff stores, echoes back, and exits 0
+while never rendering — successful-looking to me, invisible to the user. Check each `start_line`
+exists on the side given, and keep the returned `id`s to tell my comments apart in later reads.
 
 ## What this workflow does not have
 
