@@ -44,7 +44,8 @@ fi
 
 setsid -f sh -c '
   repo=$1; branch=$2
-  if agent-deck launch "$repo" -w "$branch" -c claude >>/tmp/agent-deck-spawn.log 2>&1; then
+  group=$(basename "$repo" .git)
+  if agent-deck launch "$repo" -w "$branch" -g "$group" -c claude >>/tmp/agent-deck-spawn.log 2>&1; then
     notify-send "agent-deck" "Launched $branch in $(basename "$repo" .git)"
   else
     notify-send -u critical "agent-deck" "Launch failed: see /tmp/agent-deck-spawn.log"
