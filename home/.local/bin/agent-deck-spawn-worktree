@@ -5,6 +5,113 @@ set -u
 # Without this export, the inner `sh -c` below would fail to find `agent-deck`.
 export PATH="$HOME/.local/bin:$PATH"
 
+notify_fail() { notify-send -u critical "agent-deck" "$1"; exit 1; }
+
+# Launch an agent-deck session in the background, then open a kitty window attached to it.
+# Arguments: the notification text, then agent-deck launch's own arguments.
+launch_and_open() {
+  local done_text=$1; shift
+  setsid -f sh -c '
+    done_text=$1; shift
+    if out=$(agent-deck launch --json "$@" 2>>/tmp/agent-deck-spawn.log); then
+      printf "%s\n" "$out" >>/tmp/agent-deck-spawn.log
+      id=$(printf "%s\n" "$out" | jq -r ".id // empty" 2>/dev/null | head -n 1)
+      notify-send "agent-deck" "$done_text"
+      [ -n "$id" ] && exec kitty --title "agent-deck: $done_text" agent-deck session attach "$id"
+    else
+      notify-send -u critical "agent-deck" "Launch failed: see /tmp/agent-deck-spawn.log"
+    fi
+  ' _ "$done_text" "$@"
+}
+
+# Open a kitty window attached to an existing session, starting it first.
+start_and_open() {
+  local id=$1 title=$2
+  setsid -f sh -c '
+    id=$1; title=$2
+    if agent-deck session start "$id" >>/tmp/agent-deck-spawn.log 2>&1; then
+      exec kitty --title "agent-deck: $title" agent-deck session attach "$id"
+    else
+      notify-send -u critical "agent-deck" "Start failed: see /tmp/agent-deck-spawn.log"
+    fi
+  ' _ "$id" "$title"
+}
+
+# A new agent-deck session on a termag box, through termag-deck
+# (~/code/launchdarkly-labs/termag-deck.git). termag owns the session on the box; the agent-deck
+# session is a local pane attached to it.
+termag_flow() {
+  command -v termag-deck >/dev/null || notify_fail "termag-deck is not on PATH"
+  local boxes projects pick box project ref new_box=0 new_project=0 size="" from="" src id
+  boxes=$(termag box list --json 2>/tmp/agent-deck-spawn.err) ||
+    notify_fail "termag box list failed: $(cat /tmp/agent-deck-spawn.err)"
+  projects=$(termag project list --json 2>/tmp/agent-deck-spawn.err) ||
+    notify_fail "termag project list failed: $(cat /tmp/agent-deck-spawn.err)"
+
+  # One list: a new project on each box and a new box first, then every project with its status.
+  pick=$(
+    {
+      print -r -- "$boxes" | jq -r '.boxes[] | "+ new project on \(.name)  (\(.state))"'
+      print -l -- "+ new small box" "+ new medium box" "+ new large box"
+      jq -r --argjson boxes "$boxes" '
+        ($boxes.boxes | map({(.name): .state}) | add // {}) as $state
+        | .projects[] | "\(.ref)  (\(.status), box \($state[.box.name] // "?"))"' <<<"$projects"
+    } | rofi -dmenu -p "termag" -i
+  )
+  [[ -z "$pick" ]] && exit 0
+
+  case "$pick" in
+    "+ new project on "*)
+      new_project=1; box=${${pick#+ new project on }%%  *}
+      project=$(printf "" | rofi -dmenu -p "New project on $box" -i) ;;
+    "+ new "*" box")
+      new_box=1; new_project=1; size=${${pick#+ new }%% *}
+      box=$(printf "" | rofi -dmenu -p "New $size box name" -i)
+      [[ -z "$box" ]] && exit 0
+      project=$(printf "%s" "$box" | rofi -dmenu -p "Project name" -i) ;;
+    *)
+      ref=${pick%%  *}; box=${ref%%/*}; project=${ref#*/} ;;
+  esac
+  [[ -z "$project" ]] && exit 0
+  ref="$box/$project"
+
+  # A new project can start as a clone of one of your local repos (its GitHub origin), or empty.
+  if (( new_project )); then
+    src=$(
+      {
+        print -- "(empty)"
+        find "$HOME/code" -maxdepth 4 -type d -name '*.git' 2>/dev/null | sed 's|/\.git$||' |
+          awk '!seen[$0]++' | while read -r r; do
+            git -C "$r" remote get-url origin 2>/dev/null
+          done | sed -E 's|^git@github.com:|https://github.com/|; s|\.git$||' | grep '^https://github.com/' | sort -u
+      } | rofi -dmenu -p "Start $project from" -i
+    )
+    [[ -z "$src" ]] && exit 0
+    [[ "$src" != "(empty)" ]] && from="$src"
+  fi
+
+  # An agent-deck session for this project already: open it rather than make a second one.
+  id=$(agent-deck list --json 2>/dev/null |
+    jq -r --arg t "$ref" '.[] | select(.title == $t and .tool == "termag") | .id' | head -n 1)
+  if [[ -n "$id" ]]; then
+    start_and_open "$id" "$ref"
+    exit 0
+  fi
+
+  local cmd="termag $ref"
+  (( new_box )) && cmd+=" --new-box --size $size"
+  [[ -n "$from" ]] && cmd+=" --from $from"
+  launch_and_open "$ref" "$HOME" -t "$ref" -g termag -c "$cmd"
+  exit 0
+}
+
+# Offer termag only where both the termag CLI and termag-deck are installed; otherwise go local.
+if (( $+commands[termag] && $+commands[termag-deck] )); then
+  where=$(print -l "local worktree" "termag box" | rofi -dmenu -p "Where" -i -selected-row 0)
+  [[ -z "$where" ]] && exit 0
+  [[ "$where" == "termag box" ]] && termag_flow
+fi
+
 repo=$(find "$HOME/code" -maxdepth 4 -type d -name '*.git' 2>/dev/null \
   | sed 's|/\.git$||' | awk '!seen[$0]++' \
   | sed "s|^$HOME|~|" | rofi -dmenu -p "Repo" -i)
@@ -42,12 +149,5 @@ else
   branch="${choice#origin/}"
 fi
 
-setsid -f sh -c '
-  repo=$1; branch=$2
-  group=$(basename "$repo" .git)
-  if agent-deck launch "$repo" -w "$branch" -g "$group" -c claude >>/tmp/agent-deck-spawn.log 2>&1; then
-    notify-send "agent-deck" "Launched $branch in $(basename "$repo" .git)"
-  else
-    notify-send -u critical "agent-deck" "Launch failed: see /tmp/agent-deck-spawn.log"
-  fi
-' _ "$repo" "$branch"
+group=$(basename "$repo" .git)
+launch_and_open "$branch in $group" "$repo" -w "$branch" -g "$group" -c claude
