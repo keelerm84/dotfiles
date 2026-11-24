@@ -1,0 +1,7 @@
+# scry configuration. See `scry config show` for the merged result.
+
+[tmux]
+# Status-line segment, styled to match the gruvbox powerline theme in ~/.tmux.conf.
+# It's printed inside the date/time section (bg colour237), so it uses the same
+# grey text and thin chevron separators as the date and time.
+status_format = " #[fg=yellow]●#[fg=colour246] {waiting} #[fg=green]●#[fg=colour246] {working} \uE0B3"
